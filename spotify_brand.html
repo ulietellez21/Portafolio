@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brand Concept — Spotify · Frequencies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+    :root{
+      --midnight:#0D0D0D;
+      --surface:#1A1A1A;
+      --green:#1DB954;
+      --green-d:#158a3e;
+      --wax:#F5F0E8;
+      --muted:#888;
+      --border:rgba(29,185,84,.14);
+      --pop:#FF6B6B;
+      --elec:#00C3FF;
+      --hiphop:#FFB347;
+      --indie:#B39DDB;
+      --jazz:#8D6E63;
+    }
+
+    body{background:#e8e4df;font-family:'DM Sans',sans-serif;color:var(--midnight);}
+    .page{max-width:920px;margin:0 auto;background:#fff;box-shadow:0 0 80px rgba(0,0,0,.14);}
+
+    /* NAV */
+    nav{background:var(--midnight);padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .n-name{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#fff;}
+    .n-back{display:flex;align-items:center;gap:6px;font-size:12px;color:#555;text-decoration:none;transition:color .2s;}
+    .n-back:hover{color:#fff;}
+
+    /* COVER */
+    .cover{
+      background:var(--midnight);padding:5rem 3.5rem 4.5rem;
+      display:flex;align-items:center;justify-content:space-between;gap:2rem;
+      position:relative;overflow:hidden;
+    }
+    .cover::before{
+      content:'';position:absolute;top:-80px;right:-80px;
+      width:480px;height:480px;border-radius:50%;
+      background:radial-gradient(circle,rgba(29,185,84,.07) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .cover-left{position:relative;z-index:1;flex:1;}
+    .cover-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:1.1rem;}
+    .cover-title{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#fff;line-height:.95;letter-spacing:-.02em;margin-bottom:.5rem;}
+    .cover-concept{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--green);margin-bottom:1.75rem;}
+    .cover-sub{font-size:13px;color:#4a4a4a;line-height:1.75;}
+    .cover-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
+    .cover-logo-name{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#3a3a3a;font-weight:500;}
+
+    /* SECTION */
+    .section{padding:3.5rem;border-bottom:1px solid #f0ede8;}
+    .section-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:.4rem;opacity:.85;}
+    .section-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:var(--midnight);margin-bottom:.4rem;line-height:1.15;}
+    .section-title em{color:var(--green);font-style:italic;}
+    .section-sub{font-size:13px;color:var(--muted);line-height:1.75;max-width:540px;margin-bottom:2rem;}
+
+    /* PALETTE */
+    .palette-strip{display:flex;height:58px;border-radius:10px;overflow:hidden;margin-bottom:1.25rem;}
+    .p-sw{flex:1;display:flex;align-items:flex-end;padding:6px 9px;transition:flex .22s;}
+    .p-sw:hover{flex:2;}
+    .p-sw span{font-size:9px;font-weight:600;letter-spacing:.05em;white-space:nowrap;overflow:hidden;}
+    .genre-strip{display:flex;gap:8px;margin-bottom:1.5rem;}
+    .genre-pill{flex:1;height:42px;border-radius:8px;display:flex;align-items:center;padding:0 10px;}
+    .genre-pill span{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
+    .palette-table{width:100%;border-collapse:collapse;font-size:12px;}
+    .palette-table th{text-align:left;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:0 0 .6rem;font-weight:400;border-bottom:1px solid #f0ede8;}
+    .palette-table td{padding:.65rem 0;border-bottom:1px solid #f0ede8;color:var(--midnight);vertical-align:middle;}
+    .palette-table td:last-child{color:var(--muted);}
+    .c-dot{display:inline-block;width:18px;height:18px;border-radius:50%;margin-right:10px;vertical-align:middle;border:1px solid rgba(0,0,0,.08);}
+
+    /* LOGO GRID */
+    .logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .logo-card{border-radius:14px;overflow:hidden;border:1px solid #eee;background:#fff;}
+    .logo-bg{display:flex;align-items:center;justify-content:center;padding:28px 16px;}
+    .logo-info{padding:10px 14px;border-top:1px solid #f5f5f5;}
+    .logo-name{font-size:12px;font-weight:500;color:var(--midnight);}
+    .logo-note{font-size:11px;color:var(--muted);margin-top:2px;}
+
+    /* LOCKUP */
+    .lockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .lockup-card{border-radius:14px;padding:2rem;border:1px solid #eee;display:flex;flex-direction:column;gap:1rem;}
+    .lockup-inner{display:flex;align-items:center;gap:1rem;}
+    .lockup-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+
+    /* TYPOGRAPHY */
+    .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .type-card{border-radius:14px;padding:2rem;border:1px solid #eee;display:flex;flex-direction:column;gap:1rem;}
+    .type-tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--green);font-weight:500;}
+    .type-meta{font-size:11px;color:var(--muted);line-height:1.65;}
+    .type-meta strong{color:var(--midnight);font-weight:500;}
+    .type-weights{display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;}
+
+    /* GROOVE SYSTEM */
+    .groove-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .groove-card{border-radius:14px;padding:2rem 1.5rem;border:1px solid #eee;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;}
+    .g-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+    /* USAGE */
+    .usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .usage-card{border-radius:14px;border:1px solid #eee;overflow:hidden;}
+    .usage-hd{padding:.65rem 1rem;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid #f0ede8;}
+    .usage-body{padding:1.5rem;display:flex;align-items:center;justify-content:center;background:#07070a;min-height:160px;}
+
+    /* FOOTER */
+    footer{background:var(--midnight);padding:2rem 3.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .ft-l{display:flex;flex-direction:column;gap:.25rem;}
+    .ft-brand{font-family:'Playfair Display',serif;font-size:26px;color:var(--green);font-style:italic;}
+    .ft-note{font-size:10px;color:#444;letter-spacing:.08em;}
+    .ft-r{font-size:11px;color:#444;text-align:right;line-height:1.9;}
+
+    @media print{body{background:#fff;}.page{box-shadow:none;}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <a class="n-logo" href="portfolio.html">
+    <svg width="28" height="28" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+      <rect width="90" height="90" rx="18" fill="#0A1628"/>
+      <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+    </svg>
+    <span class="n-name">Ulises Téllez</span>
+  </a>
+  <a class="n-back" href="portfolio.html">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Volver al portafolio
+  </a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-left">
+    <p class="cover-tag">Brand Concept · Rediseño 2026</p>
+    <h1 class="cover-title">Spotify</h1>
+    <p class="cover-concept">Frequencies</p>
+    <p class="cover-sub">
+      Un concepto de identidad que regresa a las raíces<br>
+      físicas de la música. El surco del vinilo como<br>
+      metáfora del descubrimiento sonoro.
+    </p>
+  </div>
+  <div class="cover-right">
+    <svg width="148" height="148" viewBox="0 0 88 88">
+      <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+      <circle cx="44" cy="44" r="39" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.18"/>
+      <circle cx="44" cy="44" r="35.5" fill="none" stroke="#1DB954" stroke-width="0.6" opacity="0.25"/>
+      <circle cx="44" cy="44" r="32" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.33"/>
+      <circle cx="44" cy="44" r="28.5" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.42"/>
+      <circle cx="44" cy="44" r="25" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.52"/>
+      <circle cx="44" cy="44" r="21.5" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.63"/>
+      <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.76"/>
+      <circle cx="44" cy="44" r="14.5" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.9"/>
+      <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+      <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+    </svg>
+    <span class="cover-logo-name">Frequencies</span>
+  </div>
+</div>
+
+
+<!-- 01 · PALETA -->
+<div class="section">
+  <p class="section-label">01 · Color System</p>
+  <h2 class="section-title">Una paleta para <em>cada escucha</em></h2>
+  <p class="section-sub">El sistema amplía el verde Spotify hacia un universo de tonos que representan géneros y estados emocionales. Cada color tiene su propia frecuencia.</p>
+
+  <div class="palette-strip">
+    <div class="p-sw" style="background:#0D0D0D;flex:1.6;"><span style="color:#1DB954;">Midnight</span></div>
+    <div class="p-sw" style="background:#1A1A1A;"><span style="color:#3a3a3a;">Surface</span></div>
+    <div class="p-sw" style="background:#1DB954;flex:1.4;"><span style="color:#0D0D0D;">Green</span></div>
+    <div class="p-sw" style="background:#F5F0E8;border-left:1px solid #ddd;"><span style="color:#888;">Warm Wax</span></div>
+  </div>
+
+  <div class="genre-strip">
+    <div class="genre-pill" style="background:#FF6B6B;"><span style="color:#0D0D0D;">Pop</span></div>
+    <div class="genre-pill" style="background:#00C3FF;"><span style="color:#0D0D0D;">Electronic</span></div>
+    <div class="genre-pill" style="background:#FFB347;"><span style="color:#0D0D0D;">Hip-Hop</span></div>
+    <div class="genre-pill" style="background:#B39DDB;"><span style="color:#0D0D0D;">Indie</span></div>
+    <div class="genre-pill" style="background:#8D6E63;"><span style="color:#F5F0E8;">Jazz</span></div>
+  </div>
+
+  <table class="palette-table">
+    <thead><tr><th>Color</th><th>Hex</th><th>RGB</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td><span class="c-dot" style="background:#0D0D0D;"></span>Midnight</td><td>#0D0D0D</td><td>13, 13, 13</td><td>Fondo principal · contenedor logo</td></tr>
+      <tr><td><span class="c-dot" style="background:#1A1A1A;"></span>Surface</td><td>#1A1A1A</td><td>26, 26, 26</td><td>Tarjetas · superficies secundarias</td></tr>
+      <tr><td><span class="c-dot" style="background:#1DB954;"></span>Spotify Green</td><td>#1DB954</td><td>29, 185, 84</td><td>Acento principal · label del vinilo · acciones</td></tr>
+      <tr><td><span class="c-dot" style="background:#F5F0E8;border-color:#ccc;"></span>Warm Wax</td><td>#F5F0E8</td><td>245, 240, 232</td><td>Texto claro · fondos cálidos · versión día</td></tr>
+      <tr><td><span class="c-dot" style="background:#FF6B6B;"></span>Pop</td><td>#FF6B6B</td><td>255, 107, 107</td><td>Género Pop · campañas de energía</td></tr>
+      <tr><td><span class="c-dot" style="background:#00C3FF;"></span>Electronic</td><td>#00C3FF</td><td>0, 195, 255</td><td>Género Electronic · clubes · noches</td></tr>
+      <tr><td><span class="c-dot" style="background:#FFB347;"></span>Hip-Hop</td><td>#FFB347</td><td>255, 179, 71</td><td>Género Hip-Hop · cultura urbana</td></tr>
+      <tr><td><span class="c-dot" style="background:#B39DDB;"></span>Indie</td><td>#B39DDB</td><td>179, 157, 219</td><td>Género Indie · contemplativo · artístico</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- 02 · LOGO MARK -->
+<div class="section">
+  <p class="section-label">02 · Logo Mark</p>
+  <h2 class="section-title">El <em>surco</em> como símbolo</h2>
+  <p class="section-sub">El mark retoma los surcos concéntricos del vinilo — el momento físico donde el sonido está inscrito. En el centro, el play: la aguja que despierta la música.</p>
+
+  <div class="logo-grid">
+
+    <!-- 1. Principal dark -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#0D0D0D;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.2"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.3"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.4"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.52"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#1DB954" stroke-width="0.85" opacity="0.65"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.8"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#1DB954" stroke-width="1.1" opacity="0.93"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Principal ★</div><div class="logo-note">Midnight · uso prioritario</div></div>
+    </div>
+
+    <!-- 2. Warm Wax -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#F5F0E8;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#F5F0E8"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#0D0D0D" stroke-width="0.65" opacity="0.12"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#0D0D0D" stroke-width="0.75" opacity="0.3"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.4"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#1DB954" stroke-width="0.85" opacity="0.55"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.72"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#1DB954" stroke-width="1.1" opacity="0.9"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#F5F0E8"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Warm Wax</div><div class="logo-note">Fondos claros · versión día</div></div>
+    </div>
+
+    <!-- 3. Green solid -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#1DB954;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#1DB954"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#0D0D0D" stroke-width="0.65" opacity="0.12"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#0D0D0D" stroke-width="0.75" opacity="0.28"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.38"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#0D0D0D" stroke-width="0.85" opacity="0.5"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#0D0D0D" stroke-width="0.95" opacity="0.64"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#0D0D0D" stroke-width="1.1" opacity="0.8"/>
+          <circle cx="44" cy="44" r="10" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#1DB954"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Green Sólido</div><div class="logo-note">Energético · campañas · merch</div></div>
+    </div>
+
+    <!-- 4. Blanco mono -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#111;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#fff" stroke-width="0.65" opacity="0.18"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#fff" stroke-width="0.7" opacity="0.28"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#fff" stroke-width="0.75" opacity="0.38"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.5"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#fff" stroke-width="0.85" opacity="0.64"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#fff" stroke-width="0.95" opacity="0.8"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.95"/>
+          <circle cx="44" cy="44" r="10" fill="#fff"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#111"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Blanco Mono</div><div class="logo-note">Sin color · fondos oscuros</div></div>
+    </div>
+
+    <!-- 5. Negro mono -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#f8f6f2;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#111" stroke-width="0.65" opacity="0.14"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#111" stroke-width="0.7" opacity="0.22"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#111" stroke-width="0.75" opacity="0.32"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#111" stroke-width="0.8" opacity="0.44"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#111" stroke-width="0.85" opacity="0.58"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#111" stroke-width="0.95" opacity="0.75"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#111" stroke-width="1.1" opacity="0.92"/>
+          <circle cx="44" cy="44" r="10" fill="#111"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#f8f6f2"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Negro Mono</div><div class="logo-note">Impresión · fondos claros</div></div>
+    </div>
+
+    <!-- 6. Pop coral -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#0D0D0D;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#FF6B6B" stroke-width="0.65" opacity="0.2"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#FF6B6B" stroke-width="0.7" opacity="0.32"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#FF6B6B" stroke-width="0.75" opacity="0.44"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#FF6B6B" stroke-width="0.8" opacity="0.58"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#FF6B6B" stroke-width="0.85" opacity="0.72"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#FF6B6B" stroke-width="0.95" opacity="0.86"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#FF6B6B" stroke-width="1.1"/>
+          <circle cx="44" cy="44" r="10" fill="#FF6B6B"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Pop Coral</div><div class="logo-note">Campaña género Pop</div></div>
+    </div>
+
+    <!-- 7. Electronic -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#0D0D0D;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#00C3FF" stroke-width="0.65" opacity="0.2"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#00C3FF" stroke-width="0.7" opacity="0.32"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#00C3FF" stroke-width="0.75" opacity="0.44"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#00C3FF" stroke-width="0.8" opacity="0.58"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#00C3FF" stroke-width="0.85" opacity="0.72"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#00C3FF" stroke-width="0.95" opacity="0.86"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#00C3FF" stroke-width="1.1"/>
+          <circle cx="44" cy="44" r="10" fill="#00C3FF"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Electronic Blue</div><div class="logo-note">Campaña género Electronic</div></div>
+    </div>
+
+    <!-- 8. Indie -->
+    <div class="logo-card">
+      <div class="logo-bg" style="background:#0D0D0D;">
+        <svg width="80" height="80" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#B39DDB" stroke-width="0.65" opacity="0.2"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#B39DDB" stroke-width="0.7" opacity="0.32"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#B39DDB" stroke-width="0.75" opacity="0.44"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#B39DDB" stroke-width="0.8" opacity="0.58"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#B39DDB" stroke-width="0.85" opacity="0.72"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#B39DDB" stroke-width="0.95" opacity="0.86"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#B39DDB" stroke-width="1.1"/>
+          <circle cx="44" cy="44" r="10" fill="#B39DDB"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+      </div>
+      <div class="logo-info"><div class="logo-name">Indie Violet</div><div class="logo-note">Campaña género Indie</div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 03 · LOCKUPS -->
+<div class="section">
+  <p class="section-label">03 · Lockup Logo + Nombre</p>
+  <h2 class="section-title">Logo en <em>contexto</em></h2>
+  <div class="lockup-grid">
+
+    <!-- Principal dark + Playfair -->
+    <div class="lockup-card" style="background:#0D0D0D;">
+      <div class="lockup-inner">
+        <svg width="46" height="46" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.38"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.58"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.8"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1;letter-spacing:-.01em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#1DB954;margin-top:4px;">Frequencies</div>
+        </div>
+      </div>
+      <div class="lockup-label" style="color:#333;">Playfair Display · Principal oscuro</div>
+    </div>
+
+    <!-- Wax + DM Sans -->
+    <div class="lockup-card" style="background:#F5F0E8;">
+      <div class="lockup-inner">
+        <svg width="46" height="46" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#F5F0E8"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.22"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.9" opacity="0.36"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.75"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#F5F0E8"/>
+        </svg>
+        <div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:24px;font-weight:700;color:#0D0D0D;line-height:1;letter-spacing:-.03em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#1DB954;margin-top:4px;">Music for every moment</div>
+        </div>
+      </div>
+      <div class="lockup-label">DM Sans · Versión clara</div>
+    </div>
+
+    <!-- Stacked centrado -->
+    <div class="lockup-card" style="background:#0D0D0D;align-items:center;text-align:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.8rem;">
+        <svg width="58" height="58" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="38" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.22"/>
+          <circle cx="44" cy="44" r="33" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.34"/>
+          <circle cx="44" cy="44" r="28" fill="none" stroke="#1DB954" stroke-width="0.78" opacity="0.46"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#1DB954" stroke-width="0.86" opacity="0.6"/>
+          <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.76"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:24px;color:#fff;line-height:1;letter-spacing:.01em;">spotify</div>
+          <div style="width:36px;height:1px;background:rgba(29,185,84,.4);margin:7px auto;"></div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#3a3a3a;">Frequencies</div>
+        </div>
+      </div>
+      <div class="lockup-label" style="color:#333;">Stacked · formato cuadrado</div>
+    </div>
+
+    <!-- Hip-Hop color -->
+    <div class="lockup-card" style="background:#0D0D0D;">
+      <div class="lockup-inner">
+        <svg width="46" height="46" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#FFB347" stroke-width="0.8" opacity="0.38"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#FFB347" stroke-width="0.9" opacity="0.58"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#FFB347" stroke-width="1" opacity="0.8"/>
+          <circle cx="44" cy="44" r="10" fill="#FFB347"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        </svg>
+        <div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.02em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#FFB347;margin-top:4px;">Hip-Hop Mix</div>
+        </div>
+      </div>
+      <div class="lockup-label" style="color:#333;">Género color · Hip-Hop Amber</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 04 · TIPOGRAFÍA -->
+<div class="section">
+  <p class="section-label">04 · Tipografía</p>
+  <h2 class="section-title">Lo <em>digital</em> y lo analógico</h2>
+  <p class="section-sub">El sistema combina una serif editorial con una sans-serif geométrica. La tensión entre el algoritmo y el vinilo — entre lo que computa y lo que se siente.</p>
+  <div class="type-grid">
+
+    <div class="type-card">
+      <div class="type-tag">Display · Títulos · Portadas</div>
+      <div style="font-family:'Playfair Display',serif;font-size:50px;font-weight:700;color:#0D0D0D;line-height:.95;letter-spacing:-.02em;">spotify</div>
+      <div style="height:1px;background:#f0ede8;"></div>
+      <div class="type-meta">
+        <strong>Playfair Display</strong><br/>
+        Google Fonts · Uso: hero, portadas de playlist, titulares de campaña.<br/>
+        La elección inesperada — una serif para una marca digital — que conecta con el calor analógico del concepto Frequencies.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#0D0D0D;">Regular — Music for every moment</span>
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;font-style:italic;color:#1DB954;">Italic — Frequencies</span>
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#0D0D0D;">Bold — Hear everything</span>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <div class="type-tag">UI · Cuerpo · Navegación</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:44px;font-weight:700;color:#0D0D0D;line-height:.95;letter-spacing:-.04em;">DM Sans</div>
+      <div style="height:1px;background:#f0ede8;"></div>
+      <div class="type-meta">
+        <strong>DM Sans</strong><br/>
+        Google Fonts · Uso: UI, botones, etiquetas, cuerpo de texto, metadatos de canciones.<br/>
+        Geométrica y neutral — legible a cualquier tamaño, ideal para interfaces.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:#888;">Light 300 — Texto secundario y metadatos</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;color:#0D0D0D;">Regular 400 — Texto de cuerpo principal</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#0D0D0D;">Medium 500 — Etiquetas y navegación</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#1DB954;">Bold 700 — CTAs y acciones</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 05 · SISTEMA GROOVE -->
+<div class="section">
+  <p class="section-label">05 · El Sistema Groove</p>
+  <h2 class="section-title">Un patrón que <em>se escucha</em></h2>
+  <p class="section-sub">Los surcos del logo se convierten en sistema de textura aplicable a cualquier superficie — digital o física. El vinilo como firma visual.</p>
+  <div class="groove-grid">
+
+    <!-- Full groove -->
+    <div class="groove-card" style="background:#0D0D0D;">
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="57" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.14"/>
+        <circle cx="60" cy="60" r="53" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.19"/>
+        <circle cx="60" cy="60" r="49" fill="none" stroke="#1DB954" stroke-width="0.6" opacity="0.24"/>
+        <circle cx="60" cy="60" r="45" fill="none" stroke="#1DB954" stroke-width="0.6" opacity="0.3"/>
+        <circle cx="60" cy="60" r="41" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.36"/>
+        <circle cx="60" cy="60" r="37" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.43"/>
+        <circle cx="60" cy="60" r="33" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.5"/>
+        <circle cx="60" cy="60" r="29" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.58"/>
+        <circle cx="60" cy="60" r="25" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.67"/>
+        <circle cx="60" cy="60" r="21" fill="none" stroke="#1DB954" stroke-width="0.85" opacity="0.77"/>
+        <circle cx="60" cy="60" r="17" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.88"/>
+        <circle cx="60" cy="60" r="13" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.96"/>
+        <circle cx="60" cy="60" r="8" fill="#1DB954"/>
+        <polygon points="57.5,56 57.5,64 65.5,60" fill="#0D0D0D"/>
+      </svg>
+      <div class="g-label" style="color:#3a3a3a;">Full groove · alta densidad</div>
+    </div>
+
+    <!-- Texture cropped -->
+    <div class="groove-card" style="background:#0D0D0D;overflow:hidden;padding:0;position:relative;min-height:200px;">
+      <svg width="220" height="220" viewBox="0 0 220 220" style="position:absolute;top:-55px;right:-55px;opacity:.28;">
+        <circle cx="165" cy="55" r="150" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="135" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="120" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="105" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="90" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="75" fill="none" stroke="#1DB954" stroke-width="1"/>
+        <circle cx="165" cy="55" r="60" fill="none" stroke="#1DB954" stroke-width="1"/>
+      </svg>
+      <div style="padding:2rem;position:relative;z-index:1;display:flex;flex-direction:column;gap:.75rem;height:100%;justify-content:flex-end;">
+        <div style="font-family:'Playfair Display',serif;font-size:19px;color:#fff;font-style:italic;">Now Playing</div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:10px;color:#3a3a3a;letter-spacing:.12em;text-transform:uppercase;">La Hora Azul</div>
+        <div class="g-label" style="color:#2a2a2a;margin-top:.5rem;">Textura recortada · uso en cards</div>
+      </div>
+    </div>
+
+    <!-- Género variaciones -->
+    <div class="groove-card" style="background:#0D0D0D;">
+      <div style="display:flex;gap:10px;">
+        <svg width="54" height="54" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="33" fill="none" stroke="#FF6B6B" stroke-width="1" opacity="0.5"/>
+          <circle cx="44" cy="44" r="24" fill="none" stroke="#FF6B6B" stroke-width="1.2" opacity="0.72"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#FF6B6B" stroke-width="1.4" opacity="0.92"/>
+          <circle cx="44" cy="44" r="9" fill="#FF6B6B"/>
+          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+        </svg>
+        <svg width="54" height="54" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="33" fill="none" stroke="#00C3FF" stroke-width="1" opacity="0.5"/>
+          <circle cx="44" cy="44" r="24" fill="none" stroke="#00C3FF" stroke-width="1.2" opacity="0.72"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#00C3FF" stroke-width="1.4" opacity="0.92"/>
+          <circle cx="44" cy="44" r="9" fill="#00C3FF"/>
+          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+        </svg>
+        <svg width="54" height="54" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="33" fill="none" stroke="#B39DDB" stroke-width="1" opacity="0.5"/>
+          <circle cx="44" cy="44" r="24" fill="none" stroke="#B39DDB" stroke-width="1.2" opacity="0.72"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#B39DDB" stroke-width="1.4" opacity="0.92"/>
+          <circle cx="44" cy="44" r="9" fill="#B39DDB"/>
+          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+        </svg>
+      </div>
+      <div class="g-label" style="color:#3a3a3a;">Pop · Electronic · Indie</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- 06 · APLICACIONES -->
+<div class="section">
+  <p class="section-label">06 · Aplicaciones</p>
+  <h2 class="section-title">El logo en <em>uso real</em></h2>
+  <div class="usage-grid">
+
+    <!-- App icon sizes -->
+    <div class="usage-card">
+      <div class="usage-hd">App Icon · Mobile</div>
+      <div class="usage-body" style="gap:24px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:72px;height:72px;border-radius:18px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+            <svg width="58" height="58" viewBox="0 0 88 88">
+              <circle cx="44" cy="44" r="38" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.25"/>
+              <circle cx="44" cy="44" r="30" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.45"/>
+              <circle cx="44" cy="44" r="22" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.68"/>
+              <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+            </svg>
+          </div>
+          <div style="font-size:9px;color:#555;">72px</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:48px;height:48px;border-radius:12px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+            <svg width="38" height="38" viewBox="0 0 88 88">
+              <circle cx="44" cy="44" r="28" fill="none" stroke="#1DB954" stroke-width="1.2" opacity="0.45"/>
+              <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="1.4" opacity="0.75"/>
+              <circle cx="44" cy="44" r="9" fill="#1DB954"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+            </svg>
+          </div>
+          <div style="font-size:9px;color:#555;">48px</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="width:32px;height:32px;border-radius:8px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 88 88">
+              <circle cx="44" cy="44" r="22" fill="none" stroke="#1DB954" stroke-width="1.5" opacity="0.55"/>
+              <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+            </svg>
+          </div>
+          <div style="font-size:9px;color:#555;">32px</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Now Playing card -->
+    <div class="usage-card">
+      <div class="usage-hd">Now Playing · UI Card</div>
+      <div class="usage-body" style="background:#0f0f0f;">
+        <div style="width:100%;max-width:260px;background:#1a1a1a;border-radius:14px;padding:16px;border:1px solid rgba(29,185,84,.14);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+            <svg width="42" height="42" viewBox="0 0 88 88">
+              <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+              <circle cx="44" cy="44" r="34" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.35"/>
+              <circle cx="44" cy="44" r="25" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.58"/>
+              <circle cx="44" cy="44" r="16" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.82"/>
+              <circle cx="44" cy="44" r="8" fill="#1DB954"/>
+              <polygon points="42,40 42,47 48,43.5" fill="#0D0D0D"/>
+            </svg>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:14px;color:#fff;line-height:1.2;font-style:italic;">La Hora Azul</div>
+              <div style="font-size:10px;color:#444;margin-top:2px;font-family:'DM Sans',sans-serif;">María Becerra · Frequencies</div>
+            </div>
+          </div>
+          <div style="height:2px;background:#2a2a2a;border-radius:2px;margin-bottom:6px;">
+            <div style="width:38%;height:100%;background:#1DB954;border-radius:2px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:#444;font-family:'DM Sans',sans-serif;">
+            <span>1:24</span><span>3:38</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Merch -->
+    <div class="usage-card">
+      <div class="usage-hd">Merch · Tote / Sticker</div>
+      <div class="usage-body" style="background:#F5F0E8;gap:24px;">
+        <div style="width:80px;height:100px;background:#e8e3db;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+          <svg width="40" height="40" viewBox="0 0 88 88">
+            <circle cx="44" cy="44" r="36" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
+            <circle cx="44" cy="44" r="28" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.32"/>
+            <circle cx="44" cy="44" r="20" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.6"/>
+            <circle cx="44" cy="44" r="12" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.85"/>
+            <circle cx="44" cy="44" r="7" fill="#1DB954"/>
+            <polygon points="42.5,39 42.5,46 48,42.5" fill="#F5F0E8"/>
+          </svg>
+          <div style="font-family:'DM Sans',sans-serif;font-size:7px;color:#0D0D0D;letter-spacing:.18em;text-transform:uppercase;">spotify</div>
+        </div>
+        <div style="width:64px;height:64px;border-radius:50%;background:#1DB954;display:flex;align-items:center;justify-content:center;border:2px solid rgba(0,0,0,.06);">
+          <svg width="42" height="42" viewBox="0 0 88 88">
+            <circle cx="44" cy="44" r="33" fill="none" stroke="#0D0D0D" stroke-width="0.9" opacity="0.18"/>
+            <circle cx="44" cy="44" r="24" fill="none" stroke="#0D0D0D" stroke-width="1.1" opacity="0.3"/>
+            <circle cx="44" cy="44" r="15" fill="none" stroke="#0D0D0D" stroke-width="1.3" opacity="0.45"/>
+            <circle cx="44" cy="44" r="9" fill="#0D0D0D"/>
+            <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#1DB954"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Playlist cover -->
+    <div class="usage-card">
+      <div class="usage-hd">Playlist Cover · 1:1</div>
+      <div class="usage-body" style="background:#07070a;padding:1rem;">
+        <div style="width:136px;height:136px;border-radius:10px;background:#0D0D0D;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;">
+          <svg width="170" height="170" viewBox="0 0 170 170" style="position:absolute;top:-18px;left:-18px;opacity:.28;">
+            <circle cx="85" cy="85" r="80" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="72" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="64" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="56" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="48" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="40" fill="none" stroke="#1DB954" stroke-width="1"/>
+            <circle cx="85" cy="85" r="22" fill="#1DB954"/>
+            <polygon points="82,78 82,92 92,85" fill="#0D0D0D"/>
+          </svg>
+          <div style="position:relative;z-index:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:13px;color:#fff;font-style:italic;line-height:1.2;">Midnight<br>Frequencies</div>
+            <div style="font-size:8px;color:#444;margin-top:4px;font-family:'DM Sans',sans-serif;letter-spacing:.06em;">32 canciones · 2h 14min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-l">
+    <div class="ft-brand">Frequencies</div>
+    <div class="ft-note">Spotify Brand Concept · Ulises Téllez · 2026</div>
+  </div>
+  <div class="ft-r">
+    #0D0D0D · #1DB954 · #F5F0E8<br/>
+    Playfair Display · DM Sans
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
