@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Entorno local (no subir a un repo público)
+.claude/
+
+# Editor
+*.swp
+*~

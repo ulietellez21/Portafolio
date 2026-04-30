@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulises Téllez — Diseño Gráfico & IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0B0B10;
+  --surf:#111118;
+  --card:#17171F;
+  --card2:#1D1D27;
+  --bdr:#252532;
+  --bdr2:#363646;
+  --tx:#E6E6F0;
+  --tx2:#72728A;
+  --tx3:#3E3E52;
+  --ac:#7B6CF6;
+  --ac-d:rgba(123,108,246,.12);
+  --tl:#00D4AA;
+  --r:16px;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:56px;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(11,11,16,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(37,37,50,.9);
+}
+.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.n-mono{
+  width:30px;height:30px;border-radius:8px;background:var(--ac);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;letter-spacing:-.02em;
+}
+.n-name{font-size:22px;font-family:'Pinyon Script',cursive;font-weight:400;color:var(--tx);letter-spacing:.01em;line-height:1;}
+.n-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.n-links a{font-size:13px;color:var(--tx2);text-decoration:none;transition:color .18s;}
+.n-links a:hover{color:var(--tx);}
+.n-cta{
+  background:var(--ac)!important;color:#fff!important;
+  padding:7px 18px;border-radius:20px;
+  font-size:12px!important;font-weight:500!important;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 40px 80px;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 55% at 78% 35%,rgba(123,108,246,.1) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 40% at 15% 75%,rgba(0,212,170,.07) 0%,transparent 65%);
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--bdr) 1px,transparent 1px),
+    linear-gradient(90deg,var(--bdr) 1px,transparent 1px);
+  background-size:56px 56px;
+  opacity:.45;
+  mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,#000 20%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,#000 20%,transparent 100%);
+}
+.hero-inner{position:relative;max-width:1000px;margin:0 auto;width:100%;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--card);border:1px solid var(--bdr);
+  border-radius:20px;padding:6px 14px;margin-bottom:36px;
+}
+.h-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--tl);
+  animation:blink 2.2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.h-badge-tx{font-size:11px;color:var(--tx2);letter-spacing:.03em;}
+.hero-h1{
+  font-size:clamp(52px,9vw,96px);
+  font-weight:700;letter-spacing:-.045em;line-height:.92;
+  color:var(--tx);margin-bottom:28px;
+}
+.hero-h1 em{color:var(--ac);font-style:normal;}
+.hero-sub{font-size:17px;color:var(--tx2);max-width:460px;line-height:1.65;margin-bottom:32px;}
+.hero-ais{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:40px;}
+.h-ai{
+  font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;
+  background:var(--card);border:1px solid var(--bdr);color:var(--tx2);letter-spacing:.02em;
+}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.btn-p{
+  background:var(--ac);color:#fff;padding:13px 28px;border-radius:var(--r);
+  font-size:14px;font-weight:500;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:opacity .2s,transform .2s;
+}
+.btn-p:hover{opacity:.86;transform:translateY(-1px);}
+.btn-s{
+  color:var(--tx2);padding:13px 20px;border-radius:var(--r);
+  font-size:14px;font-weight:500;text-decoration:none;
+  border:1px solid var(--bdr);
+  display:inline-flex;align-items:center;gap:8px;
+  transition:border-color .2s,color .2s,transform .2s;
+}
+.btn-s:hover{border-color:var(--bdr2);color:var(--tx);transform:translateY(-1px);}
+.hero-stats{
+  display:flex;gap:48px;
+  margin-top:72px;padding-top:40px;
+  border-top:1px solid var(--bdr);flex-wrap:wrap;
+}
+.h-stat-n{font-size:34px;font-weight:700;color:var(--tx);letter-spacing:-.04em;line-height:1;}
+.h-stat-n span{color:var(--ac);}
+.h-stat-l{font-size:12px;color:var(--tx3);margin-top:4px;}
+
+/* ── SECTION ── */
+.sec{padding:88px 0;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 40px;}
+.sec-hd{margin-bottom:52px;}
+.sec-n{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);opacity:.7;margin-bottom:8px;}
+.sec-title{font-size:34px;font-weight:700;letter-spacing:-.03em;color:var(--tx);margin-bottom:8px;}
+.sec-sub{font-size:15px;color:var(--tx2);max-width:500px;}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.proj-card{
+  background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
+  overflow:hidden;text-decoration:none;display:flex;flex-direction:column;
+  transition:border-color .25s,transform .25s;
+}
+.proj-card:hover{border-color:var(--bdr2);transform:translateY(-3px);}
+.proj-card.feat{grid-column:1/-1;flex-direction:row;min-height:280px;}
+.proj-prev{
+  flex-shrink:0;background:var(--surf);
+  display:flex;align-items:center;justify-content:center;
+  padding:28px;position:relative;overflow:hidden;
+}
+.proj-card.feat .proj-prev{width:340px;}
+.proj-card:not(.feat) .proj-prev{width:100%;height:190px;}
+.proj-prev::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(123,108,246,.08) 0%,transparent 70%);
+}
+.proj-body{padding:28px;flex:1;display:flex;flex-direction:column;}
+.proj-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.proj-cat{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);}
+.proj-st{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;}
+.st-live{background:rgba(0,212,170,.12);color:var(--tl);}
+.st-wip{background:rgba(255,160,60,.1);color:#FFA03C;}
+.st-plan{background:var(--card2);color:var(--tx3);border:1px solid var(--bdr);}
+.proj-name{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--tx);margin-bottom:8px;}
+.proj-desc{font-size:14px;color:var(--tx2);line-height:1.6;margin-bottom:18px;flex:1;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.tag{
+  font-size:11px;font-weight:500;padding:3px 10px;border-radius:6px;
+  background:var(--surf);color:var(--tx2);border:1px solid var(--bdr);
+}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--ac);margin-top:auto;}
+.proj-arr{transition:transform .2s;}
+.proj-card:hover .proj-arr{transform:translateX(4px);}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.tool-card{
+  background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
+  padding:24px;transition:border-color .2s,transform .2s;
+}
+.tool-card:hover{border-color:var(--bdr2);transform:translateY(-2px);}
+.tool-ico{width:44px;height:44px;border-radius:12px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;}
+.tool-name{font-size:15px;font-weight:600;color:var(--tx);margin-bottom:2px;letter-spacing:-.01em;}
+.tool-maker{font-size:10px;color:var(--tx3);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+.tool-desc{font-size:13px;color:var(--tx2);line-height:1.5;}
+.tool-uses{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
+.tuse{font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;background:var(--surf);color:var(--tx2);border:1px solid var(--bdr);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start;}
+.ab-title{font-size:28px;font-weight:700;letter-spacing:-.03em;color:var(--tx);margin-bottom:16px;line-height:1.2;}
+.ab-title em{color:var(--ac);font-style:normal;}
+.ab-p{font-size:15px;color:var(--tx2);line-height:1.7;margin-bottom:14px;}
+.ab-skills{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px;}
+.ab-sk{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;background:var(--surf);color:var(--tx2);border:1px solid var(--bdr);}
+.ab-card{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:24px;}
+.ab-card-ttl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-bottom:20px;}
+.ab-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-top:1px solid var(--bdr);}
+.ab-item:first-of-type{border-top:none;padding-top:0;}
+.ab-ico{width:34px;height:34px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.ab-lbl{font-size:12px;color:var(--tx);font-weight:500;}
+.ab-val{font-size:11px;color:var(--tx3);margin-top:2px;}
+
+/* ── CONTACT ── */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;}
+.ct-card{
+  background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);
+  padding:22px;text-decoration:none;
+  display:flex;align-items:center;gap:16px;
+  transition:border-color .2s,transform .2s;
+}
+.ct-card:hover{border-color:var(--bdr2);transform:translateY(-2px);}
+.ct-ico{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.ct-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:3px;}
+.ct-val{font-size:14px;font-weight:500;color:var(--tx);}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--bdr);padding:28px 0;margin-top:32px;}
+.ft-inner{max-width:1000px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.ft-copy{font-size:12px;color:var(--tx3);}
+.ft-badge{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bdr);border-radius:20px;padding:6px 14px;}
+.ft-badge-tx{font-size:11px;color:var(--tx3);}
+.ft-badge-tx span{color:var(--ac);font-weight:500;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav,.ft-inner{padding:0 20px;}
+  .wrap{padding:0 20px;}
+  .hero{padding:90px 20px 60px;}
+  .n-links{display:none;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card.feat{flex-direction:column;}
+  .proj-card.feat .proj-prev{width:100%!important;height:200px;}
+  .tools-grid{grid-template-columns:1fr 1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .ct-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:28px;}
+}
+@media(max-width:500px){
+  .tools-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <a class="n-logo" href="#">
+    <svg width="30" height="30" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+      <rect width="90" height="90" rx="18" fill="#0A1628"/>
+      <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+    </svg>
+    <span class="n-name">Ulises Téllez</span>
+  </a>
+  <ul class="n-links">
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#herramientas">Herramientas</a></li>
+    <li><a href="#sobre">Sobre mí</a></li>
+    <li><a href="#contacto" class="n-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+
+    <div class="hero-badge">
+      <div class="h-dot"></div>
+      <span class="h-badge-tx">Disponible para proyectos — Texcoco, MX</span>
+    </div>
+
+    <h1 class="hero-h1">Diseño<br>que usa <em>IA</em><br>de verdad.</h1>
+
+    <p class="hero-sub">Identidades visuales, creativos para redes y materiales corporativos construidos con criterio de diseñador y potencia de inteligencia artificial.</p>
+
+    <div class="hero-ais">
+      <span class="h-ai">Claude</span>
+      <span class="h-ai">GPT-4o</span>
+      <span class="h-ai">Gemini</span>
+      <span class="h-ai">Midjourney</span>
+      <span class="h-ai">DALL·E</span>
+      <span class="h-ai">Runway</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#proyectos" class="btn-p">
+        Ver proyectos
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#contacto" class="btn-s">Hablemos</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="h-stat-n">4<span>+</span></div>
+        <div class="h-stat-l">Proyectos en portafolio</div>
+      </div>
+      <div>
+        <div class="h-stat-n">6<span>+</span></div>
+        <div class="h-stat-l">Herramientas de IA</div>
+      </div>
+      <div>
+        <div class="h-stat-n">100<span>%</span></div>
+        <div class="h-stat-l">HTML · CSS · SVG puro</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ PROYECTOS ══════════════════ -->
+<section class="sec" id="proyectos">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="sec-n">01 · Proyectos</div>
+      <h2 class="sec-title">Trabajo seleccionado</h2>
+      <p class="sec-sub">Identidades visuales, guías de marca y creativos construidos con IAs y criterio editorial.</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- ── GAINHUB (FEATURED) ── -->
+      <a class="proj-card feat" href="gainhub_brand.html" target="_blank">
+        <div class="proj-prev">
+          <!-- GainHub mini brand preview -->
+          <div style="width:100%;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;">
+
+            <!-- Logo + título -->
+            <div style="background:#0D0D0D;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <svg width="36" height="36" viewBox="0 0 88 88" style="border-radius:10px;flex-shrink:0;">
+                <rect width="88" height="88" fill="#E63946"/>
+                <rect x="14" y="30" width="10" height="28" rx="5" fill="#fff"/>
+                <rect x="24" y="38" width="5" height="12" rx="2" fill="#fff"/>
+                <rect x="29" y="35" width="30" height="18" rx="5" fill="#fff"/>
+                <rect x="59" y="38" width="5" height="12" rx="2" fill="#fff"/>
+                <rect x="64" y="30" width="10" height="28" rx="5" fill="#fff"/>
+              </svg>
+              <div>
+                <div style="font-size:15px;font-weight:500;color:#fff;letter-spacing:-.01em;">GainHub</div>
+                <div style="font-size:10px;color:#444;margin-top:1px;">Brand Guide v1.0</div>
+              </div>
+              <div style="margin-left:auto;font-size:10px;font-weight:500;background:#1A1A1A;color:#555;padding:3px 8px;border-radius:20px;">2026</div>
+            </div>
+
+            <!-- Paleta de colores -->
+            <div style="display:flex;gap:5px;">
+              <div style="flex:1;height:30px;border-radius:7px;background:#0D0D0D;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#E63946;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#FAFAFA;border:0.5px solid rgba(255,255,255,.08);"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#F0F0F0;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#1A1A1A;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#888888;"></div>
+            </div>
+
+            <!-- Mini pantallas app -->
+            <div style="display:flex;gap:8px;">
+              <!-- Pantalla clara -->
+              <div style="flex:1;background:#FAFAFA;border-radius:10px;padding:10px;">
+                <div style="height:4px;border-radius:2px;background:#E63946;margin-bottom:6px;width:55%;"></div>
+                <div style="height:3px;border-radius:2px;background:#E0E0E0;margin-bottom:3px;"></div>
+                <div style="height:3px;border-radius:2px;background:#E0E0E0;margin-bottom:3px;width:75%;"></div>
+                <div style="display:flex;gap:4px;margin-top:7px;">
+                  <div style="flex:1;height:20px;border-radius:5px;background:#F0F0F0;"></div>
+                  <div style="flex:1;height:20px;border-radius:5px;background:#F0F0F0;"></div>
+                </div>
+                <div style="height:18px;border-radius:5px;background:#E63946;margin-top:5px;"></div>
+              </div>
+              <!-- Pantalla oscura -->
+              <div style="flex:1;background:#0D0D0D;border-radius:10px;padding:10px;border:0.5px solid #222;">
+                <div style="height:4px;border-radius:2px;background:#E63946;margin-bottom:6px;width:55%;"></div>
+                <div style="height:3px;border-radius:2px;background:#2A2A2A;margin-bottom:3px;"></div>
+                <div style="height:3px;border-radius:2px;background:#2A2A2A;margin-bottom:3px;width:75%;"></div>
+                <div style="display:flex;gap:4px;margin-top:7px;">
+                  <div style="flex:1;height:20px;border-radius:5px;background:#1A1A1A;"></div>
+                  <div style="flex:1;height:20px;border-radius:5px;background:#1A1A1A;"></div>
+                </div>
+                <div style="height:18px;border-radius:5px;background:#E63946;margin-top:5px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="proj-body">
+          <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#E63946;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:rgba(230,57,70,.1);border:1px solid rgba(230,57,70,.2);">GainHub</span></div>
+          <div class="proj-meta">
+            <span class="proj-cat">Identidad Visual</span>
+            <span class="proj-st st-live">Publicado</span>
+          </div>
+          <div class="proj-name">GainHub Brand Guide</div>
+          <p class="proj-desc">Sistema de identidad completo para una plataforma de gestión de coaches de gym. Incluye logo SVG con 4 variaciones, paleta de 6 colores, sistema tipográfico y 4 mockups de pantallas de app mobile — light y dark.</p>
+          <div class="proj-tags">
+            <span class="tag">Brand Identity</span>
+            <span class="tag">Logo Design</span>
+            <span class="tag">UI Mockups</span>
+            <span class="tag">SVG</span>
+            <span class="tag">Dark Mode</span>
+          </div>
+          <div class="proj-link">
+            Ver guía de marca completa
+            <span class="proj-arr">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── CREATIVOS REDES ── -->
+      <a class="proj-card" href="gainhub_social.html" target="_blank">
+        <div class="proj-prev">
+          <div style="width:100%;position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;gap:8px;">
+              <!-- 1:1 Square -->
+              <div style="width:72px;height:72px;border-radius:10px;flex-shrink:0;background:#E63946;display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;">
+                  <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.95);letter-spacing:.04em;">1:1</div>
+                  <div style="font-size:8px;color:rgba(255,255,255,.65);margin-top:2px;">Feed</div>
+                </div>
+              </div>
+              <!-- 9:16 Story -->
+              <div style="width:40px;height:72px;border-radius:10px;flex-shrink:0;background:linear-gradient(160deg,#0D0D0D,#E63946);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;">
+                  <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.9);writing-mode:vertical-rl;letter-spacing:.04em;">9:16</div>
+                </div>
+              </div>
+              <!-- 16:9 Banner -->
+              <div style="flex:1;height:72px;border-radius:10px;background:linear-gradient(135deg,#0D0D0D,#1A1A1A);display:flex;align-items:center;justify-content:center;border:1px solid rgba(230,57,70,.2);">
+                <div style="text-align:center;">
+                  <div style="font-size:9px;font-weight:700;color:rgba(230,57,70,.9);">16:9</div>
+                  <div style="font-size:8px;color:var(--tx3);margin-top:2px;">Banner</div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel strip -->
+            <div style="display:flex;gap:5px;">
+              <div style="flex:1;height:28px;border-radius:6px;background:#E63946;"></div>
+              <div style="flex:1;height:28px;border-radius:6px;background:linear-gradient(135deg,#0D0D0D,#1A1A1A);border:1px solid rgba(230,57,70,.15);"></div>
+              <div style="flex:1;height:28px;border-radius:6px;background:linear-gradient(135deg,#0D0D0D,#1A1A1A);border:1px solid rgba(230,57,70,.15);"></div>
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--card2);border:1px dashed var(--bdr2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2v6M2 5h6" stroke="var(--tx3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0 2px;">
+              <span style="font-size:9px;color:var(--tx3);">Instagram · Facebook · TikTok · LinkedIn</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#E63946;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:rgba(230,57,70,.1);border:1px solid rgba(230,57,70,.2);">GainHub</span></div>
+          <div class="proj-meta">
+            <span class="proj-cat">Social Media</span>
+            <span class="proj-st st-live">Publicado</span>
+          </div>
+          <div class="proj-name">Pack de Creativos para Redes</div>
+          <p class="proj-desc">Campaña completa para GainHub: Story 9:16, Feed 1:1, Banner 16:9 y Carrusel de 3 slides. Sistema coherente aplicado a 4 plataformas — 100% SVG puro.</p>
+          <div class="proj-tags">
+            <span class="tag">Social Ads</span>
+            <span class="tag">Instagram</span>
+            <span class="tag">TikTok</span>
+            <span class="tag">Facebook</span>
+            <span class="tag">LinkedIn</span>
+          </div>
+          <div class="proj-link">
+            Ver pack completo
+            <span class="proj-arr">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── KIT CORPORATIVO ── -->
+      <a class="proj-card" href="kit_corporativo.html" target="_blank">
+        <div class="proj-prev">
+          <div style="width:100%;position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <!-- Tarjeta presentación -->
+            <div style="width:200px;height:112px;border-radius:10px;background:linear-gradient(135deg,#13131C,#1D1D2F);border:1px solid var(--bdr2);padding:14px;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(-2deg);">
+              <div style="display:flex;align-items:center;gap:7px;">
+                <div style="width:24px;height:24px;border-radius:6px;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">UT</div>
+                <div style="font-size:11px;font-weight:500;color:var(--tx);">Ulises Téllez</div>
+              </div>
+              <div>
+                <div style="font-size:9px;color:var(--ac);font-weight:500;margin-bottom:3px;letter-spacing:.04em;">DISEÑADOR · IA</div>
+                <div style="height:1px;background:var(--bdr2);margin-bottom:6px;"></div>
+                <div style="font-size:8px;color:var(--tx3);">uliie2112@gmail.com</div>
+                <div style="font-size:8px;color:var(--tx3);">Texcoco, Estado de México</div>
+              </div>
+            </div>
+            <!-- Membrete -->
+            <div style="width:200px;height:60px;border-radius:8px;background:var(--surf);border:1px solid var(--bdr);padding:10px 12px;display:flex;align-items:center;gap:8px;transform:rotate(1deg);">
+              <div style="width:3px;height:36px;border-radius:2px;background:var(--ac);flex-shrink:0;"></div>
+              <div>
+                <div style="font-size:9px;font-weight:600;color:var(--tx);">Encabezado · Membrete oficial</div>
+                <div style="height:3px;border-radius:2px;background:var(--bdr2);margin-top:5px;width:100px;"></div>
+                <div style="height:3px;border-radius:2px;background:var(--bdr);margin-top:3px;width:70px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-cat">Papelería</span>
+            <span class="proj-st st-live">Publicado</span>
+          </div>
+          <div class="proj-name">Kit de Materiales Corporativos</div>
+          <p class="proj-desc">Tarjeta de presentación, membrete, firma de correo y headers de redes sociales. Sistema coherente aplicable a cualquier marca.</p>
+          <div class="proj-tags">
+            <span class="tag">Papelería</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Email Signature</span>
+          </div>
+          <div class="proj-link">
+            Ver kit completo
+            <span class="proj-arr">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── IDENTIDAD 02 ── -->
+      <a class="proj-card" href="aurum_brand.html" target="_blank">
+        <div class="proj-prev">
+          <div style="width:100%;position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;">
+
+            <!-- Logo + brand name -->
+            <div style="background:#0A1628;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;">
+              <svg width="36" height="36" viewBox="0 0 88 88" style="border-radius:10px;flex-shrink:0;">
+                <rect width="88" height="88" fill="#C9A84C"/>
+                <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+                <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <div style="font-size:15px;font-weight:500;color:#fff;letter-spacing:.06em;">AURUM</div>
+                <div style="font-size:10px;color:#2E4460;margin-top:1px;">Brand Guide v1.0</div>
+              </div>
+              <div style="margin-left:auto;font-size:10px;font-weight:500;background:#152238;color:#2E4460;padding:3px 8px;border-radius:20px;">2026</div>
+            </div>
+
+            <!-- Paleta de colores -->
+            <div style="display:flex;gap:5px;">
+              <div style="flex:1;height:30px;border-radius:7px;background:#0A1628;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#C9A84C;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#FAFAF7;border:0.5px solid rgba(255,255,255,.1);"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#F2EFE8;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#152238;"></div>
+              <div style="flex:1;height:30px;border-radius:7px;background:#8A8A7A;"></div>
+            </div>
+
+            <!-- Mini pantallas app -->
+            <div style="display:flex;gap:8px;">
+              <div style="flex:1;background:#0A1628;border-radius:10px;padding:10px;">
+                <div style="height:4px;border-radius:2px;background:#C9A84C;margin-bottom:6px;width:55%;"></div>
+                <div style="height:3px;border-radius:2px;background:#1C2E4A;margin-bottom:3px;"></div>
+                <div style="height:3px;border-radius:2px;background:#1C2E4A;margin-bottom:3px;width:75%;"></div>
+                <div style="display:flex;gap:4px;margin-top:7px;">
+                  <div style="flex:1;height:20px;border-radius:5px;background:#152238;"></div>
+                  <div style="flex:1;height:20px;border-radius:5px;background:#152238;"></div>
+                </div>
+                <div style="height:18px;border-radius:5px;background:#C9A84C;margin-top:5px;"></div>
+              </div>
+              <div style="flex:1;background:#FAFAF7;border-radius:10px;padding:10px;border:0.5px solid #E8E6E0;">
+                <div style="height:4px;border-radius:2px;background:#C9A84C;margin-bottom:6px;width:55%;"></div>
+                <div style="height:3px;border-radius:2px;background:#E8E6E0;margin-bottom:3px;"></div>
+                <div style="height:3px;border-radius:2px;background:#E8E6E0;margin-bottom:3px;width:75%;"></div>
+                <div style="display:flex;gap:4px;margin-top:7px;">
+                  <div style="flex:1;height:20px;border-radius:5px;background:#F2EFE8;"></div>
+                  <div style="flex:1;height:20px;border-radius:5px;background:#F2EFE8;"></div>
+                </div>
+                <div style="height:18px;border-radius:5px;background:#0A1628;margin-top:5px;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="proj-body">
+          <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#C9A84C;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);">AURUM</span></div>
+          <div class="proj-meta">
+            <span class="proj-cat">Identidad Visual</span>
+            <span class="proj-st st-live">Publicado</span>
+          </div>
+          <div class="proj-name">AURUM Brand Guide</div>
+          <p class="proj-desc">Sistema de identidad para una app de finanzas personales. Paleta Navy/Gold, logo geométrico SVG, 4 mockups de pantallas y guía de uso completa.</p>
+          <div class="proj-tags">
+            <span class="tag">Brand Identity</span>
+            <span class="tag">Fintech</span>
+            <span class="tag">Logo</span>
+            <span class="tag">UI Mockups</span>
+          </div>
+          <div class="proj-link">
+            Ver guía de marca
+            <span class="proj-arr">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ── CREATIVOS REDES AURUM ── -->
+      <a class="proj-card" href="aurum_social.html" target="_blank">
+        <div class="proj-prev">
+          <div style="width:100%;position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;gap:8px;">
+              <!-- 1:1 Square -->
+              <div style="width:72px;height:72px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,#C9A84C,#E8C96A);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;">
+                  <div style="font-size:9px;font-weight:700;color:rgba(10,22,40,.9);letter-spacing:.04em;">1:1</div>
+                  <div style="font-size:8px;color:rgba(10,22,40,.6);margin-top:2px;">Feed</div>
+                </div>
+              </div>
+              <!-- 9:16 Story -->
+              <div style="width:40px;height:72px;border-radius:10px;flex-shrink:0;background:linear-gradient(160deg,#0A1628,#1C3050);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.2);">
+                <div style="text-align:center;">
+                  <div style="font-size:8px;font-weight:700;color:#C9A84C;writing-mode:vertical-rl;letter-spacing:.04em;">9:16</div>
+                </div>
+              </div>
+              <!-- 16:9 Banner -->
+              <div style="flex:1;height:72px;border-radius:10px;background:linear-gradient(135deg,#0A1628,#152238);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.2);">
+                <div style="text-align:center;">
+                  <div style="font-size:9px;font-weight:700;color:#C9A84C;">16:9</div>
+                  <div style="font-size:8px;color:rgba(201,168,76,.5);margin-top:2px;">Banner</div>
+                </div>
+              </div>
+            </div>
+            <!-- Carousel strip -->
+            <div style="display:flex;gap:5px;">
+              <div style="flex:1;height:28px;border-radius:6px;background:#C9A84C;"></div>
+              <div style="flex:1;height:28px;border-radius:6px;background:linear-gradient(135deg,#0A1628,#152238);border:1px solid rgba(201,168,76,.15);"></div>
+              <div style="flex:1;height:28px;border-radius:6px;background:linear-gradient(135deg,#0A1628,#152238);border:1px solid rgba(201,168,76,.15);"></div>
+              <div style="width:28px;height:28px;border-radius:6px;background:var(--card2);border:1px dashed var(--bdr2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 2v6M2 5h6" stroke="var(--tx3)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0 2px;">
+              <span style="font-size:9px;color:var(--tx3);">Instagram · Facebook · TikTok · LinkedIn</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div style="margin-bottom:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:.1em;color:#C9A84C;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);">AURUM</span></div>
+          <div class="proj-meta">
+            <span class="proj-cat">Social Media</span>
+            <span class="proj-st st-live">Publicado</span>
+          </div>
+          <div class="proj-name">Pack de Creativos para Redes</div>
+          <p class="proj-desc">Campaña completa para AURUM: Story 9:16, Feed 1:1, Banner 16:9 y Carrusel de 3 slides. Paleta Navy/Gold aplicada a 4 formatos — 100% SVG puro.</p>
+          <div class="proj-tags">
+            <span class="tag">Social Ads</span>
+            <span class="tag">Instagram</span>
+            <span class="tag">TikTok</span>
+            <span class="tag">Facebook</span>
+            <span class="tag">LinkedIn</span>
+          </div>
+          <div class="proj-link">
+            Ver pack completo
+            <span class="proj-arr">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 5l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ HERRAMIENTAS ══════════════════ -->
+<section class="sec" id="herramientas" style="background:var(--surf);">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="sec-n">02 · Herramientas</div>
+      <h2 class="sec-title">Stack de Inteligencia Artificial</h2>
+      <p class="sec-sub">Las IAs no reemplazan el criterio de diseño — lo potencian. Aquí está el arsenal.</p>
+    </div>
+
+    <div class="tools-grid">
+
+      <!-- Claude -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(207,178,140,.1);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2L19.5 6.5V15.5L11 20L2.5 15.5V6.5L11 2Z" stroke="#CF9B6C" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="3" fill="#CF9B6C"/>
+          </svg>
+        </div>
+        <div class="tool-name">Claude</div>
+        <div class="tool-maker">Anthropic</div>
+        <div class="tool-desc">Redacción de copy para creativos, briefings de campaña, guías de marca y naming. Excelente para textos con tono y estructura.</div>
+        <div class="tool-uses">
+          <span class="tuse">Copy</span>
+          <span class="tuse">Naming</span>
+          <span class="tuse">Brand Voice</span>
+          <span class="tuse">Briefing</span>
+        </div>
+      </div>
+
+      <!-- ChatGPT -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(25,195,125,.1);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8.5" stroke="#19C37D" stroke-width="1.6"/>
+            <path d="M7.5 11c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5" stroke="#19C37D" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="14.5" r="1" fill="#19C37D"/>
+          </svg>
+        </div>
+        <div class="tool-name">GPT-4o</div>
+        <div class="tool-maker">OpenAI</div>
+        <div class="tool-desc">Conceptualización de ideas de campaña, análisis de competencia y generación de variaciones de conceptos creativos en segundos.</div>
+        <div class="tool-uses">
+          <span class="tuse">Conceptos</span>
+          <span class="tuse">Estrategia</span>
+          <span class="tuse">Variaciones</span>
+        </div>
+      </div>
+
+      <!-- Gemini -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(66,133,244,.1);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2L20 11L11 20L2 11L11 2Z" stroke="#4285F4" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M11 6L15 11L11 16L7 11L11 6Z" fill="rgba(66,133,244,.3)" stroke="#4285F4" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="tool-name">Gemini</div>
+        <div class="tool-maker">Google</div>
+        <div class="tool-desc">Análisis de tendencias visuales, investigación de referencias de diseño y búsqueda multimodal de inspiración para proyectos.</div>
+        <div class="tool-uses">
+          <span class="tuse">Referencias</span>
+          <span class="tuse">Tendencias</span>
+          <span class="tuse">Investigación</span>
+        </div>
+      </div>
+
+      <!-- Midjourney -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(255,255,255,.06);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3L11 17" stroke="#E6E6F0" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M11 3L19 16H3L11 3Z" stroke="#E6E6F0" stroke-width="1.5" stroke-linejoin="round" fill="rgba(230,230,240,.08)"/>
+          </svg>
+        </div>
+        <div class="tool-name">Midjourney</div>
+        <div class="tool-maker">Midjourney Inc.</div>
+        <div class="tool-desc">Generación de imágenes de alta calidad para creativos de campaña, mockups de producto y visualizaciones de concepto. Control preciso con prompting avanzado.</div>
+        <div class="tool-uses">
+          <span class="tuse">Imagen</span>
+          <span class="tuse">Campaña</span>
+          <span class="tuse">Mockup</span>
+          <span class="tuse">Concepto</span>
+        </div>
+      </div>
+
+      <!-- DALL·E -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(255,90,60,.1);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="3" y="3" width="16" height="16" rx="4" stroke="#FF5A3C" stroke-width="1.6"/>
+            <circle cx="8" cy="8.5" r="1.5" fill="#FF5A3C"/>
+            <path d="M3 14l4-4 3 3 2-2 4 4" stroke="#FF5A3C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="tool-name">DALL·E 3</div>
+        <div class="tool-maker">OpenAI</div>
+        <div class="tool-desc">Ilustraciones y elementos gráficos con estilo controlado. Ideal para iconografía, patrones decorativos y contenido editorial.</div>
+        <div class="tool-uses">
+          <span class="tuse">Ilustración</span>
+          <span class="tuse">Iconografía</span>
+          <span class="tuse">Editorial</span>
+        </div>
+      </div>
+
+      <!-- Runway -->
+      <div class="tool-card">
+        <div class="tool-ico" style="background:rgba(123,108,246,.12);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="2.5" y="5.5" width="17" height="11" rx="3" stroke="#7B6CF6" stroke-width="1.6"/>
+            <path d="M9 8.5l5 2.5-5 2.5V8.5Z" fill="#7B6CF6"/>
+            <line x1="6" y1="19" x2="16" y2="19" stroke="rgba(123,108,246,.4)" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="tool-name">Runway Gen-3</div>
+        <div class="tool-maker">Runway ML</div>
+        <div class="tool-desc">Generación y edición de video para contenido TikTok, Reels e historias animadas. Transiciones, efectos y motion graphics asistidos por IA.</div>
+        <div class="tool-uses">
+          <span class="tuse">Video</span>
+          <span class="tuse">TikTok</span>
+          <span class="tuse">Reels</span>
+          <span class="tuse">Motion</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SOBRE MÍ ══════════════════ -->
+<section class="sec" id="sobre">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="sec-n">03 · Sobre mí</div>
+      <h2 class="sec-title">Diseñador que también programa</h2>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h3 class="ab-title">Donde el diseño gráfico<br>y la <em>IA convergen</em>.</h3>
+        <p class="ab-p">Soy Ulises Téllez, desarrollador Full Stack con una inclinación genuina hacia el diseño visual. Trabajo en la intersección entre código y creatividad — construyo sistemas de identidad que son tan técnicamente sólidos como visualmente impactantes.</p>
+        <p class="ab-p">Mi ventaja diferencial es usar las IAs como herramienta de trabajo real, no como truco: genero, itero y refino decenas de variantes en el tiempo en que otros diseñadores producen una. Eso se traduce en campañas más rápidas, marcas más trabajadas y presupuestos que rinden más.</p>
+        <p class="ab-p">Todo mi trabajo está construido en HTML/CSS/SVG puro — sin dependencias, sin build tools, listo para abrir en cualquier navegador. Creo que los archivos que no necesitan instalación son archivos que duran.</p>
+        <div class="ab-skills">
+          <span class="ab-sk">Identidad Visual</span>
+          <span class="ab-sk">Facebook Ads</span>
+          <span class="ab-sk">Instagram</span>
+          <span class="ab-sk">TikTok</span>
+          <span class="ab-sk">LinkedIn</span>
+          <span class="ab-sk">Papelería Corporativa</span>
+          <span class="ab-sk">HTML / CSS / SVG</span>
+          <span class="ab-sk">Full Stack Dev</span>
+          <span class="ab-sk">Prompting Avanzado</span>
+        </div>
+      </div>
+
+      <div class="ab-card">
+        <div class="ab-card-ttl">Información de contacto</div>
+
+        <div class="ab-item">
+          <div class="ab-ico" style="background:var(--ac-d);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="var(--ac)" stroke-width="1.4"/><path d="M2 14c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="var(--ac)" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="ab-lbl">Ulises Téllez Landón</div>
+            <div class="ab-val">Diseñador Gráfico · IA · Dev</div>
+          </div>
+        </div>
+
+        <div class="ab-item">
+          <div class="ab-ico" style="background:rgba(0,212,170,.1);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.24 2 3 4.24 3 7c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5Z" stroke="var(--tl)" stroke-width="1.4"/><circle cx="8" cy="7" r="1.5" fill="var(--tl)"/></svg>
+          </div>
+          <div>
+            <div class="ab-lbl">Texcoco, Estado de México</div>
+            <div class="ab-val">México · Disponible remoto</div>
+          </div>
+        </div>
+
+        <div class="ab-item">
+          <div class="ab-ico" style="background:rgba(255,160,60,.08);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3.5" width="12" height="9" rx="2" stroke="#FFA03C" stroke-width="1.4"/><path d="M2 6l6 4 6-4" stroke="#FFA03C" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="ab-lbl">uliie2112@gmail.com</div>
+            <div class="ab-val">Respondo en menos de 24h</div>
+          </div>
+        </div>
+
+        <div class="ab-item">
+          <div class="ab-ico" style="background:rgba(230,230,240,.06);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.29-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.52.71 1.89.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.29.67-1.74-.07-.16-.29-.82.06-1.72 0 0 .55-.18 1.79.67A6.2 6.2 0 018 5.34c.55 0 1.11.08 1.63.22 1.24-.85 1.79-.67 1.79-.67.35.9.13 1.56.06 1.72.42.45.67 1.03.67 1.74 0 2.49-1.52 3.04-2.96 3.2.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31A6.51 6.51 0 0014.5 8c0-3.59-2.91-6.5-6.5-6.5Z" fill="var(--tx2)"/></svg>
+          </div>
+          <div>
+            <div class="ab-lbl">github.com/ulietellez21</div>
+            <div class="ab-val">Proyectos y código</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACTO ══════════════════ -->
+<section class="sec" id="contacto" style="background:var(--surf);">
+  <div class="wrap">
+    <div class="sec-hd">
+      <div class="sec-n">04 · Contacto</div>
+      <h2 class="sec-title">¿Hablamos?</h2>
+      <p class="sec-sub">Disponible para proyectos de branding, creativos para redes y diseño asistido con IA.</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <a class="ct-card" href="mailto:uliie2112@gmail.com">
+        <div class="ct-ico" style="background:rgba(255,160,60,.1);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4.5" width="16" height="11" rx="2.5" stroke="#FFA03C" stroke-width="1.5"/><path d="M2 7.5l8 5 8-5" stroke="#FFA03C" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="ct-lbl">Email</div>
+          <div class="ct-val">uliie2112@gmail.com</div>
+        </div>
+      </a>
+
+      <a class="ct-card" href="https://github.com/ulietellez21" target="_blank">
+        <div class="ct-ico" style="background:rgba(230,230,240,.06);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.5C5.86 1.5 2.5 4.86 2.5 9c0 3.31 2.15 6.12 5.12 7.12.38.07.52-.16.52-.36v-1.27c-2.09.45-2.53-1.01-2.53-1.01-.34-.87-.84-1.1-.84-1.1-.68-.47.05-.46.05-.46.75.05 1.15.77 1.15.77.67 1.15 1.75.82 2.18.63.07-.49.26-.82.48-1.01-1.67-.19-3.42-.83-3.42-3.72 0-.82.29-1.49.77-2.02-.08-.19-.33-.95.07-1.99 0 0 .63-.2 2.07.77A7.18 7.18 0 0110 6.24c.64 0 1.28.09 1.88.25 1.44-.98 2.07-.77 2.07-.77.4 1.04.15 1.8.07 1.99.48.53.77 1.2.77 2.02 0 2.9-1.76 3.53-3.43 3.72.27.23.51.69.51 1.38v2.06c0 .2.14.43.52.36A7.51 7.51 0 0017.5 9c0-4.14-3.36-7.5-7.5-7.5Z" fill="var(--tx2)"/></svg>
+        </div>
+        <div>
+          <div class="ct-lbl">GitHub</div>
+          <div class="ct-val">ulietellez21</div>
+        </div>
+      </a>
+
+      <div class="ct-card" style="cursor:default;">
+        <div class="ct-ico" style="background:rgba(0,212,170,.1);">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.5 5 11 5 11s5-6.5 5-11c0-2.76-2.24-5-5-5Z" stroke="var(--tl)" stroke-width="1.5"/><circle cx="10" cy="7" r="2" fill="var(--tl)"/></svg>
+        </div>
+        <div>
+          <div class="ct-lbl">Ubicación</div>
+          <div class="ct-val">Texcoco, Estado de México</div>
+        </div>
+      </div>
+
+      <div class="ct-card" style="cursor:default;">
+        <div class="ct-ico" style="background:var(--ac-d);">
+          <div class="h-dot" style="width:8px;height:8px;"></div>
+        </div>
+        <div>
+          <div class="ct-lbl">Disponibilidad</div>
+          <div class="ct-val" style="color:var(--tl);">Disponible ahora</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <svg width="26" height="26" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+        </svg>
+        <span style="font-size:20px;font-family:'Pinyon Script',cursive;font-weight:400;color:var(--tx);letter-spacing:.01em;line-height:1;">Ulises Téllez</span>
+      </div>
+      <div class="ft-copy">Diseñador Gráfico · Desarrollo Full Stack · Texcoco, MX · 2026</div>
+    </div>
+    <div class="ft-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L12.5 4V10L7 13L1.5 10V4L7 1Z" stroke="var(--ac)" stroke-width="1.4" stroke-linejoin="round"/><circle cx="7" cy="7" r="2" fill="var(--ac)"/></svg>
+      <span class="ft-badge-tx">Construido con <span>Claude</span> · HTML/CSS/SVG puro</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

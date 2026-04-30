@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GainHub — Pack Creativos para Redes Sociales</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F7F7FA;
+  --surf:#EEEEF3;
+  --card:#FFFFFF;
+  --bdr:#DDE0E8;
+  --bdr2:#C4C8D4;
+  --tx:#0D0D14;
+  --tx2:#60607A;
+  --tx3:#9898B0;
+  --ac:#7B6CF6;
+}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:56px;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(247,247,250,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,200,216,.8);
+}
+.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.n-mono{width:30px;height:30px;border-radius:8px;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;}
+.n-name{font-size:14px;font-weight:500;color:var(--tx);}
+.n-back{font-size:13px;color:var(--tx2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .18s;}
+.n-back:hover{color:var(--tx);}
+
+/* ── COVER ── */
+.cover{
+  background:#0D0D0D;
+  padding:100px 40px 64px;
+  position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 80% 50%,rgba(230,57,70,.1) 0%,transparent 65%);
+}
+.cover-inner{max-width:1100px;margin:0 auto;position:relative;}
+.cover-tag{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E63946;opacity:.8;margin-bottom:12px;}
+.cover-title{font-size:clamp(36px,6vw,68px);font-weight:700;letter-spacing:-.04em;color:#fff;margin-bottom:12px;line-height:.95;}
+.cover-sub{font-size:16px;color:#555;max-width:500px;margin-bottom:36px;}
+.cover-meta{display:flex;flex-wrap:wrap;gap:10px;}
+.meta-pill{
+  font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;
+  background:#1A1A1A;color:#888;border:1px solid #2A2A2A;
+}
+
+/* ── SECTION WRAPPER ── */
+.sec{padding:72px 0;border-top:1px solid var(--bdr);}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+/* Format header */
+.fmt-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px;}
+.fmt-hd-left{}
+.fmt-num{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);opacity:.7;margin-bottom:6px;}
+.fmt-title{font-size:26px;font-weight:700;letter-spacing:-.03em;color:var(--tx);margin-bottom:4px;}
+.fmt-dims{font-size:13px;color:var(--tx2);}
+.fmt-platforms{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.plat{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;background:var(--card);color:var(--tx2);border:1px solid var(--bdr);}
+
+/* Creative stage — dark background that frames the creative */
+.stage{
+  background:var(--surf);border:1px solid var(--bdr);border-radius:16px;
+  padding:40px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.stage::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(var(--bdr) 1px,transparent 1px),linear-gradient(90deg,var(--bdr) 1px,transparent 1px);
+  background-size:32px 32px;opacity:.35;
+}
+.stage-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;}
+
+/* Carousel stage */
+.stage-carousel{
+  background:var(--surf);border:1px solid var(--bdr);border-radius:16px;
+  padding:40px;overflow-x:auto;
+  background-image:linear-gradient(var(--bdr) 1px,transparent 1px),linear-gradient(90deg,var(--bdr) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+.carousel-row{display:flex;gap:20px;align-items:flex-start;width:max-content;}
+.slide-wrap{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.slide-num{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);}
+
+/* Shadow on creatives */
+.creative-shadow{
+  filter:drop-shadow(0 16px 48px rgba(0,0,0,.22));
+}
+
+/* Specs row */
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.spec{font-size:11px;font-weight:500;padding:4px 12px;border-radius:6px;background:var(--card);color:var(--tx2);border:1px solid var(--bdr);}
+
+/* Footer */
+footer{border-top:1px solid var(--bdr);padding:32px 0;}
+.ft{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.ft-copy{font-size:12px;color:var(--tx3);}
+.ft-b{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bdr);border-radius:20px;padding:6px 14px;}
+.ft-b span{font-size:11px;color:var(--tx3);}
+.ft-b span em{color:var(--ac);font-style:normal;font-weight:500;}
+
+@media(max-width:768px){
+  nav,.wrap,.ft{padding-left:20px;padding-right:20px;}
+  .cover{padding:80px 20px 48px;}
+  .stage{padding:24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="n-logo" href="portfolio.html">
+    <svg width="30" height="30" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+      <rect width="90" height="90" rx="18" fill="#0A1628"/>
+      <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+    </svg>
+    <span class="n-name">Ulises Téllez</span>
+  </a>
+  <a class="n-back" href="portfolio.html">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Volver al portafolio
+  </a>
+</nav>
+
+<!-- ── COVER ── -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-tag">Pack de Creativos · GainHub</div>
+    <h1 class="cover-title">Social Media<br>Campaign Pack</h1>
+    <p class="cover-sub">Campaña completa para GainHub — 4 formatos, un sistema de marca coherente. Tipografía bold, jerarquía clara y diseño listo para todas las plataformas.</p>
+    <div class="cover-meta">
+      <span class="meta-pill">Story 9:16 · Instagram / TikTok</span>
+      <span class="meta-pill">Feed 1:1 · Instagram / Facebook</span>
+      <span class="meta-pill">Banner 16:9 · Facebook / LinkedIn</span>
+      <span class="meta-pill">Carrusel · 3 slides</span>
+      <span class="meta-pill">HTML · CSS · SVG puro</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 01 · STORY 9:16                            -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="fmt-hd">
+      <div class="fmt-hd-left">
+        <div class="fmt-num">01 · Formato vertical</div>
+        <div class="fmt-title">Story / Reel Cover</div>
+        <div class="fmt-dims">1080 × 1920 px · Relación 9:16</div>
+        <div class="fmt-platforms">
+          <span class="plat">Instagram Stories</span>
+          <span class="plat">TikTok</span>
+          <span class="plat">Facebook Stories</span>
+          <span class="plat">Reels Cover</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" style="min-height:560px;">
+      <div class="stage-inner">
+        <svg class="creative-shadow" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" style="width:270px;display:block;border-radius:12px;">
+          <defs>
+            <radialGradient id="st-glow" cx="100%" cy="0%" r="80%">
+              <stop offset="0%" stop-color="#E63946" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#0D0D0D" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Background -->
+          <rect width="1080" height="1920" fill="#0D0D0D"/>
+          <rect width="1080" height="1920" fill="url(#st-glow)"/>
+
+          <!-- Subtle grid overlay -->
+          <line x1="0" y1="480" x2="1080" y2="480" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="0" y1="960" x2="1080" y2="960" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="0" y1="1440" x2="1080" y2="1440" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="540" y1="0" x2="540" y2="1920" stroke="#1A1A1A" stroke-width="1"/>
+
+          <!-- Left accent bar -->
+          <rect x="0" y="0" width="10" height="1920" fill="#E63946"/>
+
+          <!-- Decorative circles (top right) -->
+          <circle cx="1080" cy="240" r="640" fill="none" stroke="#E63946" stroke-width="1.5" opacity="0.12"/>
+          <circle cx="1080" cy="240" r="480" fill="none" stroke="#E63946" stroke-width="1" opacity="0.08"/>
+
+          <!-- ── HEADER ── -->
+          <!-- Dumbbell icon (88×88 grid, scaled to ~96px, placed at 80,100) -->
+          <g transform="translate(80,100) scale(1.09)">
+            <rect x="14" y="30" width="10" height="28" rx="5" fill="#fff"/>
+            <rect x="24" y="38" width="5" height="12" rx="2" fill="#fff"/>
+            <rect x="29" y="35" width="30" height="18" rx="5" fill="#fff"/>
+            <rect x="59" y="38" width="5" height="12" rx="2" fill="#fff"/>
+            <rect x="64" y="30" width="10" height="28" rx="5" fill="#fff"/>
+          </g>
+          <!-- Wordmark -->
+          <text x="202" y="162" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="56" font-weight="500" fill="#ffffff" letter-spacing="-2">GainHub</text>
+          <text x="202" y="218" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#444444">Coach Performance Platform</text>
+
+          <!-- ── MAIN HEADLINE ── -->
+          <text x="80" y="640" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="260" font-weight="700" fill="#ffffff" letter-spacing="-14">COACH</text>
+          <text x="80" y="900" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="260" font-weight="700" fill="#E63946" letter-spacing="-14">EN</text>
+          <text x="80" y="1160" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="260" font-weight="700" fill="#ffffff" letter-spacing="-14">OTRO</text>
+          <text x="80" y="1380" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="220" font-weight="700" fill="#ffffff" letter-spacing="-10">NIVEL.</text>
+
+          <!-- Divider -->
+          <rect x="80" y="1440" width="920" height="3" fill="#E63946" opacity="0.7"/>
+
+          <!-- Sub-label -->
+          <text x="80" y="1522" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="40" fill="#555555" letter-spacing="4">CLIENTES · RUTINAS · NUTRICIÓN</text>
+
+          <!-- CTA Button -->
+          <rect x="80" y="1580" width="920" height="130" rx="65" fill="#E63946"/>
+          <text x="540" y="1659" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="52" font-weight="600" fill="#ffffff" text-anchor="middle">Descárgala gratis →</text>
+
+          <!-- Footer -->
+          <text x="80" y="1800" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#333333">gainhub.app</text>
+          <text x="1000" y="1800" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#333333" text-anchor="end">iOS · Android</text>
+
+          <!-- Bottom progress dots -->
+          <circle cx="490" cy="1880" r="8" fill="#E63946"/>
+          <circle cx="520" cy="1880" r="8" fill="#2A2A2A"/>
+          <circle cx="550" cy="1880" r="8" fill="#2A2A2A"/>
+          <circle cx="580" cy="1880" r="8" fill="#2A2A2A"/>
+          <circle cx="610" cy="1880" r="8" fill="#2A2A2A"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">1080 × 1920 px</span>
+      <span class="spec">Relación 9:16</span>
+      <span class="spec">Safe zone respetada</span>
+      <span class="spec">Paleta GainHub brand</span>
+      <span class="spec">SVG · Escalable infinito</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 02 · FEED 1:1                              -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="sec" id="feed">
+  <div class="wrap">
+    <div class="fmt-hd">
+      <div class="fmt-hd-left">
+        <div class="fmt-num">02 · Formato cuadrado</div>
+        <div class="fmt-title">Feed Post</div>
+        <div class="fmt-dims">1080 × 1080 px · Relación 1:1</div>
+        <div class="fmt-platforms">
+          <span class="plat">Instagram Feed</span>
+          <span class="plat">Facebook Feed</span>
+          <span class="plat">LinkedIn Post</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage" style="min-height:560px;">
+      <div class="stage-inner">
+        <svg class="creative-shadow" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="width:480px;display:block;border-radius:12px;">
+          <defs>
+            <radialGradient id="fd-glow" cx="50%" cy="45%" r="60%">
+              <stop offset="0%" stop-color="#E63946" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#0D0D0D" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Background -->
+          <rect width="1080" height="1080" fill="#0D0D0D"/>
+          <rect width="1080" height="1080" fill="url(#fd-glow)"/>
+
+          <!-- Subtle lines -->
+          <line x1="0" y1="540" x2="1080" y2="540" stroke="#1A1A1A" stroke-width="1"/>
+          <line x1="540" y1="0" x2="540" y2="1080" stroke="#1A1A1A" stroke-width="1"/>
+
+          <!-- Category label top -->
+          <text x="80" y="120" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" font-weight="600" fill="#E63946" letter-spacing="6" opacity="0.9">RESULTADOS · 2026</text>
+
+          <!-- Decorative circle behind number -->
+          <circle cx="400" cy="450" r="320" fill="#E63946" opacity="0.06"/>
+
+          <!-- HERO NUMBER -->
+          <text x="80" y="600" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="580" font-weight="700" fill="#ffffff" letter-spacing="-30" opacity="0.97">18</text>
+
+          <!-- Number label -->
+          <text x="80" y="700" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="52" font-weight="400" fill="#888888" letter-spacing="1">clientes activos en promedio</text>
+
+          <!-- Divider -->
+          <rect x="80" y="740" width="920" height="2" fill="#E63946" opacity="0.6"/>
+
+          <!-- 3 Metrics bottom row -->
+          <!-- Metric 1 -->
+          <text x="80" y="848" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="88" font-weight="700" fill="#ffffff" letter-spacing="-4">43</text>
+          <text x="80" y="912" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#555555">Check-ins / sem.</text>
+
+          <!-- Metric 2 -->
+          <text x="440" y="848" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="88" font-weight="700" fill="#E63946" letter-spacing="-4">12</text>
+          <text x="440" y="912" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#555555">Rutinas activas</text>
+
+          <!-- Metric 3 -->
+          <text x="800" y="848" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="88" font-weight="700" fill="#ffffff" letter-spacing="-4">9d</text>
+          <text x="800" y="912" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#555555">Racha promedio</text>
+
+          <!-- Bottom: logo left, URL right -->
+          <!-- Dumbbell small -->
+          <g transform="translate(80,965) scale(0.55)">
+            <rect x="14" y="30" width="10" height="28" rx="5" fill="#E63946"/>
+            <rect x="24" y="38" width="5" height="12" rx="2" fill="#E63946"/>
+            <rect x="29" y="35" width="30" height="18" rx="5" fill="#E63946"/>
+            <rect x="59" y="38" width="5" height="12" rx="2" fill="#E63946"/>
+            <rect x="64" y="30" width="10" height="28" rx="5" fill="#E63946"/>
+          </g>
+          <text x="142" y="1003" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="38" font-weight="500" fill="#ffffff">GainHub</text>
+          <text x="1000" y="1003" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" fill="#333333" text-anchor="end">gainhub.app</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">1080 × 1080 px</span>
+      <span class="spec">Relación 1:1</span>
+      <span class="spec">Tipografía hero: 580px</span>
+      <span class="spec">Jerarquía de 3 métricas</span>
+      <span class="spec">SVG · Escalable infinito</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 03 · BANNER 16:9                           -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="sec" id="banner">
+  <div class="wrap">
+    <div class="fmt-hd">
+      <div class="fmt-hd-left">
+        <div class="fmt-num">03 · Formato horizontal</div>
+        <div class="fmt-title">Banner / Cover</div>
+        <div class="fmt-dims">1920 × 1080 px · Relación 16:9</div>
+        <div class="fmt-platforms">
+          <span class="plat">Facebook Cover</span>
+          <span class="plat">LinkedIn Cover</span>
+          <span class="plat">YouTube Thumbnail</span>
+          <span class="plat">Twitter/X Banner</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-inner" style="width:100%;max-width:820px;">
+        <svg class="creative-shadow" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;border-radius:12px;">
+          <defs>
+            <linearGradient id="bn-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0D0D0D"/>
+              <stop offset="55%" stop-color="#0D0D0D"/>
+              <stop offset="100%" stop-color="#110808"/>
+            </linearGradient>
+            <radialGradient id="bn-glow" cx="80%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#E63946" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#0D0D0D" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Background -->
+          <rect width="1920" height="1080" fill="url(#bn-grad)"/>
+          <rect width="1920" height="1080" fill="url(#bn-glow)"/>
+
+          <!-- Vertical center line (decorative) -->
+          <line x1="960" y1="0" x2="960" y2="1080" stroke="#1A1A1A" stroke-width="1"/>
+
+          <!-- Left red accent strip -->
+          <rect x="0" y="0" width="12" height="1080" fill="#E63946"/>
+
+          <!-- ── LEFT COLUMN (copy) ── -->
+          <!-- Logo -->
+          <g transform="translate(100,120) scale(1.2)">
+            <rect x="14" y="30" width="10" height="28" rx="5" fill="#fff"/>
+            <rect x="24" y="38" width="5" height="12" rx="2" fill="#fff"/>
+            <rect x="29" y="35" width="30" height="18" rx="5" fill="#fff"/>
+            <rect x="59" y="38" width="5" height="12" rx="2" fill="#fff"/>
+            <rect x="64" y="30" width="10" height="28" rx="5" fill="#fff"/>
+          </g>
+          <text x="226" y="167" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="44" font-weight="500" fill="#ffffff" letter-spacing="-1">GainHub</text>
+          <text x="226" y="211" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="28" fill="#444">Coach Performance Platform</text>
+
+          <!-- Main headline -->
+          <text x="100" y="450" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="112" font-weight="700" fill="#ffffff" letter-spacing="-5">El sistema que</text>
+          <text x="100" y="580" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="112" font-weight="700" fill="#ffffff" letter-spacing="-5">tus clientes</text>
+          <text x="100" y="710" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="112" font-weight="700" fill="#E63946" letter-spacing="-5">merecen.</text>
+
+          <!-- Features list -->
+          <!-- Feature 1 -->
+          <rect x="100" y="800" width="10" height="44" rx="5" fill="#E63946"/>
+          <text x="130" y="834" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#888">Rutinas personalizadas en tiempo real</text>
+          <!-- Feature 2 -->
+          <rect x="100" y="866" width="10" height="44" rx="5" fill="#E63946"/>
+          <text x="130" y="900" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#888">Seguimiento nutricional integrado</text>
+          <!-- Feature 3 -->
+          <rect x="100" y="932" width="10" height="44" rx="5" fill="#E63946"/>
+          <text x="130" y="966" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#888">Progreso de clientes siempre visible</text>
+
+          <!-- ── CENTER DIVIDER ── -->
+          <line x1="960" y1="80" x2="960" y2="1000" stroke="#2A2A2A" stroke-width="1.5"/>
+
+          <!-- ── RIGHT COLUMN (stats) ── -->
+          <!-- Decorative large circle -->
+          <circle cx="1440" cy="540" r="360" fill="none" stroke="#E63946" stroke-width="1.5" opacity="0.1"/>
+          <circle cx="1440" cy="540" r="260" fill="none" stroke="#E63946" stroke-width="1" opacity="0.06"/>
+
+          <!-- Dumbbell icon large, centered right -->
+          <g transform="translate(1350,380) scale(2.4)">
+            <rect x="14" y="30" width="10" height="28" rx="5" fill="#E63946" opacity="0.25"/>
+            <rect x="24" y="38" width="5" height="12" rx="2" fill="#E63946" opacity="0.25"/>
+            <rect x="29" y="35" width="30" height="18" rx="5" fill="#E63946" opacity="0.25"/>
+            <rect x="59" y="38" width="5" height="12" rx="2" fill="#E63946" opacity="0.25"/>
+            <rect x="64" y="30" width="10" height="28" rx="5" fill="#E63946" opacity="0.25"/>
+          </g>
+
+          <!-- 3 stat cards right column -->
+          <!-- Card 1 -->
+          <rect x="1020" y="740" width="360" height="100" rx="16" fill="#1A1A1A"/>
+          <text x="1060" y="800" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#E63946">18</text>
+          <text x="1160" y="789" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="28" fill="#555">Clientes</text>
+          <text x="1160" y="825" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="26" fill="#333">activos en promedio</text>
+
+          <!-- Card 2 -->
+          <rect x="1420" y="740" width="360" height="100" rx="16" fill="#1A1A1A"/>
+          <text x="1460" y="800" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#fff">43</text>
+          <text x="1560" y="789" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="28" fill="#555">Check-ins</text>
+          <text x="1560" y="825" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="26" fill="#333">por semana</text>
+
+          <!-- Card 3 -->
+          <rect x="1020" y="860" width="760" height="100" rx="16" fill="#E63946"/>
+          <text x="1400" y="927" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="44" font-weight="600" fill="#fff" text-anchor="middle">Prueba GainHub gratis →</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="specs">
+      <span class="spec">1920 × 1080 px</span>
+      <span class="spec">Relación 16:9</span>
+      <span class="spec">Layout 2 columnas</span>
+      <span class="spec">Safe zone: 200px laterales</span>
+      <span class="spec">SVG · Escalable infinito</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 04 · CARRUSEL 3 SLIDES                     -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="sec" id="carousel">
+  <div class="wrap">
+    <div class="fmt-hd">
+      <div class="fmt-hd-left">
+        <div class="fmt-num">04 · Carrusel</div>
+        <div class="fmt-title">Carousel Post — 3 slides</div>
+        <div class="fmt-dims">1080 × 1080 px c/u · Relación 1:1</div>
+        <div class="fmt-platforms">
+          <span class="plat">Instagram Carrusel</span>
+          <span class="plat">LinkedIn Documento</span>
+          <span class="plat">Facebook Album</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-carousel">
+      <div class="carousel-row">
+
+        <!-- ── SLIDE 1: HOOK ── -->
+        <div class="slide-wrap">
+          <span class="slide-num">Slide 1 · Hook</span>
+          <svg class="creative-shadow" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="width:290px;display:block;border-radius:12px;">
+            <defs>
+              <radialGradient id="s1-glow" cx="50%" cy="50%" r="70%">
+                <stop offset="0%" stop-color="#C82030" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Red background -->
+            <rect width="1080" height="1080" fill="#E63946"/>
+            <rect width="1080" height="1080" fill="url(#s1-glow)"/>
+
+            <!-- Geometric decoration: large circle outline -->
+            <circle cx="540" cy="540" r="460" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.15"/>
+            <circle cx="540" cy="540" r="380" fill="none" stroke="#fff" stroke-width="1" opacity="0.08"/>
+
+            <!-- Bottom-left dark panel (continuation visual) -->
+            <rect x="0" y="900" width="1080" height="180" fill="rgba(0,0,0,0.3)"/>
+
+            <!-- Slide number -->
+            <text x="80" y="120" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" font-weight="600" fill="rgba(255,255,255,0.5)" letter-spacing="4">01 / 03</text>
+
+            <!-- Main question -->
+            <text x="80" y="340" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="160" font-weight="700" fill="#fff" letter-spacing="-8" opacity="0.97">¿CUÁN-</text>
+            <text x="80" y="510" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="160" font-weight="700" fill="#fff" letter-spacing="-8" opacity="0.97">TOS</text>
+            <text x="80" y="680" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="130" font-weight="700" fill="#fff" letter-spacing="-6" opacity="0.97">CLIENTES</text>
+            <text x="80" y="840" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="130" font-weight="700" fill="#fff" letter-spacing="-6" opacity="0.97">PIERDES?</text>
+
+            <!-- Swipe CTA bottom -->
+            <text x="80" y="970" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="rgba(255,255,255,0.6)">La respuesta te va a sorprender</text>
+            <text x="1000" y="970" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="rgba(255,255,255,0.6)" text-anchor="end">desliza →</text>
+
+            <!-- Progress dots -->
+            <circle cx="480" cy="1040" r="10" fill="rgba(255,255,255,0.9)"/>
+            <circle cx="516" cy="1040" r="10" fill="rgba(255,255,255,0.3)"/>
+            <circle cx="552" cy="1040" r="10" fill="rgba(255,255,255,0.3)"/>
+          </svg>
+        </div>
+
+        <!-- ── SLIDE 2: SOLUTION ── -->
+        <div class="slide-wrap">
+          <span class="slide-num">Slide 2 · Solución</span>
+          <svg class="creative-shadow" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="width:290px;display:block;border-radius:12px;">
+            <!-- Dark background -->
+            <rect width="1080" height="1080" fill="#0D0D0D"/>
+
+            <!-- Top accent -->
+            <rect x="0" y="0" width="1080" height="8" fill="#E63946"/>
+
+            <!-- Slide number -->
+            <text x="80" y="120" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" font-weight="600" fill="#333" letter-spacing="4">02 / 03</text>
+
+            <!-- Headline -->
+            <text x="80" y="260" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="96" font-weight="700" fill="#fff" letter-spacing="-4">GainHub</text>
+            <text x="80" y="350" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="60" fill="#E63946" letter-spacing="-2">centraliza todo.</text>
+
+            <!-- Divider -->
+            <rect x="80" y="400" width="920" height="2" fill="#1A1A1A"/>
+
+            <!-- 3 Feature Cards -->
+            <!-- Card: Clientes -->
+            <rect x="80" y="440" width="280" height="280" rx="20" fill="#1A1A1A"/>
+            <!-- Person icon -->
+            <circle cx="220" cy="510" r="36" fill="none" stroke="#E63946" stroke-width="3"/>
+            <path d="M152 595 Q152 560 220 560 Q288 560 288 595" fill="none" stroke="#E63946" stroke-width="3" stroke-linecap="round"/>
+            <text x="220" y="645" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="32" font-weight="600" fill="#fff" text-anchor="middle">Clientes</text>
+            <text x="220" y="685" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="24" fill="#555" text-anchor="middle">Perfiles y progreso</text>
+
+            <!-- Card: Rutinas -->
+            <rect x="400" y="440" width="280" height="280" rx="20" fill="#1A1A1A"/>
+            <!-- Calendar/list icon -->
+            <rect x="460" y="490" width="160" height="130" rx="8" fill="none" stroke="#E63946" stroke-width="3"/>
+            <line x1="460" y1="522" x2="620" y2="522" stroke="#E63946" stroke-width="2.5"/>
+            <line x1="480" y1="548" x2="600" y2="548" stroke="#333" stroke-width="2"/>
+            <line x1="480" y1="570" x2="580" y2="570" stroke="#333" stroke-width="2"/>
+            <line x1="480" y1="592" x2="560" y2="592" stroke="#333" stroke-width="2"/>
+            <text x="540" y="645" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="32" font-weight="600" fill="#fff" text-anchor="middle">Rutinas</text>
+            <text x="540" y="685" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="24" fill="#555" text-anchor="middle">Ejercicios y series</text>
+
+            <!-- Card: Nutrición -->
+            <rect x="720" y="440" width="280" height="280" rx="20" fill="#1A1A1A"/>
+            <!-- Chart icon -->
+            <circle cx="860" cy="535" r="50" fill="none" stroke="#E63946" stroke-width="3"/>
+            <path d="M860 535 L860 485 A50 50 0 0 1 910 535 Z" fill="#E63946" opacity="0.5"/>
+            <path d="M860 535 L910 535 A50 50 0 0 1 860 585 Z" fill="#E63946" opacity="0.3"/>
+            <text x="860" y="645" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="32" font-weight="600" fill="#fff" text-anchor="middle">Nutrición</text>
+            <text x="860" y="685" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="24" fill="#555" text-anchor="middle">Macros y calorías</text>
+
+            <!-- Stat highlight bottom -->
+            <rect x="80" y="760" width="920" height="120" rx="16" fill="#1A1A1A"/>
+            <text x="540" y="822" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#888" text-anchor="middle">Gestiona a tus</text>
+            <text x="540" y="865" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#888" text-anchor="middle">
+              <tspan fill="#fff" font-weight="600">18 clientes activos</tspan>
+              <tspan> desde una sola app</tspan>
+            </text>
+
+            <!-- Progress dots -->
+            <circle cx="480" cy="1040" r="10" fill="#333"/>
+            <circle cx="516" cy="1040" r="10" fill="#E63946"/>
+            <circle cx="552" cy="1040" r="10" fill="#333"/>
+          </svg>
+        </div>
+
+        <!-- ── SLIDE 3: CTA ── -->
+        <div class="slide-wrap">
+          <span class="slide-num">Slide 3 · CTA</span>
+          <svg class="creative-shadow" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" style="width:290px;display:block;border-radius:12px;">
+            <defs>
+              <radialGradient id="s3-glow" cx="50%" cy="45%" r="65%">
+                <stop offset="0%" stop-color="#E63946" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#0D0D0D" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+
+            <!-- Background -->
+            <rect width="1080" height="1080" fill="#0D0D0D"/>
+            <rect width="1080" height="1080" fill="url(#s3-glow)"/>
+
+            <!-- Accent lines top -->
+            <rect x="0" y="0" width="1080" height="8" fill="#E63946"/>
+
+            <!-- Slide number -->
+            <text x="80" y="120" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="34" font-weight="600" fill="#333" letter-spacing="4">03 / 03</text>
+
+            <!-- Large dumbbell centered, decorative -->
+            <g transform="translate(340,220) scale(4.5)">
+              <rect x="14" y="30" width="10" height="28" rx="5" fill="#E63946" opacity="0.2"/>
+              <rect x="24" y="38" width="5" height="12" rx="2" fill="#E63946" opacity="0.2"/>
+              <rect x="29" y="35" width="30" height="18" rx="5" fill="#E63946" opacity="0.2"/>
+              <rect x="59" y="38" width="5" height="12" rx="2" fill="#E63946" opacity="0.2"/>
+              <rect x="64" y="30" width="10" height="28" rx="5" fill="#E63946" opacity="0.2"/>
+            </g>
+
+            <!-- Main CTA text -->
+            <text x="540" y="630" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="160" font-weight="700" fill="#fff" letter-spacing="-8" text-anchor="middle">Empieza</text>
+            <text x="540" y="790" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="160" font-weight="700" fill="#E63946" letter-spacing="-8" text-anchor="middle">gratis.</text>
+
+            <!-- CTA Button -->
+            <rect x="140" y="840" width="800" height="120" rx="60" fill="#E63946"/>
+            <text x="540" y="915" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="48" font-weight="600" fill="#fff" text-anchor="middle">Descargar GainHub →</text>
+
+            <!-- URL -->
+            <text x="540" y="1010" font-family="-apple-system,Helvetica Neue,Helvetica,Arial,sans-serif" font-size="36" fill="#444" text-anchor="middle">gainhub.app</text>
+
+            <!-- Progress dots -->
+            <circle cx="480" cy="1055" r="10" fill="#333"/>
+            <circle cx="516" cy="1055" r="10" fill="#333"/>
+            <circle cx="552" cy="1055" r="10" fill="#E63946"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="specs" style="margin-top:20px;">
+      <span class="spec">1080 × 1080 px × 3 slides</span>
+      <span class="spec">Hook → Solución → CTA</span>
+      <span class="spec">Dots de progreso incluidos</span>
+      <span class="spec">Consistencia de marca 100%</span>
+      <span class="spec">SVG · Escalable infinito</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- RESUMEN DEL PACK                           -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="fmt-hd">
+      <div class="fmt-hd-left">
+        <div class="fmt-num">Resumen del pack</div>
+        <div class="fmt-title">Entregables</div>
+        <div class="fmt-dims">6 archivos SVG exportables · Campaña coherente</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#E63946;margin-bottom:12px;">Formato</div>
+        <div style="font-size:14px;color:var(--tx);line-height:2;">Story 9:16<br>Feed 1:1<br>Banner 16:9<br>Carousel × 3 slides</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#E63946;margin-bottom:12px;">Plataformas</div>
+        <div style="font-size:14px;color:var(--tx);line-height:2;">Instagram<br>Facebook<br>TikTok<br>LinkedIn</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#E63946;margin-bottom:12px;">Tecnología</div>
+        <div style="font-size:14px;color:var(--tx);line-height:2;">HTML / CSS puro<br>SVG con viewBox<br>Sin dependencias<br>Exportable directamente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="ft">
+    <div class="ft-copy">GainHub Social Pack · Ulises Téllez · 2026</div>
+    <div class="ft-b">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L12.5 4V10L7 13L1.5 10V4L7 1Z" stroke="var(--ac)" stroke-width="1.4" stroke-linejoin="round"/><circle cx="7" cy="7" r="2" fill="var(--ac)"/></svg>
+      <span>Construido con <em>Claude</em> · HTML/CSS/SVG puro</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

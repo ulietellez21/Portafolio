@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brand Kit — Ulises Téllez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Pinyon+Script&family=Great+Vibes&family=Courier+Prime:wght@400;700&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0A1628;
+      --gold:   #C9A84C;
+      --gold2:  #8B6E2E;
+      --cream:  #F2EFE8;
+      --white:  #ffffff;
+      --black:  #000000;
+      --navy2:  #0D2B52;
+      --muted:  #6a7a8a;
+      --border: rgba(201,168,76,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .page-header .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .page-header .doc-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .page-header .version {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 6rem 4rem 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-lockup {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .hero-lockup svg { flex-shrink: 0; }
+    .hero-name-block { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-name {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 72px;
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+    .hero-name span { color: var(--gold); }
+    .hero-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-left: 3px;
+    }
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+      margin: 0.25rem 0;
+    }
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 480px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .hero-sub strong { color: var(--gold); font-weight: 400; }
+
+    /* ── SECTION WRAPPER ── */
+    section {
+      padding: 4rem 4rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+      line-height: 1.2;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    /* ── LOGO GRID ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .logo-card {
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .logo-card:hover { border-color: rgba(201,168,76,0.5); }
+    .logo-card-meta { text-align: center; }
+    .logo-card-meta .name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+    }
+    .logo-card-meta .desc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+    .logo-card-swatches {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .swatch {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ── LOCKUP SECTION ── */
+    .lockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .lockup-card {
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .lockup-card .lockup-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .lockup-card .lockup-name {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .lockup-card .lname {
+      font-family: 'Pinyon Script', cursive;
+      line-height: 1;
+    }
+    .lockup-card .ltitle {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .lockup-card .lockup-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── FLAT REFERENCE ── */
+    .flat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .flat-card {
+      border-radius: 12px;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid var(--border);
+    }
+    .flat-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .type-card {
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .type-tag {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .type-sample-script { font-family: 'Pinyon Script', cursive; }
+    .type-sample-great  { font-family: 'Great Vibes', cursive; }
+    .type-sample-cg     { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+    .type-sample-jost   { font-family: 'Jost', sans-serif; }
+    .type-sample-code   { font-family: 'Courier Prime', monospace; }
+    .type-meta { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .type-meta strong { color: var(--cream); font-weight: 400; }
+    .type-weights { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.5rem; }
+
+    /* ── PALETTE SWATCHES ── */
+    .palette-row {
+      display: flex;
+      gap: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      height: 64px;
+    }
+    .palette-swatch {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      padding: 6px 8px;
+      transition: flex 0.2s;
+    }
+    .palette-swatch:hover { flex: 2; }
+    .palette-swatch span {
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .palette-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .palette-table th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 0 0.75rem;
+      font-weight: 400;
+      border-bottom: 1px solid var(--border);
+    }
+    .palette-table td {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--cream);
+      vertical-align: middle;
+    }
+    .palette-table td:last-child { color: var(--muted); }
+    .color-dot {
+      display: inline-block;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── USAGE EXAMPLES ── */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .usage-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .usage-card-header {
+      padding: 0.75rem 1.25rem;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .usage-card-body {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* navbar mock */
+    .mock-nav {
+      width: 100%;
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+    .mock-nav .brand-area { display: flex; align-items: center; gap: 0.75rem; }
+    .mock-nav .brand-name { font-family: 'Pinyon Script', cursive; font-size: 22px; color: var(--cream); line-height: 1; }
+    .mock-nav .links { display: flex; gap: 1.25rem; }
+    .mock-nav .links span { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+    .mock-nav .cta {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* business card mock */
+    .mock-card {
+      width: 100%;
+      border-radius: 12px;
+      background: var(--navy);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mock-card .card-top { display: flex; align-items: center; gap: 1rem; }
+    .mock-card .card-name { font-family: 'Pinyon Script', cursive; font-size: 28px; color: var(--cream); line-height: 1; }
+    .mock-card .card-role { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .mock-card .card-line { height: 1px; background: rgba(201,168,76,0.2); }
+    .mock-card .card-contact { display: flex; flex-direction: column; gap: 0.25rem; }
+    .mock-card .card-contact span { font-size: 10px; color: var(--muted); letter-spacing: 0.04em; }
+
+    /* social mock */
+    .mock-social {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .mock-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--navy2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(201,168,76,0.4);
+      flex-shrink: 0;
+    }
+    .mock-social-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+    .mock-social-name { font-family: 'Pinyon Script', cursive; font-size: 22px; color: var(--cream); line-height: 1.1; }
+    .mock-social-handle { font-size: 11px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+    footer .foot-left { display: flex; flex-direction: column; gap: 0.25rem; }
+    footer .foot-brand { font-family: 'Pinyon Script', cursive; font-size: 28px; color: var(--gold); line-height: 1; }
+    footer .foot-note { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
+    footer .foot-right { font-size: 11px; color: var(--muted); text-align: right; line-height: 1.8; }
+
+    /* ── UTIL ── */
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.25);
+      font-weight: 400;
+    }
+    .gold { color: var(--gold); }
+
+    /* print / export hint */
+    @media print {
+      body { background: white; color: #111; }
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 1.5rem 1.5rem; }
+      section { padding: 3rem 1.5rem 2.5rem; }
+      .hero { padding: 4rem 1.5rem 3.5rem; }
+      .hero-lockup { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .hero-name { font-size: 52px; }
+      .type-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="brand">
+    <svg width="28" height="28" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+      <rect width="90" height="90" rx="18" fill="#0A1628"/>
+      <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+    </svg>
+    <span class="doc-label">Brand Kit — Ulises Téllez</span>
+  </div>
+  <span class="version">v1.0 &nbsp;·&nbsp; 2026</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-lockup">
+    <!-- Main logo: Navy + Gold -->
+    <svg width="120" height="120" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+      <rect width="90" height="90" rx="18" fill="#0A1628"/>
+      <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+    </svg>
+
+    <div class="hero-name-block">
+      <div class="hero-title">Identidad Personal</div>
+      <div class="hero-divider"></div>
+      <div class="hero-name"><span>U</span>lises <span>T</span>éllez</div>
+      <div class="hero-title">Sistemas · Diseño · Inteligencia Artificial</div>
+    </div>
+  </div>
+
+  <p class="hero-sub">
+    Este documento concentra los elementos visuales de tu marca personal.
+    Úsalo como <strong>referencia maestra</strong> para mantener coherencia
+    en todos tus proyectos — portafolio, presentaciones, tarjetas y redes sociales.
+  </p>
+
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+    <span class="tag">Double Chevron Mark</span>
+    <span class="tag">Paleta Navy · Gold · Cream</span>
+    <span class="tag">Pinyon Script</span>
+    <span class="tag">Jost</span>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 1 · LOGO MARK + PALETAS
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">01 · Logo Mark</p>
+  <h2 class="section-title">Variaciones de <em>color</em></h2>
+  <div class="logo-grid">
+
+    <!-- 1. Navy + Gold (principal) -->
+    <div class="logo-card" style="background:#0A1628;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#0A1628"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Navy + Gold <span class="gold">★</span></div>
+        <div class="desc">Versión principal · uso prioritario</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#0A1628"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#F2EFE8"></div>
+      </div>
+    </div>
+
+    <!-- 2. Crema + Navy -->
+    <div class="logo-card" style="background:#F2EFE8;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#F2EFE8"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#0A1628" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Crema + Navy</div>
+        <div class="desc">Versión día · fondos claros</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#F2EFE8;border-color:#ccc"></div>
+        <div class="swatch" style="background:#0A1628"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+      </div>
+    </div>
+
+    <!-- 3. Negro + Gold -->
+    <div class="logo-card" style="background:#000000;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#000000"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#6B5520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#6B5520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#ffffff" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Negro + Gold</div>
+        <div class="desc">Máximo lujo · impresión premium</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#000"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#fff"></div>
+      </div>
+    </div>
+
+    <!-- 4. Navy + Blanco -->
+    <div class="logo-card" style="background:#0A1628;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#0A1628"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#6b7ea0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#6b7ea0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Navy + Blanco</div>
+        <div class="desc">Limpio · formal · profesional</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#0A1628"></div>
+        <div class="swatch" style="background:#fff"></div>
+        <div class="swatch" style="background:#6b7ea0"></div>
+      </div>
+    </div>
+
+    <!-- 5. Blanco + Navy -->
+    <div class="logo-card" style="background:#f8f8f8;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#ffffff"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#b5bfcc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#b5bfcc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#0A1628" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Blanco + Navy</div>
+        <div class="desc">Ultra clean · impresión</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#fff;border-color:#ccc"></div>
+        <div class="swatch" style="background:#0A1628"></div>
+        <div class="swatch" style="background:#b5bfcc"></div>
+      </div>
+    </div>
+
+    <!-- 6. Gold sólido -->
+    <div class="logo-card" style="background:#C9A84C;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#C9A84C"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#7a5e1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#7a5e1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#0A1628" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Gold Sólido</div>
+        <div class="desc">Disruptivo · muy memorable</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#0A1628"></div>
+        <div class="swatch" style="background:#7a5e1e"></div>
+      </div>
+    </div>
+
+    <!-- 7. Gold Outline -->
+    <div class="logo-card" style="background:#111217;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#C9A84C" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Gold Outline</div>
+        <div class="desc">Transparente · fondo libre</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:transparent;border-color:#C9A84C"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#8B6E2E"></div>
+      </div>
+    </div>
+
+    <!-- 8. Blue profundo + Gold -->
+    <div class="logo-card" style="background:#0D2B52;">
+      <svg width="96" height="96" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#0D2B52"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#7a5e1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#7a5e1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+      </svg>
+      <div class="logo-card-meta">
+        <div class="name">Blue Profundo + Gold</div>
+        <div class="desc">Navy saturado · royal</div>
+      </div>
+      <div class="logo-card-swatches">
+        <div class="swatch" style="background:#0D2B52"></div>
+        <div class="swatch" style="background:#C9A84C"></div>
+        <div class="swatch" style="background:#F2EFE8"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 2 · LOGO PLANO DE REFERENCIA
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">02 · Referencia Plana</p>
+  <h2 class="section-title">Logo <em>sin color</em> · para adaptar</h2>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:2.5rem;max-width:560px;line-height:1.8;">
+    Estas versiones son tu punto de partida cuando necesitas adaptar el logo a un nuevo contexto.
+    Sin relleno ni paleta — úsalas como base para aplicar cualquier color.
+  </p>
+  <div class="flat-row">
+
+    <!-- Flat white -->
+    <div class="flat-card" style="background:#111;">
+      <svg width="80" height="80" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#ffffff" letter-spacing="2">UT</text>
+      </svg>
+      <div class="flat-label">Blanco puro<br/>sin contenedor</div>
+    </div>
+
+    <!-- Flat black (for light backgrounds) -->
+    <div class="flat-card" style="background:#F2EFE8;">
+      <svg width="80" height="80" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#111" letter-spacing="2">UT</text>
+      </svg>
+      <div class="flat-label" style="color:#0A1628;">Negro puro<br/>para fondos claros</div>
+    </div>
+
+    <!-- Flat outline only -->
+    <div class="flat-card" style="background:#0e0e16;">
+      <svg width="80" height="80" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="none" stroke="#ffffff" stroke-width="2"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#ffffff" letter-spacing="2">UT</text>
+      </svg>
+      <div class="flat-label">Outline blanco<br/>con contenedor</div>
+    </div>
+
+    <!-- Grayscale -->
+    <div class="flat-card" style="background:#2a2a2a;">
+      <svg width="80" height="80" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="18" fill="#2a2a2a"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#d0d0d0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#d0d0d0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#d0d0d0" letter-spacing="2">UT</text>
+      </svg>
+      <div class="flat-label">Escala de grises<br/>impresión B&amp;N</div>
+    </div>
+
+    <!-- Tamaños pequeños -->
+    <div class="flat-card" style="background:#0A1628;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <svg width="48" height="48" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+        </svg>
+        <svg width="28" height="28" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+        </svg>
+        <svg width="16" height="16" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="22" fill="#F2EFE8" letter-spacing="1">UT</text>
+        </svg>
+      </div>
+      <div class="flat-label">48px · 28px · 16px<br/>escalas de uso</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 3 · LOGO + NOMBRE LOCKUPS
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">03 · Lockup Logo + Nombre</p>
+  <h2 class="section-title">Combinaciones con <em>tipografía</em></h2>
+  <div class="lockup-grid">
+
+    <!-- Dark: Pinyon Script -->
+    <div class="lockup-card" style="background:#0A1628;">
+      <div class="lockup-inner">
+        <svg width="52" height="52" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+        </svg>
+        <div class="lockup-name">
+          <div class="lname" style="font-family:'Pinyon Script',cursive; font-size:36px; color:#F2EFE8; line-height:1.1;">Ulises Téllez</div>
+          <div class="ltitle" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Sistemas · IA · Diseño</div>
+        </div>
+      </div>
+      <div class="lockup-label">Pinyon Script · Versión principal</div>
+    </div>
+
+    <!-- Dark: Great Vibes -->
+    <div class="lockup-card" style="background:#0A1628;">
+      <div class="lockup-inner">
+        <svg width="52" height="52" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#0A1628"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+        </svg>
+        <div class="lockup-name">
+          <div class="lname" style="font-family:'Great Vibes',cursive; font-size:40px; color:#C9A84C; line-height:1.1;">Ulises Téllez</div>
+          <div class="ltitle" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#6a7a8a;">Sistemas · IA · Diseño</div>
+        </div>
+      </div>
+      <div class="lockup-label">Great Vibes · Acento dorado</div>
+    </div>
+
+    <!-- Light: Pinyon Script -->
+    <div class="lockup-card" style="background:#F2EFE8;">
+      <div class="lockup-inner">
+        <svg width="52" height="52" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#F2EFE8"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#0A1628" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#0A1628" letter-spacing="2">UT</text>
+        </svg>
+        <div class="lockup-name">
+          <div class="lname" style="font-family:'Pinyon Script',cursive; font-size:36px; color:#0A1628; line-height:1.1;">Ulises Téllez</div>
+          <div class="ltitle" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Sistemas · IA · Diseño</div>
+        </div>
+      </div>
+      <div class="lockup-label" style="color:#6a7a8a;">Pinyon Script · Versión clara</div>
+    </div>
+
+    <!-- Cormorant Italic -->
+    <div class="lockup-card" style="background:#000;">
+      <div class="lockup-inner">
+        <svg width="52" height="52" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+          <rect width="90" height="90" rx="18" fill="#000"/>
+          <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32 L18 45 L28 58" fill="none" stroke="#6B5520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M62 32 L72 45 L62 58" fill="none" stroke="#6B5520" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#ffffff" letter-spacing="2">UT</text>
+        </svg>
+        <div class="lockup-name">
+          <div class="lname" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:28px; color:#F2EFE8; line-height:1.1;">Ulises Téllez</div>
+          <div class="ltitle" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;">Sistemas · IA · Diseño</div>
+        </div>
+      </div>
+      <div class="lockup-label">Cormorant Garamond · Serif premium</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 4 · TIPOGRAFÍA
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">04 · Tipografía</p>
+  <h2 class="section-title">Sistema <em>tipográfico</em></h2>
+  <div class="type-grid">
+
+    <!-- Pinyon Script -->
+    <div class="type-card">
+      <div class="type-tag">Display cursiva · principal</div>
+      <div style="font-family:'Pinyon Script',cursive; font-size:52px; color:var(--cream); line-height:1.1;">Ulises Téllez</div>
+      <div style="height:1px;background:var(--border);"></div>
+      <div class="type-meta">
+        <strong>Pinyon Script</strong><br/>
+        Google Fonts · Uso: nombre, firma, hero, portada.<br/>
+        No usar para texto de cuerpo ni tamaños menores a 18px.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'Pinyon Script',cursive; font-size:20px; color:var(--cream);">Ulises Téllez — 20px</span>
+        <span style="font-family:'Pinyon Script',cursive; font-size:32px; color:var(--gold);">Ulises Téllez — 32px</span>
+        <span style="font-family:'Pinyon Script',cursive; font-size:48px; color:var(--cream); opacity:0.7;">Ulises Téllez — 48px</span>
+      </div>
+    </div>
+
+    <!-- Great Vibes -->
+    <div class="type-card">
+      <div class="type-tag">Display cursiva · alternativa</div>
+      <div style="font-family:'Great Vibes',cursive; font-size:52px; color:var(--gold); line-height:1.1;">Ulises Téllez</div>
+      <div style="height:1px;background:var(--border);"></div>
+      <div class="type-meta">
+        <strong>Great Vibes</strong><br/>
+        Google Fonts · Uso: acentos dorados, títulos de sección, tarjetas especiales.<br/>
+        Ideal cuando quieres dar protagonismo al color gold.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'Great Vibes',cursive; font-size:22px; color:var(--cream);">Ulises Téllez — 22px</span>
+        <span style="font-family:'Great Vibes',cursive; font-size:36px; color:var(--gold);">Ulises Téllez — 36px</span>
+      </div>
+    </div>
+
+    <!-- Cormorant Garamond -->
+    <div class="type-card">
+      <div class="type-tag">Serif elegante · subtítulos</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:400; font-style:italic; color:var(--cream); line-height:1.1;">Sistemas & IA</div>
+      <div style="height:1px;background:var(--border);"></div>
+      <div class="type-meta">
+        <strong>Cormorant Garamond</strong><br/>
+        Google Fonts · Uso: encabezados, subtítulos, citas.<br/>
+        Peso 300–500. La versión itálica es especialmente elegante.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:16px; color:var(--cream);">Light 300 — Diseño con criterio</span>
+        <span style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:16px; color:var(--cream);">Regular 400 — Diseño con criterio</span>
+        <span style="font-family:'Cormorant Garamond',serif; font-weight:500; font-style:italic; font-size:16px; color:var(--gold);">Medium Italic — Diseño con criterio</span>
+      </div>
+    </div>
+
+    <!-- Jost + Courier Prime -->
+    <div class="type-card">
+      <div class="type-tag">Sans-serif · monospace · cuerpo</div>
+      <div style="font-family:'Jost',sans-serif; font-size:32px; font-weight:200; color:var(--cream); line-height:1.2;">Jost — Cuerpo</div>
+      <div style="font-family:'Courier Prime',monospace; font-size:22px; color:var(--gold); margin-top:4px;">&lt;&lt; UT &gt;&gt; Logotipo</div>
+      <div style="height:1px;background:var(--border);"></div>
+      <div class="type-meta">
+        <strong>Jost</strong> · Texto de cuerpo, UI, párrafos. Peso 200–500.<br/>
+        <strong>Courier Prime</strong> · Solo para las iniciales UT dentro del logo mark.
+      </div>
+      <div class="type-weights">
+        <span style="font-family:'Jost',sans-serif; font-weight:200; font-size:14px; color:var(--muted);">Jost 200 — Texto secundario</span>
+        <span style="font-family:'Jost',sans-serif; font-weight:300; font-size:14px; color:var(--cream);">Jost 300 — Texto principal</span>
+        <span style="font-family:'Jost',sans-serif; font-weight:500; font-size:14px; color:var(--cream);">Jost 500 — Etiquetas y UI</span>
+        <span style="font-family:'Courier Prime',monospace; font-weight:700; font-size:14px; color:var(--gold);">Courier Prime 700 — Solo logo</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 5 · PALETA DE COLORES
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">05 · Paleta de Colores</p>
+  <h2 class="section-title">Colores de <em>marca</em></h2>
+
+  <!-- Palette strip -->
+  <div class="palette-row">
+    <div class="palette-swatch" style="background:#0A1628;"><span style="color:#C9A84C;">Navy</span></div>
+    <div class="palette-swatch" style="background:#0D2B52;"><span style="color:#7a9abf;">Deep Blue</span></div>
+    <div class="palette-swatch" style="background:#C9A84C;"><span style="color:#0A1628;">Gold</span></div>
+    <div class="palette-swatch" style="background:#8B6E2E;"><span style="color:#F2EFE8;">Gold Dark</span></div>
+    <div class="palette-swatch" style="background:#F2EFE8;"><span style="color:#0A1628;">Cream</span></div>
+    <div class="palette-swatch" style="background:#ffffff;border-left:1px solid #ddd;"><span style="color:#0A1628;">White</span></div>
+    <div class="palette-swatch" style="background:#000000;"><span style="color:#C9A84C;">Black</span></div>
+  </div>
+
+  <table class="palette-table">
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Hex</th>
+        <th>RGB</th>
+        <th>Uso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="color-dot" style="background:#0A1628;"></span>Navy Principal</td>
+        <td>#0A1628</td>
+        <td>10, 22, 40</td>
+        <td>Fondo primario · contenedor logo</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#0D2B52;"></span>Deep Blue</td>
+        <td>#0D2B52</td>
+        <td>13, 43, 82</td>
+        <td>Fondo alternativo · variación</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#C9A84C;"></span>Gold</td>
+        <td>#C9A84C</td>
+        <td>201, 168, 76</td>
+        <td>Acento principal · chevrons · nombre</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#8B6E2E;"></span>Gold Sombra</td>
+        <td>#8B6E2E</td>
+        <td>139, 110, 46</td>
+        <td>Chevron interno (profundidad)</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#F2EFE8; border-color:#ccc;"></span>Cream</td>
+        <td>#F2EFE8</td>
+        <td>242, 239, 232</td>
+        <td>Texto principal · fondo claro</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#ffffff; border-color:#ccc;"></span>Blanco</td>
+        <td>#FFFFFF</td>
+        <td>255, 255, 255</td>
+        <td>Texto sobre navy · uso impresión</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#000000;"></span>Negro</td>
+        <td>#000000</td>
+        <td>0, 0, 0</td>
+        <td>Fondo premium · impresión lujo</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#6a7a8a;"></span>Slate Muted</td>
+        <td>#6A7A8A</td>
+        <td>106, 122, 138</td>
+        <td>Texto secundario · subtítulos</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ──────────────────────────────────────
+     SECTION 6 · EJEMPLOS DE USO
+──────────────────────────────────────── -->
+<section>
+  <p class="section-label">06 · Ejemplos de Uso</p>
+  <h2 class="section-title">Logo en <em>contexto</em></h2>
+  <div class="usage-grid">
+
+    <!-- Navbar -->
+    <div class="usage-card">
+      <div class="usage-card-header">Navbar / Header web</div>
+      <div class="usage-card-body" style="background:#07101e;">
+        <div class="mock-nav">
+          <div class="brand-area">
+            <svg width="28" height="28" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="90" rx="18" fill="#0A1628"/>
+              <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+            </svg>
+            <span class="brand-name">Ulises Téllez</span>
+          </div>
+          <div class="links">
+            <span>Proyectos</span>
+            <span>Sobre mí</span>
+          </div>
+          <div class="cta">Contacto</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta de presentación -->
+    <div class="usage-card">
+      <div class="usage-card-header">Tarjeta de presentación</div>
+      <div class="usage-card-body" style="background:#07101e;">
+        <div class="mock-card">
+          <div class="card-top">
+            <svg width="44" height="44" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="90" rx="18" fill="#0A1628"/>
+              <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+            </svg>
+            <div>
+              <div class="card-name">Ulises Téllez</div>
+              <div class="card-role">Ingeniería de Sistemas · IA</div>
+            </div>
+          </div>
+          <div class="card-line"></div>
+          <div class="card-contact">
+            <span>ulises@dominio.com</span>
+            <span>Texcoco, México</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perfil social -->
+    <div class="usage-card">
+      <div class="usage-card-header">Avatar / Perfil social</div>
+      <div class="usage-card-body" style="background:#07101e; flex-direction:column; gap:1.5rem;">
+        <div class="mock-social">
+          <div class="mock-avatar">
+            <svg width="38" height="38" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+            </svg>
+          </div>
+          <div class="mock-social-meta">
+            <div class="mock-social-name">Ulises Téllez</div>
+            <div class="mock-social-handle">@ulises.tellez · Sistemas & IA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-left">
+    <div class="foot-brand">Ulises Téllez</div>
+    <div class="foot-note">Brand Kit v1.0 · Uso personal y comercial · 2026</div>
+  </div>
+  <div class="foot-right">
+    Paleta: #0A1628 · #C9A84C · #F2EFE8<br/>
+    Tipografía: Pinyon Script · Great Vibes · Cormorant Garamond · Jost
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de Materiales Corporativos — Ulises Téllez</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#F4F4F8;color:#0B0B10;line-height:1.6;}
+.page{max-width:920px;margin:0 auto;padding:48px 32px;}
+
+/* COVER */
+.cover{background:#0B0B10;border-radius:20px;padding:56px 48px;display:flex;align-items:center;justify-content:space-between;margin-bottom:64px;position:relative;overflow:hidden;}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 85% 30%,rgba(123,108,246,.18) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 50% at 15% 80%,rgba(0,212,170,.1) 0%,transparent 60%);
+}
+.cover-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(37,37,50,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(37,37,50,.4) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,#000 30%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,#000 30%,transparent 100%);
+}
+.cover-left{position:relative;z-index:1;}
+.cover-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#72728A;margin-bottom:18px;}
+.cover-title{font-size:40px;font-weight:700;color:#E6E6F0;letter-spacing:-.025em;line-height:1.1;margin-bottom:10px;}
+.cover-title em{color:#7B6CF6;font-style:normal;}
+.cover-sub{font-size:14px;color:#72728A;margin-bottom:28px;max-width:320px;}
+.cover-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.cover-pill{font-size:10px;font-weight:500;padding:4px 12px;border-radius:20px;background:rgba(123,108,246,.12);color:#7B6CF6;border:1px solid rgba(123,108,246,.25);letter-spacing:.03em;}
+.cover-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.cover-mono{
+  width:88px;height:88px;border-radius:22px;
+  background:linear-gradient(135deg,#7B6CF6,#5A4FD6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:700;color:#fff;letter-spacing:-.03em;
+  box-shadow:0 0 0 1px rgba(123,108,246,.4),0 20px 40px rgba(123,108,246,.25);
+}
+.cover-brand{font-size:15px;font-weight:500;color:#E6E6F0;letter-spacing:-.01em;}
+.cover-version{font-size:11px;color:#3E3E52;}
+
+/* SECTIONS */
+.section{margin-bottom:60px;}
+.section-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7B6CF6;opacity:.8;margin-bottom:4px;}
+.section-title{font-size:26px;font-weight:700;color:#0B0B10;letter-spacing:-.02em;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid #E2E2EC;}
+
+/* PALETTE */
+.palette-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.swatch-card{border-radius:14px;overflow:hidden;border:1px solid #E2E2EC;background:#fff;}
+.swatch-color{height:80px;}
+.swatch-info{padding:12px 14px;}
+.swatch-name{font-size:13px;font-weight:600;color:#0B0B10;margin-bottom:2px;}
+.swatch-hex{font-size:12px;color:#72728A;font-family:monospace;letter-spacing:.02em;}
+.swatch-desc{font-size:11px;color:#B0B0C0;margin-top:4px;}
+
+/* COMBOS */
+.combos{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.combo{display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #E2E2EC;border-radius:8px;padding:9px 14px;}
+.combo-dot{width:16px;height:16px;border-radius:4px;flex-shrink:0;}
+.combo-label{font-size:11px;color:#72728A;}
+
+/* BUSINESS CARD */
+.cards-showcase{display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap;}
+.card-wrap{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.card-label{font-size:11px;color:#72728A;letter-spacing:.06em;text-transform:uppercase;}
+.biz-card{width:300px;height:188px;border-radius:14px;position:relative;overflow:hidden;flex-shrink:0;}
+.biz-card-front{background:#0B0B10;border:1px solid #252532;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;}
+.biz-card-back{background:linear-gradient(135deg,#7B6CF6 0%,#5A4FD6 60%,#4A3FC6 100%);padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between;}
+.bc-mono{width:32px;height:32px;border-radius:8px;background:#7B6CF6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
+.bc-mono-inv{background:rgba(255,255,255,.2);}
+.bc-name{font-size:17px;font-weight:600;color:#E6E6F0;letter-spacing:-.02em;line-height:1.2;}
+.bc-title{font-size:10px;font-weight:500;color:#7B6CF6;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;}
+.bc-divider{height:1px;background:#252532;margin:10px 0;}
+.bc-info{display:flex;flex-direction:column;gap:3px;}
+.bc-info-row{font-size:9px;color:#72728A;}
+.bc-info-row span{color:#B0B0C0;}
+.bc-accent{width:48px;height:3px;border-radius:2px;background:linear-gradient(90deg,#7B6CF6,#00D4AA);}
+.bc-back-monogram{font-size:64px;font-weight:700;color:rgba(255,255,255,.12);letter-spacing:-.04em;line-height:1;position:absolute;bottom:12px;right:18px;}
+.bc-back-site{font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.03em;}
+.bc-back-tagline{font-size:11px;font-weight:500;color:rgba(255,255,255,.9);max-width:180px;line-height:1.4;}
+.bc-tl{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;}
+.card-specs{background:#fff;border:1px solid #E2E2EC;border-radius:12px;padding:16px 18px;margin-top:24px;}
+.card-specs-title{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#B0B0C0;margin-bottom:12px;}
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.spec-item{text-align:center;}
+.spec-val{font-size:14px;font-weight:600;color:#0B0B10;letter-spacing:-.01em;}
+.spec-key{font-size:10px;color:#B0B0C0;margin-top:2px;}
+
+/* LETTERHEAD */
+.letterhead-wrap{background:#fff;border:1px solid #E2E2EC;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.lh-header{background:#0B0B10;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;}
+.lh-logo{display:flex;align-items:center;gap:11px;}
+.lh-logo-mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;}
+.lh-logo-name{font-size:16px;font-weight:600;color:#E6E6F0;letter-spacing:-.01em;}
+.lh-logo-title{font-size:9px;color:#72728A;text-transform:uppercase;letter-spacing:.08em;margin-top:1px;}
+.lh-contact{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+.lh-contact-row{font-size:10px;color:#72728A;}
+.lh-accent-bar{height:3px;background:linear-gradient(90deg,#7B6CF6,#00D4AA,transparent);}
+.lh-body{padding:32px;}
+.lh-meta{display:flex;justify-content:space-between;margin-bottom:28px;align-items:flex-start;}
+.lh-date{font-size:12px;color:#72728A;}
+.lh-recipient{font-size:13px;font-weight:500;color:#0B0B10;text-align:right;}
+.lh-recipient span{display:block;font-size:11px;color:#72728A;font-weight:400;margin-top:2px;}
+.lh-heading{font-size:17px;font-weight:600;color:#0B0B10;letter-spacing:-.01em;margin-bottom:14px;}
+.lh-divider{height:1px;background:#E2E2EC;margin-bottom:20px;}
+.lh-text{font-size:13px;color:#72728A;line-height:1.75;margin-bottom:12px;}
+.lh-text strong{color:#0B0B10;font-weight:600;}
+.lh-sig-area{margin-top:28px;display:flex;align-items:flex-end;justify-content:space-between;}
+.lh-sig-block{display:flex;flex-direction:column;gap:3px;}
+.lh-sig-name{font-size:13px;font-weight:600;color:#0B0B10;}
+.lh-sig-title{font-size:11px;color:#7B6CF6;font-weight:500;}
+.lh-sig-contact{font-size:10px;color:#72728A;margin-top:2px;}
+.lh-sig-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;}
+.lh-footer{border-top:1px solid #E2E2EC;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+.lh-footer-left{font-size:10px;color:#B0B0C0;}
+.lh-footer-right{display:flex;align-items:center;gap:8px;}
+.lh-footer-dot{width:5px;height:5px;border-radius:50%;background:#7B6CF6;}
+
+/* EMAIL SIGNATURE */
+.email-client{background:#fff;border:1px solid #E2E2EC;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.email-topbar{background:#F0F0F5;border-bottom:1px solid #E2E2EC;padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.email-dot{width:10px;height:10px;border-radius:50%;}
+.email-subject-bar{background:#fff;border-bottom:1px solid #E2E2EC;padding:12px 20px;}
+.email-subject-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.email-subject-label{font-size:11px;color:#B0B0C0;width:50px;flex-shrink:0;}
+.email-subject-val{font-size:12px;color:#0B0B10;}
+.email-body-area{padding:24px 20px;display:flex;flex-direction:column;gap:10px;}
+.email-body-p{font-size:13px;color:#3E3E52;line-height:1.65;}
+.email-sig-divider{height:1px;background:#E8E8F0;margin:16px 0;}
+.email-sig{display:flex;align-items:stretch;gap:16px;}
+.email-sig-bar{width:3px;background:linear-gradient(180deg,#7B6CF6,#00D4AA);border-radius:2px;flex-shrink:0;}
+.email-sig-content{display:flex;flex-direction:column;gap:2px;}
+.email-sig-name{font-size:14px;font-weight:600;color:#0B0B10;letter-spacing:-.01em;}
+.email-sig-role{font-size:11px;font-weight:500;color:#7B6CF6;letter-spacing:.02em;}
+.email-sig-sep{font-size:11px;color:#E2E2EC;}
+.email-sig-detail{font-size:11px;color:#72728A;}
+.email-sig-links{display:flex;gap:10px;margin-top:6px;}
+.email-sig-link{font-size:10px;color:#7B6CF6;text-decoration:none;font-weight:500;}
+.email-sig-mono{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;margin-left:auto;}
+.sig-variants{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+.sig-variant-card{border-radius:12px;padding:20px;border:1px solid #E2E2EC;}
+.sig-variant-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#B0B0C0;margin-bottom:14px;}
+.sig-dark{background:#0B0B10;border-color:#252532;}
+.sig-dark .email-sig-name{color:#E6E6F0;}
+.sig-dark .email-sig-detail{color:#72728A;}
+.sig-dark .email-sig-sep{color:#252532;}
+.sig-dark .sig-variant-label{color:#3E3E52;}
+
+/* SOCIAL HEADERS */
+.social-grid{display:flex;flex-direction:column;gap:28px;}
+.social-item{background:#fff;border:1px solid #E2E2EC;border-radius:14px;overflow:hidden;}
+.social-header-label{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E2E2EC;}
+.social-platform{font-size:13px;font-weight:600;color:#0B0B10;}
+.social-dims{font-size:11px;color:#B0B0C0;font-family:monospace;}
+.social-preview{padding:16px;}
+.social-frame{border-radius:10px;overflow:hidden;position:relative;}
+
+/* LinkedIn header: 1584×396 → ratio 4:1 */
+.linkedin-header{
+  width:100%;padding-top:25%;
+  background:linear-gradient(135deg,#0B0B10 0%,#111118 50%,#17171F 100%);
+  position:relative;overflow:hidden;border-radius:10px;
+}
+/* Twitter/X header: 1500×500 → ratio 3:1 */
+.twitter-header{
+  width:100%;padding-top:33.33%;
+  background:#0B0B10;
+  position:relative;overflow:hidden;border-radius:10px;
+}
+/* Facebook cover: 820×312 → ratio 2.63:1 */
+.facebook-header{
+  width:100%;padding-top:38%;
+  background:#0B0B10;
+  position:relative;overflow:hidden;border-radius:10px;
+}
+
+.social-abs{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:5% 6%;}
+.social-bg-decor{position:absolute;inset:0;overflow:hidden;}
+.social-bg-decor::before{
+  content:'';position:absolute;
+  width:50%;padding-top:50%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(123,108,246,.2) 0%,transparent 70%);
+  right:-5%;top:-30%;
+}
+.social-bg-decor::after{
+  content:'';position:absolute;
+  width:30%;padding-top:30%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,170,.12) 0%,transparent 70%);
+  left:10%;bottom:-20%;
+}
+.social-bg-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(123,108,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(123,108,246,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.sh-left{position:relative;z-index:1;}
+.sh-tag{font-size:clamp(7px,1.2vw,11px);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#7B6CF6;margin-bottom:3%;}
+.sh-name{font-size:clamp(14px,3vw,28px);font-weight:700;color:#E6E6F0;letter-spacing:-.03em;line-height:1.1;margin-bottom:2%;}
+.sh-role{font-size:clamp(8px,1.4vw,13px);color:#72728A;line-height:1.4;}
+.sh-pills{display:flex;gap:4px;margin-top:4%;flex-wrap:wrap;}
+.sh-pill{font-size:clamp(6px,.9vw,9px);padding:2px 7px;border-radius:20px;background:rgba(123,108,246,.15);color:#7B6CF6;border:1px solid rgba(123,108,246,.25);font-weight:500;}
+.sh-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6%;}
+.sh-mono{
+  border-radius:18%;
+  background:linear-gradient(135deg,#7B6CF6,#5A4FD6);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:#fff;
+}
+.sh-tl-bar{height:2px;border-radius:1px;background:linear-gradient(90deg,#7B6CF6,#00D4AA);}
+/* Profile preview row for LinkedIn */
+.linkedin-profile-row{padding:0 16px;display:flex;align-items:flex-end;gap:12px;margin-top:-20px;position:relative;z-index:2;}
+.lp-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
+.lp-info{padding-bottom:6px;}
+.lp-name{font-size:13px;font-weight:600;color:#0B0B10;}
+.lp-title{font-size:11px;color:#72728A;margin-top:1px;}
+/* Twitter profile row */
+.twitter-profile-row{padding:0 14px;display:flex;align-items:flex-end;gap:10px;margin-top:-18px;position:relative;z-index:2;}
+.tp-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+/* Facebook profile row */
+.facebook-profile-row{padding:0 16px;display:flex;align-items:flex-end;gap:12px;margin-top:-22px;position:relative;z-index:2;}
+.fp-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;}
+
+/* USAGE */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.usage-card{border-radius:12px;padding:20px;}
+.usage-do{background:#f0fdf4;border:1px solid #bbf7d0;}
+.usage-dont{background:#fff5f5;border:1px solid #fecaca;}
+.usage-tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;}
+.usage-do .usage-tag{color:#15803d;}
+.usage-dont .usage-tag{color:#b91c1c;}
+.usage-item{font-size:13px;color:#444;margin-bottom:6px;display:flex;gap:8px;}
+
+/* FOOTER */
+.doc-footer{margin-top:64px;padding-top:24px;border-top:1px solid #E2E2EC;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.doc-footer-left{font-size:12px;color:#B0B0C0;}
+.doc-footer-right{display:flex;align-items:center;gap:10px;}
+
+@media print{
+  body{background:#fff;}
+  .page{padding:24px 20px;}
+  .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .linkedin-header,.twitter-header,.facebook-header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .biz-card-front,.biz-card-back,.lh-header,.sig-dark{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+@media(max-width:680px){
+  .page{padding:28px 16px;}
+  .cover{flex-direction:column;gap:32px;padding:36px 24px;}
+  .palette-grid{grid-template-columns:1fr 1fr;}
+  .cards-showcase{flex-direction:column;align-items:center;}
+  .biz-card{width:280px;height:175px;}
+  .specs-grid{grid-template-columns:1fr 1fr;}
+  .sig-variants{grid-template-columns:1fr;}
+  .usage-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════ COVER ══════ -->
+  <div class="cover">
+    <div class="cover-grid"></div>
+    <div class="cover-left">
+      <p class="cover-tag">Kit de Papelería Corporativa</p>
+      <h1 class="cover-title">Materiales<br><em>Corporativos</em></h1>
+      <p class="cover-sub">Identidad aplicada · Ulises Téllez Landón<br>Versión 1.0 · Abril 2026</p>
+      <div class="cover-pills">
+        <span class="cover-pill">Tarjeta de Presentación</span>
+        <span class="cover-pill">Membrete</span>
+        <span class="cover-pill">Firma de Correo</span>
+        <span class="cover-pill">Headers de Redes</span>
+      </div>
+    </div>
+    <div class="cover-right">
+      <svg width="88" height="88" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <rect width="90" height="90" rx="22" fill="#0A1628"/>
+        <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+      </svg>
+      <div style="text-align:center;">
+        <div class="cover-brand">Ulises Téllez</div>
+        <div class="cover-version">Diseñador Gráfico · IA · Dev</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 01 · PALETA ══════ -->
+  <div class="section">
+    <p class="section-label">01</p>
+    <h2 class="section-title">Sistema de color</h2>
+
+    <div class="palette-grid">
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#7B6CF6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Violeta</div>
+          <div class="swatch-hex">#7B6CF6</div>
+          <div class="swatch-desc">Color primario · acciones y acentos</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#00D4AA;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal</div>
+          <div class="swatch-hex">#00D4AA</div>
+          <div class="swatch-desc">Color secundario · disponibilidad</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#0B0B10;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Obsidiana</div>
+          <div class="swatch-hex">#0B0B10</div>
+          <div class="swatch-desc">Base oscura · fondos principales</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#E6E6F0;border-bottom:1px solid #ddd;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Nieve</div>
+          <div class="swatch-hex">#E6E6F0</div>
+          <div class="swatch-desc">Texto sobre oscuro · iconografía</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#72728A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pizarra</div>
+          <div class="swatch-hex">#72728A</div>
+          <div class="swatch-desc">Textos secundarios · labels</div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#17171F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Carbon</div>
+          <div class="swatch-hex">#17171F</div>
+          <div class="swatch-desc">Superficies · cards en modo oscuro</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="combos">
+      <div class="combo">
+        <div class="combo-dot" style="background:#7B6CF6;"></div>
+        <span style="font-size:11px;">+</span>
+        <div class="combo-dot" style="background:#fff;border:1px solid #ddd;"></div>
+        <span class="combo-label">Texto en claro</span>
+      </div>
+      <div class="combo">
+        <div class="combo-dot" style="background:#7B6CF6;"></div>
+        <span style="font-size:11px;">+</span>
+        <div class="combo-dot" style="background:#0B0B10;"></div>
+        <span class="combo-label">Acento en oscuro</span>
+      </div>
+      <div class="combo">
+        <div class="combo-dot" style="background:#0B0B10;"></div>
+        <span style="font-size:11px;">+</span>
+        <div class="combo-dot" style="background:#E6E6F0;"></div>
+        <span class="combo-label">Fondo base</span>
+      </div>
+      <div class="combo">
+        <div class="combo-dot" style="background:linear-gradient(90deg,#7B6CF6,#00D4AA);"></div>
+        <span class="combo-label">Gradiente firma</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 02 · TARJETA ══════ -->
+  <div class="section">
+    <p class="section-label">02</p>
+    <h2 class="section-title">Tarjeta de presentación</h2>
+
+    <div class="cards-showcase">
+
+      <!-- FRENTE -->
+      <div class="card-wrap">
+        <div class="card-label">Frente</div>
+        <div class="biz-card biz-card-front">
+          <!-- Decorative gradient glow -->
+          <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(123,108,246,.2) 0%,transparent 70%);pointer-events:none;"></div>
+          <!-- Top row -->
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;position:relative;z-index:1;">
+            <svg width="32" height="32" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="90" rx="18" fill="#0A1628"/>
+              <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+            </svg>
+            <div style="text-align:right;">
+              <div style="font-size:9px;color:#3E3E52;letter-spacing:.08em;text-transform:uppercase;">Diseño · IA</div>
+            </div>
+          </div>
+          <!-- Bottom -->
+          <div style="position:relative;z-index:1;">
+            <div class="bc-name">Ulises<br>Téllez Landón</div>
+            <div class="bc-title">Diseñador Gráfico · IA · Dev</div>
+            <div class="bc-divider"></div>
+            <div class="bc-info">
+              <div class="bc-info-row"><span>uliie2112@gmail.com</span></div>
+              <div class="bc-info-row"><span>github.com/ulietellez21</span></div>
+              <div class="bc-info-row">Texcoco, Estado de México</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REVERSO -->
+      <div class="card-wrap">
+        <div class="card-label">Reverso</div>
+        <div class="biz-card biz-card-back">
+          <svg width="72" height="72" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:12px;right:18px;opacity:.18;">
+            <path d="M19 27 L8 45 L19 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 32 L18 45 L28 58" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M71 27 L82 45 L71 63" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M62 32 L72 45 L62 58" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#ffffff" letter-spacing="2">UT</text>
+          </svg>
+          <div style="position:relative;z-index:1;">
+            <div class="bc-tl">Ulises Téllez</div>
+          </div>
+          <div style="position:relative;z-index:1;">
+            <div class="bc-back-tagline">Diseño que usa<br>inteligencia artificial<br>de verdad.</div>
+            <div style="margin-top:10px;">
+              <div class="bc-back-site">ulietellez21 · GitHub</div>
+            </div>
+          </div>
+          <div style="position:relative;z-index:1;">
+            <div class="sh-tl-bar" style="width:48px;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SPECS -->
+    <div class="card-specs">
+      <div class="card-specs-title">Especificaciones de impresión</div>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-val">88 × 55</div>
+          <div class="spec-key">Dimensiones (mm)</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">3 mm</div>
+          <div class="spec-key">Sangrado</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">300</div>
+          <div class="spec-key">DPI mínimo</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-val">CMYK</div>
+          <div class="spec-key">Modo de color</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 03 · MEMBRETE ══════ -->
+  <div class="section">
+    <p class="section-label">03</p>
+    <h2 class="section-title">Membrete · Letterhead</h2>
+
+    <div class="letterhead-wrap">
+      <!-- Header -->
+      <div class="lh-header">
+        <div class="lh-logo">
+          <svg width="36" height="36" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="90" rx="18" fill="#0A1628"/>
+            <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+          </svg>
+          <div>
+            <div class="lh-logo-name">Ulises Téllez Landón</div>
+            <div class="lh-logo-title">Diseñador Gráfico · IA · Dev</div>
+          </div>
+        </div>
+        <div class="lh-contact">
+          <div class="lh-contact-row">uliie2112@gmail.com</div>
+          <div class="lh-contact-row">github.com/ulietellez21</div>
+          <div class="lh-contact-row">Texcoco, Estado de México</div>
+        </div>
+      </div>
+      <div class="lh-accent-bar"></div>
+
+      <!-- Body -->
+      <div class="lh-body">
+        <div class="lh-meta">
+          <div class="lh-date">29 de abril de 2026</div>
+          <div class="lh-recipient">
+            Nombre del destinatario
+            <span>Empresa · Cargo</span>
+          </div>
+        </div>
+
+        <div class="lh-heading">Propuesta de proyecto · Identidad Visual</div>
+        <div class="lh-divider"></div>
+
+        <p class="lh-text">Estimado/a <strong>nombre</strong>, me complace presentar la propuesta de diseño para el desarrollo de su sistema de identidad visual corporativa. El proyecto contempla la creación de un sistema coherente y escalable que refleje los valores y posicionamiento de la marca.</p>
+
+        <p class="lh-text">El alcance incluye <strong>logotipo con variaciones, paleta de color, tipografía y guía de aplicación</strong>. Todos los entregables se entregarán en formatos vectoriales editables y en alta resolución, listos para producción digital e impresa.</p>
+
+        <p class="lh-text">Los tiempos estimados de entrega son de <strong>5 a 7 días hábiles</strong> desde la aprobación del brief. Se incluyen hasta dos rondas de revisiones sin costo adicional.</p>
+
+        <div class="lh-sig-area">
+          <div class="lh-sig-block">
+            <div style="font-size:11px;color:#B0B0C0;margin-bottom:6px;">Atentamente,</div>
+            <div class="lh-sig-name">Ulises Téllez Landón</div>
+            <div class="lh-sig-title">Diseñador Gráfico · IA · Dev</div>
+            <div class="lh-sig-contact">uliie2112@gmail.com</div>
+          </div>
+          <svg width="40" height="40" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <rect width="90" height="90" rx="18" fill="#0A1628"/>
+            <path d="M19 27 L8 45 L19 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 32 L18 45 L28 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M71 27 L82 45 L71 63" fill="none" stroke="#C9A84C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M62 32 L72 45 L62 58" fill="none" stroke="#8B6E2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="45" y="52" text-anchor="middle" font-family="'Courier New', monospace" font-weight="700" font-size="18" fill="#F2EFE8" letter-spacing="2">UT</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="lh-footer">
+        <div class="lh-footer-left">uliie2112@gmail.com · github.com/ulietellez21 · Texcoco, Estado de México · 2026</div>
+        <div class="lh-footer-right">
+          <div class="lh-footer-dot"></div>
+          <span style="font-size:10px;color:#B0B0C0;">Diseño & IA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs nota -->
+    <div style="margin-top:14px;background:#fff;border:1px solid #E2E2EC;border-radius:10px;padding:14px 18px;display:flex;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:10px;color:#B0B0C0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;">Formato</div>
+        <div style="font-size:13px;font-weight:500;color:#0B0B10;">A4 · 210 × 297 mm</div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:#B0B0C0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;">Márgenes</div>
+        <div style="font-size:13px;font-weight:500;color:#0B0B10;">25mm laterales · 20mm superior</div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:#B0B0C0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;">Tipografía</div>
+        <div style="font-size:13px;font-weight:500;color:#0B0B10;">Sistema operativo · 13px body</div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:#B0B0C0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;">Versión</div>
+        <div style="font-size:13px;font-weight:500;color:#0B0B10;">HTML · PDF exportable</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 04 · FIRMA DE CORREO ══════ -->
+  <div class="section">
+    <p class="section-label">04</p>
+    <h2 class="section-title">Firma de correo electrónico</h2>
+
+    <!-- Email client mockup -->
+    <div class="email-client">
+      <div class="email-topbar">
+        <div class="email-dot" style="background:#FF5F57;"></div>
+        <div class="email-dot" style="background:#FFBD2E;"></div>
+        <div class="email-dot" style="background:#28CA41;"></div>
+        <div style="flex:1;background:#E2E2EC;border-radius:4px;height:18px;margin:0 12px;"></div>
+      </div>
+      <div class="email-subject-bar">
+        <div class="email-subject-row">
+          <span class="email-subject-label">De:</span>
+          <span class="email-subject-val">Ulises Téllez &lt;uliie2112@gmail.com&gt;</span>
+        </div>
+        <div class="email-subject-row">
+          <span class="email-subject-label">Asunto:</span>
+          <span class="email-subject-val" style="font-weight:500;">Propuesta de diseño · Identidad Visual</span>
+        </div>
+      </div>
+      <div class="email-body-area">
+        <p class="email-body-p">Hola, te comparto la propuesta que mencionamos en nuestra llamada. Quedo pendiente de tus comentarios para ajustar lo que necesites.</p>
+        <p class="email-body-p">Saludos,</p>
+
+        <div class="email-sig-divider"></div>
+
+        <!-- FIRMA -->
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div class="email-sig" style="flex:1;">
+            <div class="email-sig-bar"></div>
+            <div class="email-sig-content">
+              <div class="email-sig-name">Ulises Téllez Landón</div>
+              <div class="email-sig-role">Diseñador Gráfico · IA · Dev</div>
+              <div style="height:6px;"></div>
+              <div class="email-sig-detail">uliie2112@gmail.com</div>
+              <div class="email-sig-detail">Texcoco, Estado de México · Disponible remoto</div>
+              <div class="email-sig-links">
+                <span class="email-sig-link">github.com/ulietellez21</span>
+                <span class="email-sig-sep">·</span>
+                <span class="email-sig-link">Portafolio</span>
+              </div>
+            </div>
+          </div>
+          <div class="email-sig-mono">UT</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variantes -->
+    <div class="sig-variants">
+      <!-- Claro -->
+      <div class="sig-variant-card">
+        <div class="sig-variant-label">Variante Clara</div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="display:flex;gap:10px;flex:1;">
+            <div style="width:3px;background:linear-gradient(180deg,#7B6CF6,#00D4AA);border-radius:2px;flex-shrink:0;"></div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <div style="font-size:13px;font-weight:600;color:#0B0B10;">Ulises Téllez Landón</div>
+              <div style="font-size:11px;color:#7B6CF6;font-weight:500;">Diseñador Gráfico · IA · Dev</div>
+              <div style="height:5px;"></div>
+              <div style="font-size:11px;color:#72728A;">uliie2112@gmail.com</div>
+              <div style="font-size:11px;color:#72728A;">Texcoco, Estado de México</div>
+            </div>
+          </div>
+          <div style="width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">UT</div>
+        </div>
+      </div>
+      <!-- Oscura -->
+      <div class="sig-variant-card sig-dark">
+        <div class="sig-variant-label">Variante Oscura</div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="display:flex;gap:10px;flex:1;">
+            <div style="width:3px;background:linear-gradient(180deg,#7B6CF6,#00D4AA);border-radius:2px;flex-shrink:0;"></div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <div style="font-size:13px;font-weight:600;color:#E6E6F0;">Ulises Téllez Landón</div>
+              <div style="font-size:11px;color:#7B6CF6;font-weight:500;">Diseñador Gráfico · IA · Dev</div>
+              <div style="height:5px;"></div>
+              <div style="font-size:11px;color:#72728A;">uliie2112@gmail.com</div>
+              <div style="font-size:11px;color:#72728A;">Texcoco, Estado de México</div>
+            </div>
+          </div>
+          <div style="width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">UT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ 05 · HEADERS REDES ══════ -->
+  <div class="section">
+    <p class="section-label">05</p>
+    <h2 class="section-title">Headers de redes sociales</h2>
+
+    <div class="social-grid">
+
+      <!-- LinkedIn -->
+      <div class="social-item">
+        <div class="social-header-label">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" fill="#0077B5"/><path d="M4.5 6.5v5M4.5 4.5v.01M7 6.5v5M7 9c0-1.38 1.12-2.5 2.5-2.5S12 7.62 12 9v2.5" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <span class="social-platform">LinkedIn</span>
+          </div>
+          <span class="social-dims">1584 × 396 px</span>
+        </div>
+        <div class="social-preview">
+          <!-- Header banner -->
+          <div class="linkedin-header">
+            <div class="social-bg-grid"></div>
+            <div class="social-bg-decor"></div>
+            <div class="social-abs">
+              <div class="sh-left">
+                <div class="sh-tag">Diseño Gráfico · IA</div>
+                <div class="sh-name">Ulises<br>Téllez</div>
+                <div class="sh-role">Diseñador que usa IA<br>de verdad.</div>
+                <div class="sh-pills">
+                  <span class="sh-pill">Identidad Visual</span>
+                  <span class="sh-pill">Social Media</span>
+                  <span class="sh-pill">IA + Diseño</span>
+                </div>
+              </div>
+              <div class="sh-right">
+                <div class="sh-mono" style="width:clamp(44px,7%,64px);height:clamp(44px,7%,64px);font-size:clamp(14px,2.5%,22px);">UT</div>
+                <div class="sh-tl-bar" style="width:clamp(32px,5%,52px);"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Profile row preview -->
+          <div class="linkedin-profile-row">
+            <div class="lp-avatar">UT</div>
+            <div class="lp-info">
+              <div class="lp-name">Ulises Téllez Landón</div>
+              <div class="lp-title">Diseñador Gráfico · IA · Dev — Texcoco, México</div>
+            </div>
+          </div>
+          <div style="padding:12px 16px 4px;display:flex;gap:6px;">
+            <div style="height:28px;border-radius:20px;background:#7B6CF6;padding:0 16px;display:flex;align-items:center;font-size:11px;font-weight:500;color:#fff;">Contactar</div>
+            <div style="height:28px;border-radius:20px;background:#fff;border:1px solid #E2E2EC;padding:0 16px;display:flex;align-items:center;font-size:11px;font-weight:500;color:#0B0B10;">Más opciones</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Twitter/X -->
+      <div class="social-item">
+        <div class="social-header-label">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#000"/><path d="M10.5 2.5h1.8l-4 4.6L13 13.5h-3.6L6.7 9.8 3.8 13.5H2l4.2-4.8L2.5 2.5h3.7l2.5 3.3 2.8-3.3Z" fill="#fff"/></svg>
+            <span class="social-platform">X · Twitter</span>
+          </div>
+          <span class="social-dims">1500 × 500 px</span>
+        </div>
+        <div class="social-preview">
+          <div class="twitter-header">
+            <div class="social-bg-grid"></div>
+            <div class="social-bg-decor"></div>
+            <div class="social-abs">
+              <div class="sh-left">
+                <div class="sh-tag">@ulietellez21</div>
+                <div class="sh-name" style="font-size:clamp(16px,3.5vw,32px);">Diseño<br>+ IA</div>
+                <div class="sh-role" style="font-size:clamp(9px,1.6vw,14px);">Identidades visuales · Creativos<br>Texcoco, México</div>
+              </div>
+              <div class="sh-right">
+                <div class="sh-mono" style="width:clamp(48px,8%,72px);height:clamp(48px,8%,72px);font-size:clamp(15px,2.8%,26px);">UT</div>
+                <div class="sh-tl-bar" style="width:clamp(36px,6%,60px);"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Twitter profile row -->
+          <div class="twitter-profile-row">
+            <div class="tp-avatar">UT</div>
+            <div style="padding-bottom:4px;flex:1;display:flex;justify-content:flex-end;align-items:center;padding-right:4px;">
+              <div style="height:26px;border-radius:20px;background:#0B0B10;border:1px solid #E2E2EC;padding:0 14px;display:flex;align-items:center;font-size:11px;font-weight:500;color:#0B0B10;background:#fff;">Seguir</div>
+            </div>
+          </div>
+          <div style="padding:8px 14px 4px;">
+            <div style="font-size:13px;font-weight:600;color:#0B0B10;">Ulises Téllez Landón</div>
+            <div style="font-size:12px;color:#72728A;">@ulietellez21</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook -->
+      <div class="social-item">
+        <div class="social-header-label">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="3" fill="#1877F2"/><path d="M10.5 2H9c-1.66 0-2.5.84-2.5 2.5V6H5v2h1.5v6H9V8h1.5L11 6H9V4.5c0-.56.19-1 1-1h1V2h-.5Z" fill="#fff"/></svg>
+            <span class="social-platform">Facebook</span>
+          </div>
+          <span class="social-dims">820 × 312 px</span>
+        </div>
+        <div class="social-preview">
+          <div class="facebook-header">
+            <div class="social-bg-grid"></div>
+            <div class="social-bg-decor"></div>
+            <div class="social-abs">
+              <div class="sh-left">
+                <div class="sh-tag">Portafolio Profesional</div>
+                <div class="sh-name" style="font-size:clamp(14px,3vw,28px);">Ulises Téllez<br>Landón</div>
+                <div class="sh-role" style="font-size:clamp(8px,1.5vw,13px);">Diseñador Gráfico · IA · Dev<br>Texcoco, México · Disponible</div>
+              </div>
+              <div class="sh-right">
+                <div class="sh-mono" style="width:clamp(42px,8%,68px);height:clamp(42px,8%,68px);font-size:clamp(13px,2.8%,24px);">UT</div>
+              </div>
+            </div>
+          </div>
+          <!-- Facebook profile row -->
+          <div class="facebook-profile-row">
+            <div class="fp-avatar">UT</div>
+            <div style="padding-bottom:6px;">
+              <div style="font-size:14px;font-weight:700;color:#0B0B10;">Ulises Téllez</div>
+              <div style="font-size:12px;color:#72728A;">uliie2112@gmail.com</div>
+            </div>
+          </div>
+          <div style="padding:10px 16px 4px;display:flex;gap:6px;">
+            <div style="height:28px;border-radius:6px;background:#7B6CF6;padding:0 16px;display:flex;align-items:center;font-size:11px;font-weight:500;color:#fff;">+ Agregar a amigos</div>
+            <div style="height:28px;border-radius:6px;background:#E8E8F0;padding:0 16px;display:flex;align-items:center;font-size:11px;font-weight:500;color:#0B0B10;">Mensaje</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════ 06 · USO CORRECTO ══════ -->
+  <div class="section">
+    <p class="section-label">06</p>
+    <h2 class="section-title">Reglas de aplicación</h2>
+
+    <div class="usage-grid">
+      <div class="usage-card usage-do">
+        <div class="usage-tag">✓ Correcto</div>
+        <div class="usage-item">· Usar el monograma UT en fondos oscuro, violeta o blanco</div>
+        <div class="usage-item">· Mantener el gradiente violeta→teal en la firma</div>
+        <div class="usage-item">· Respetar el área de seguridad mínima en tarjetas</div>
+        <div class="usage-item">· Usar siempre el mismo correo electrónico en todos los materiales</div>
+        <div class="usage-item">· Aplicar la barra de acento en membrete y documentos</div>
+        <div class="usage-item">· Tipografía sistema en todos los contextos digitales</div>
+      </div>
+      <div class="usage-card usage-dont">
+        <div class="usage-tag">✗ Incorrecto</div>
+        <div class="usage-item">· No usar el monograma sobre fondos de bajo contraste</div>
+        <div class="usage-item">· No cambiar la dirección del gradiente de la firma</div>
+        <div class="usage-item">· No deformar ni escalar asimétricamente el logotipo</div>
+        <div class="usage-item">· No mezclar colores fuera del sistema definido</div>
+        <div class="usage-item">· No agregar sombras, bordes o efectos al monograma</div>
+        <div class="usage-item">· No usar fuentes distintas a las del sistema operativo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ FOOTER ══════ -->
+  <div class="doc-footer">
+    <div class="doc-footer-left">
+      Kit de Materiales Corporativos v1.0 · Abril 2026<br>
+      Ulises Téllez Landón · uliie2112@gmail.com · Texcoco, Estado de México
+    </div>
+    <div class="doc-footer-right">
+      <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#7B6CF6,#5A4FD6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;">UT</div>
+      <span style="font-size:13px;font-weight:500;color:#0B0B10;">Ulises Téllez</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

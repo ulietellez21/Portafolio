@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM — Brand Guide</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#FAFAF7;color:#0A1628;line-height:1.6;}
+  .page{max-width:900px;margin:0 auto;padding:48px 32px;}
+
+  /* Cover */
+  .cover{background:#0A1628;border-radius:20px;padding:64px 48px;display:flex;align-items:center;justify-content:space-between;margin-bottom:64px;}
+  .cover-left{}
+  .cover-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2E4460;margin-bottom:16px;}
+  .cover-title{font-size:42px;font-weight:600;color:#fff;letter-spacing:.06em;margin-bottom:8px;}
+  .cover-sub{font-size:16px;color:#2E4460;}
+  .cover-logo{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .cover-logo-name{font-size:22px;font-weight:500;color:#fff;letter-spacing:.08em;}
+
+  /* Sections */
+  .section{margin-bottom:56px;}
+  .section-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:4px;}
+  .section-title{font-size:24px;font-weight:600;color:#0A1628;letter-spacing:-.01em;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #E8E6E0;}
+
+  /* Palette */
+  .palette-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .swatch-card{border-radius:12px;overflow:hidden;border:1px solid #E8E6E0;}
+  .swatch-color{height:88px;}
+  .swatch-info{padding:12px 14px;background:#fff;}
+  .swatch-name{font-size:13px;font-weight:600;color:#0A1628;margin-bottom:2px;}
+  .swatch-hex{font-size:12px;color:#888;font-family:monospace;}
+  .swatch-desc{font-size:11px;color:#aaa;margin-top:4px;}
+
+  /* Logo variations */
+  .logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .logo-card{border-radius:16px;border:1px solid #E8E6E0;overflow:hidden;background:#fff;}
+  .logo-bg{display:flex;align-items:center;justify-content:center;padding:28px 16px;}
+  .logo-info{padding:10px 14px;border-top:1px solid #F0EEE8;}
+  .logo-name{font-size:12px;font-weight:500;color:#0A1628;}
+  .logo-note{font-size:11px;color:#aaa;margin-top:2px;}
+
+  /* Wordmarks */
+  .wm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+  .wm-card{border-radius:12px;padding:28px 24px;display:flex;align-items:center;gap:16px;border:1px solid #E8E6E0;}
+  .wm-name{font-size:22px;font-weight:500;letter-spacing:.08em;}
+
+  /* Typography */
+  .type-row{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px;}
+  .type-sample{flex:1;min-width:180px;background:#fff;border:1px solid #E8E6E0;border-radius:12px;padding:20px;}
+  .type-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#aaa;margin-bottom:10px;}
+
+  /* App screens */
+  .screens-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .screen-wrap{display:flex;flex-direction:column;gap:8px;}
+  .screen-title{font-size:12px;color:#888;text-align:center;}
+  .phone-frame{border-radius:28px;overflow:hidden;border:2px solid #E8E6E0;}
+  .phone-frame-dark{border-color:#1C2E4A;}
+
+  /* Usage do/dont */
+  .usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .usage-card{border-radius:12px;padding:20px;}
+  .usage-do{background:#f0fdf4;border:1px solid #bbf7d0;}
+  .usage-dont{background:#fff5f5;border:1px solid #fecaca;}
+  .usage-tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;}
+  .usage-do .usage-tag{color:#15803d;}
+  .usage-dont .usage-tag{color:#b91c1c;}
+  .usage-item{font-size:13px;color:#444;margin-bottom:6px;display:flex;gap:8px;}
+
+  /* Footer */
+  .footer{margin-top:64px;padding-top:24px;border-top:1px solid #E8E6E0;display:flex;justify-content:space-between;align-items:center;}
+  .footer-left{font-size:12px;color:#bbb;}
+  .footer-right{display:flex;align-items:center;gap:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .page{padding:32px 24px;}
+    .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-left">
+      <p class="cover-tag">Brand Identity Guide</p>
+      <h1 class="cover-title">AURUM</h1>
+      <p class="cover-sub">Plataforma de finanzas personales<br>Versión 1.0 · Abril 2026</p>
+    </div>
+    <div class="cover-logo">
+      <!-- App icon: gold bg, dark A-mark -->
+      <svg width="80" height="80" viewBox="0 0 88 88" style="border-radius:20px;">
+        <rect width="88" height="88" fill="#C9A84C"/>
+        <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cover-logo-name">AURUM</span>
+    </div>
+  </div>
+
+  <!-- 01 · PALETA DE COLORES -->
+  <div class="section">
+    <p class="section-label">01</p>
+    <h2 class="section-title">Paleta de colores</h2>
+    <div class="palette-grid">
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#0A1628;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Midnight</div>
+          <div class="swatch-hex">#0A1628</div>
+          <div class="swatch-desc">Color principal · fondos oscuros</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#C9A84C;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold</div>
+          <div class="swatch-hex">#C9A84C</div>
+          <div class="swatch-desc">Color de acción y acento premium</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#FAFAF7;border-bottom:1px solid #eee;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ivory</div>
+          <div class="swatch-hex">#FAFAF7</div>
+          <div class="swatch-desc">Fondo principal claro</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#F2EFE8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cream</div>
+          <div class="swatch-hex">#F2EFE8</div>
+          <div class="swatch-desc">Superficies y cards en claro</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#152238;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Depth</div>
+          <div class="swatch-hex">#152238</div>
+          <div class="swatch-desc">Cards y superficies en oscuro</div>
+        </div>
+      </div>
+
+      <div class="swatch-card">
+        <div class="swatch-color" style="background:#8A8A7A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ash</div>
+          <div class="swatch-hex">#8A8A7A</div>
+          <div class="swatch-desc">Textos secundarios y labels</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Combinaciones -->
+    <div style="margin-top:24px;">
+      <p style="font-size:13px;font-weight:500;color:#0A1628;margin-bottom:12px;">Combinaciones aprobadas</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8E6E0;border-radius:8px;padding:10px 16px;">
+          <div style="width:20px;height:20px;border-radius:4px;background:#C9A84C;"></div>
+          <span style="font-size:12px;">+</span>
+          <div style="width:20px;height:20px;border-radius:4px;background:#0A1628;"></div>
+          <span style="font-size:12px;color:#666;">Logo principal</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8E6E0;border-radius:8px;padding:10px 16px;">
+          <div style="width:20px;height:20px;border-radius:4px;background:#0A1628;"></div>
+          <span style="font-size:12px;">+</span>
+          <div style="width:20px;height:20px;border-radius:4px;background:#C9A84C;"></div>
+          <span style="font-size:12px;color:#666;">Acento en oscuro</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8E6E0;border-radius:8px;padding:10px 16px;">
+          <div style="width:20px;height:20px;border-radius:4px;background:#FAFAF7;border:1px solid #ddd;"></div>
+          <span style="font-size:12px;">+</span>
+          <div style="width:20px;height:20px;border-radius:4px;background:#0A1628;"></div>
+          <span style="font-size:12px;color:#666;">Vista claro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 · LOGO -->
+  <div class="section">
+    <p class="section-label">02</p>
+    <h2 class="section-title">Logo · variaciones</h2>
+    <div class="logo-grid">
+
+      <!-- Principal: gold bg, dark mark -->
+      <div class="logo-card">
+        <div class="logo-bg" style="background:#C9A84C;">
+          <svg width="56" height="56" viewBox="0 0 88 88">
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-info">
+          <div class="logo-name">Principal</div>
+          <div class="logo-note">App icon · fondo Gold</div>
+        </div>
+      </div>
+
+      <!-- Oscuro: midnight bg, gold mark -->
+      <div class="logo-card">
+        <div class="logo-bg" style="background:#0A1628;">
+          <svg width="56" height="56" viewBox="0 0 88 88">
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#C9A84C" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#C9A84C" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-info">
+          <div class="logo-name">Oscuro</div>
+          <div class="logo-note">Fondo Midnight</div>
+        </div>
+      </div>
+
+      <!-- Claro: ivory bg, midnight mark -->
+      <div class="logo-card">
+        <div class="logo-bg" style="background:#FAFAF7;">
+          <svg width="56" height="56" viewBox="0 0 88 88">
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-info">
+          <div class="logo-name">Claro</div>
+          <div class="logo-note">Fondo Ivory</div>
+        </div>
+      </div>
+
+      <!-- Relleno: solid gold mark -->
+      <div class="logo-card">
+        <div class="logo-bg" style="background:#FAFAF7;">
+          <svg width="56" height="56" viewBox="0 0 88 88">
+            <path d="M44 14 L72 68 L16 68 Z" fill="#C9A84C" stroke="#C9A84C" stroke-width="2" stroke-linejoin="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#FAFAF7" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-info">
+          <div class="logo-name">Sólido</div>
+          <div class="logo-note">Alternativa · relleno Gold</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Escala de tamaños -->
+    <div style="margin-top:24px;background:#fff;border:1px solid #E8E6E0;border-radius:12px;padding:24px;">
+      <p style="font-size:12px;color:#888;margin-bottom:16px;">Escala de tamaños</p>
+      <div style="display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="120" height="120" viewBox="0 0 88 88" style="border-radius:28px;">
+            <rect width="88" height="88" fill="#C9A84C"/>
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size:11px;color:#aaa;">120px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="72" height="72" viewBox="0 0 88 88" style="border-radius:18px;">
+            <rect width="88" height="88" fill="#C9A84C"/>
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size:11px;color:#aaa;">72px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="44" height="44" viewBox="0 0 88 88" style="border-radius:12px;">
+            <rect width="88" height="88" fill="#C9A84C"/>
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size:11px;color:#aaa;">44px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="32" height="32" viewBox="0 0 88 88" style="border-radius:8px;">
+            <rect width="88" height="88" fill="#C9A84C"/>
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size:11px;color:#aaa;">32px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="20" height="20" viewBox="0 0 88 88" style="border-radius:5px;">
+            <rect width="88" height="88" fill="#C9A84C"/>
+            <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size:11px;color:#aaa;">Favicon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wordmarks -->
+    <div class="wm-grid">
+      <div class="wm-card" style="background:#FAFAF7;">
+        <svg width="36" height="36" viewBox="0 0 88 88" style="border-radius:10px;flex-shrink:0;">
+          <rect width="88" height="88" fill="#C9A84C"/>
+          <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+        <span class="wm-name" style="color:#0A1628;">AURUM</span>
+        <span style="font-size:11px;color:#aaa;margin-left:auto;">Uso en claro</span>
+      </div>
+      <div class="wm-card" style="background:#0A1628;border-color:#1C2E4A;">
+        <svg width="36" height="36" viewBox="0 0 88 88" style="border-radius:10px;flex-shrink:0;">
+          <rect width="88" height="88" fill="#C9A84C"/>
+          <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+        </svg>
+        <span class="wm-name" style="color:#fff;">AURUM</span>
+        <span style="font-size:11px;color:#2E4460;margin-left:auto;">Uso en oscuro</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 · USO DEL LOGO -->
+  <div class="section">
+    <p class="section-label">03</p>
+    <h2 class="section-title">Uso del logo</h2>
+    <div class="usage-grid">
+      <div class="usage-card usage-do">
+        <div class="usage-tag">✓ Correcto</div>
+        <div class="usage-item">· Logo sobre fondo Gold, Midnight o Ivory</div>
+        <div class="usage-item">· Mantener proporciones originales</div>
+        <div class="usage-item">· Espacio mínimo equivalente al alto del logomark</div>
+        <div class="usage-item">· Usar solo versiones de alto contraste</div>
+        <div class="usage-item">· Tamaño mínimo 20px en digital</div>
+      </div>
+      <div class="usage-card usage-dont">
+        <div class="usage-tag">✗ Incorrecto</div>
+        <div class="usage-item">· No usar sobre fotografías sin overlay</div>
+        <div class="usage-item">· No distorsionar ni escalar asimétricamente</div>
+        <div class="usage-item">· No cambiar el grosor del trazo del símbolo</div>
+        <div class="usage-item">· No usar colores no aprobados en el mark</div>
+        <div class="usage-item">· No añadir sombras, contornos o efectos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 · TIPOGRAFÍA -->
+  <div class="section">
+    <p class="section-label">04</p>
+    <h2 class="section-title">Tipografía</h2>
+    <div class="type-row">
+      <div class="type-sample">
+        <div class="type-label">Display · headings</div>
+        <div style="font-size:28px;font-weight:600;color:#0A1628;letter-spacing:-.02em;line-height:1.2;">Tu dinero, con intención.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:10px;">-apple-system · weight 600 · tracking -0.02em</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Body · UI text</div>
+        <div style="font-size:15px;color:#0A1628;line-height:1.6;">Gestiona tus ingresos, gastos y metas de ahorro desde un solo lugar. Visualiza tu patrimonio en tiempo real.</div>
+        <div style="font-size:12px;color:#aaa;margin-top:10px;">-apple-system · weight 400 · 15px · 1.6 leading</div>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-sample">
+        <div class="type-label">Label · caps</div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#8A8A7A;">Patrimonio total · Abril 2026</div>
+        <div style="font-size:12px;color:#aaa;margin-top:10px;">11px · uppercase · tracking 0.1em · Ash</div>
+      </div>
+      <div class="type-sample">
+        <div class="type-label">Metric · cifras destacadas</div>
+        <div style="font-size:36px;font-weight:600;color:#C9A84C;letter-spacing:-.02em;line-height:1;">$142,800</div>
+        <div style="font-size:12px;color:#aaa;margin-top:10px;">36px · weight 600 · color Gold</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 · VISTAS DE LA APP -->
+  <div class="section">
+    <p class="section-label">05</p>
+    <h2 class="section-title">Vistas de la app</h2>
+
+    <div class="screens-grid">
+
+      <!-- PANTALLA 1: RESUMEN PATRIMONIO (DARK) -->
+      <div class="screen-wrap">
+        <p class="screen-title">Inicio · Resumen de patrimonio</p>
+        <div class="phone-frame phone-frame-dark">
+          <!-- Header -->
+          <div style="background:#0A1628;border-bottom:1px solid #1C2E4A;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <svg width="28" height="28" viewBox="0 0 88 88" style="border-radius:8px;flex-shrink:0;">
+                <rect width="88" height="88" fill="#C9A84C"/>
+                <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+                <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+              <span style="font-size:14px;font-weight:500;color:#fff;letter-spacing:.04em;">AURUM</span>
+            </div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#0A1628;">CL</div>
+          </div>
+          <!-- Body -->
+          <div style="padding:14px;background:#0A1628;display:flex;flex-direction:column;gap:10px;">
+            <div>
+              <p style="font-size:12px;color:#2E4460;">Lunes 28 abril</p>
+              <p style="font-size:16px;font-weight:500;color:#fff;">Buen día, Carlos</p>
+            </div>
+            <!-- Patrimonio card -->
+            <div style="background:#152238;border-radius:12px;padding:14px;">
+              <p style="font-size:10px;color:#2E4460;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">Patrimonio total</p>
+              <p style="font-size:26px;font-weight:600;color:#C9A84C;letter-spacing:-.02em;">$142,800</p>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                <span style="font-size:11px;color:#22c55e;">▲ +2.4%</span>
+                <span style="font-size:11px;color:#2E4460;">este mes</span>
+              </div>
+            </div>
+            <!-- 4 stats -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:#152238;border-radius:10px;padding:10px 12px;"><div style="font-size:10px;color:#2E4460;margin-bottom:3px;">Ahorros</div><div style="font-size:18px;font-weight:500;color:#fff;">$38,200</div></div>
+              <div style="background:#152238;border-radius:10px;padding:10px 12px;"><div style="font-size:10px;color:#2E4460;margin-bottom:3px;">Inversiones</div><div style="font-size:18px;font-weight:500;color:#C9A84C;">$86,400</div></div>
+              <div style="background:#152238;border-radius:10px;padding:10px 12px;"><div style="font-size:10px;color:#2E4460;margin-bottom:3px;">Gastos mes</div><div style="font-size:18px;font-weight:500;color:#fff;">$8,420</div></div>
+              <div style="background:#152238;border-radius:10px;padding:10px 12px;"><div style="font-size:10px;color:#2E4460;margin-bottom:3px;">Disponible</div><div style="font-size:18px;font-weight:500;color:#22c55e;">$18,100</div></div>
+            </div>
+            <!-- Movimientos recientes -->
+            <p style="font-size:11px;color:#2E4460;letter-spacing:.06em;text-transform:uppercase;">Movimientos recientes</p>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;align-items:center;gap:8px;background:#152238;border-radius:10px;padding:8px 10px;">
+                <div style="width:30px;height:30px;border-radius:8px;background:#1E3050;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;">📺</div>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#fff;">Netflix</div><div style="font-size:10px;color:#2E4460;">Servicios · hoy</div></div>
+                <div style="font-size:12px;font-weight:500;color:#f87171;">-$199</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:#152238;border-radius:10px;padding:8px 10px;">
+                <div style="width:30px;height:30px;border-radius:8px;background:#1E3050;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;">💼</div>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#fff;">Nómina</div><div style="font-size:10px;color:#2E4460;">Ingreso · ayer</div></div>
+                <div style="font-size:12px;font-weight:500;color:#22c55e;">+$18,500</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:#152238;border-radius:10px;padding:8px 10px;">
+                <div style="width:30px;height:30px;border-radius:8px;background:#1E3050;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;">☕</div>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#fff;">Starbucks</div><div style="font-size:10px;color:#2E4460;">Comida · ayer</div></div>
+                <div style="font-size:12px;font-weight:500;color:#f87171;">-$85</div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom Nav -->
+          <div style="display:flex;background:#0A1628;border-top:1px solid #1C2E4A;padding:8px 0 10px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="8" width="3" height="6" rx="1" fill="#C9A84C"/><rect x="6.5" y="5" width="3" height="9" rx="1" fill="#C9A84C"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#C9A84C"/></svg>
+              <span style="font-size:9px;color:#C9A84C;">Inicio</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="2" fill="none" stroke="#2E4460" stroke-width="1.4"/><line x1="2" y1="7" x2="14" y2="7" stroke="#2E4460" stroke-width="1.2"/></svg>
+              <span style="font-size:9px;color:#2E4460;">Movimientos</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="none" stroke="#2E4460" stroke-width="1.4"/><path d="M8 5v3l2 1" stroke="#2E4460" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <span style="font-size:9px;color:#2E4460;">Metas</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="6" r="3" fill="none" stroke="#2E4460" stroke-width="1.4"/><path d="M2 14 Q2 10 8 10 Q14 10 14 14" fill="none" stroke="#2E4460" stroke-width="1.4"/></svg>
+              <span style="font-size:9px;color:#2E4460;">Perfil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA 2: MOVIMIENTOS (LIGHT) -->
+      <div class="screen-wrap">
+        <p class="screen-title">Movimientos · Historial</p>
+        <div class="phone-frame">
+          <!-- Header -->
+          <div style="background:#FAFAF7;border-bottom:1px solid #E8E6E0;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:14px;font-weight:600;color:#0A1628;letter-spacing:-.01em;">Movimientos</span>
+            <div style="display:flex;gap:8px;">
+              <div style="width:28px;height:28px;border-radius:8px;background:#F2EFE8;display:flex;align-items:center;justify-content:center;">
+                <svg width="14" height="14" viewBox="0 0 14 14"><line x1="2" y1="4" x2="12" y2="4" stroke="#0A1628" stroke-width="1.4" stroke-linecap="round"/><line x1="3" y1="7" x2="11" y2="7" stroke="#0A1628" stroke-width="1.4" stroke-linecap="round"/><line x1="5" y1="10" x2="9" y2="10" stroke="#0A1628" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Month summary -->
+          <div style="padding:12px 16px;background:#FAFAF7;border-bottom:1px solid #F0EEE8;">
+            <p style="font-size:11px;color:#8A8A7A;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px;">Abril 2026 · Neto</p>
+            <p style="font-size:20px;font-weight:600;color:#22c55e;letter-spacing:-.02em;">+$10,080</p>
+            <!-- Income/expense bar -->
+            <div style="display:flex;gap:4px;margin-top:8px;">
+              <div style="flex:18.5;height:4px;border-radius:2px;background:#22c55e;"></div>
+              <div style="flex:8.4;height:4px;border-radius:2px;background:#f87171;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:5px;">
+              <span style="font-size:10px;color:#22c55e;">+$18,500 ingresos</span>
+              <span style="font-size:10px;color:#f87171;">-$8,420 gastos</span>
+            </div>
+          </div>
+          <!-- Transaction list -->
+          <div style="padding:10px 14px;background:#FAFAF7;display:flex;flex-direction:column;gap:2px;">
+            <p style="font-size:10px;color:#8A8A7A;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;margin-top:2px;">Hoy</p>
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;background:#fff;border-radius:10px;border:0.5px solid #F0EEE8;">
+              <div style="width:32px;height:32px;border-radius:9px;background:#FFF7E6;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">📺</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#0A1628;">Netflix</div><div style="font-size:10px;color:#8A8A7A;">Servicios · Suscripción</div></div>
+              <div style="font-size:12px;font-weight:500;color:#f87171;">-$199</div>
+            </div>
+            <p style="font-size:10px;color:#8A8A7A;letter-spacing:.06em;text-transform:uppercase;margin:8px 0 6px;">Ayer</p>
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;background:#fff;border-radius:10px;border:0.5px solid #F0EEE8;">
+              <div style="width:32px;height:32px;border-radius:9px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">💼</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#0A1628;">Nómina Startech</div><div style="font-size:10px;color:#8A8A7A;">Ingresos · Quincena</div></div>
+              <div style="font-size:12px;font-weight:500;color:#22c55e;">+$18,500</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;background:#fff;border-radius:10px;border:0.5px solid #F0EEE8;">
+              <div style="width:32px;height:32px;border-radius:9px;background:#FFF7E6;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">🛒</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#0A1628;">Mercado Soriana</div><div style="font-size:10px;color:#8A8A7A;">Comida · Despensa</div></div>
+              <div style="font-size:12px;font-weight:500;color:#f87171;">-$642</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:9px 10px;background:#fff;border-radius:10px;border:0.5px solid #F0EEE8;">
+              <div style="width:32px;height:32px;border-radius:9px;background:#FFF7E6;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">🚗</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#0A1628;">Uber</div><div style="font-size:10px;color:#8A8A7A;">Transporte</div></div>
+              <div style="font-size:12px;font-weight:500;color:#f87171;">-$120</div>
+            </div>
+          </div>
+          <!-- Bottom Nav -->
+          <div style="display:flex;background:#FAFAF7;border-top:1px solid #E8E6E0;padding:8px 0 10px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="8" width="3" height="6" rx="1" fill="#bbb"/><rect x="6.5" y="5" width="3" height="9" rx="1" fill="#bbb"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#bbb"/></svg>
+              <span style="font-size:9px;color:#bbb;">Inicio</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="4" width="12" height="9" rx="2" fill="none" stroke="#C9A84C" stroke-width="1.4"/><line x1="2" y1="7" x2="14" y2="7" stroke="#C9A84C" stroke-width="1.2"/></svg>
+              <span style="font-size:9px;color:#C9A84C;">Movimientos</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="none" stroke="#bbb" stroke-width="1.4"/></svg>
+              <span style="font-size:9px;color:#bbb;">Metas</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+              <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="6" r="3" fill="none" stroke="#bbb" stroke-width="1.4"/><path d="M2 14 Q2 10 8 10 Q14 10 14 14" fill="none" stroke="#bbb" stroke-width="1.4"/></svg>
+              <span style="font-size:9px;color:#bbb;">Perfil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA 3: METAS (DARK) -->
+      <div class="screen-wrap" style="margin-top:24px;">
+        <p class="screen-title">Metas · Ahorro progresivo</p>
+        <div class="phone-frame phone-frame-dark">
+          <div style="background:#0A1628;border-bottom:1px solid #1C2E4A;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:14px;font-weight:600;color:#fff;letter-spacing:-.01em;">Mis metas</span>
+            <div style="background:#C9A84C;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:600;color:#0A1628;">+ Nueva</div>
+          </div>
+          <div style="padding:14px;background:#0A1628;display:flex;flex-direction:column;gap:10px;">
+            <!-- Meta 1 -->
+            <div style="background:#152238;border-radius:12px;padding:12px 14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <div>
+                  <p style="font-size:13px;font-weight:500;color:#fff;">Fondo de emergencia</p>
+                  <p style="font-size:10px;color:#2E4460;margin-top:1px;">$26,000 de $40,000</p>
+                </div>
+                <p style="font-size:18px;font-weight:600;color:#C9A84C;">65%</p>
+              </div>
+              <div style="background:#0A1628;border-radius:4px;height:5px;"><div style="background:#C9A84C;height:5px;border-radius:4px;width:65%;"></div></div>
+            </div>
+            <!-- Meta 2 -->
+            <div style="background:#152238;border-radius:12px;padding:12px 14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <div>
+                  <p style="font-size:13px;font-weight:500;color:#fff;">Viaje a Europa</p>
+                  <p style="font-size:10px;color:#2E4460;margin-top:1px;">$14,000 de $50,000</p>
+                </div>
+                <p style="font-size:18px;font-weight:600;color:#fff;">28%</p>
+              </div>
+              <div style="background:#0A1628;border-radius:4px;height:5px;"><div style="background:#C9A84C;height:5px;border-radius:4px;width:28%;"></div></div>
+            </div>
+            <!-- Meta 3 -->
+            <div style="background:#152238;border-radius:12px;padding:12px 14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <div>
+                  <p style="font-size:13px;font-weight:500;color:#fff;">Auto nuevo</p>
+                  <p style="font-size:10px;color:#2E4460;margin-top:1px;">$12,000 de $150,000</p>
+                </div>
+                <p style="font-size:18px;font-weight:600;color:#fff;">8%</p>
+              </div>
+              <div style="background:#0A1628;border-radius:4px;height:5px;"><div style="background:#C9A84C;height:5px;border-radius:4px;width:8%;"></div></div>
+            </div>
+            <!-- Sugerencia -->
+            <div style="border:1px dashed #1C2E4A;border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;gap:6px;">
+              <span style="font-size:12px;color:#2E4460;">+ Agregar nueva meta</span>
+            </div>
+            <!-- Tip card -->
+            <div style="background:#C9A84C;border-radius:12px;padding:12px 14px;">
+              <p style="font-size:11px;font-weight:600;color:#0A1628;margin-bottom:3px;">💡 Sugerencia</p>
+              <p style="font-size:11px;color:#0A1628;opacity:.8;">Ahorrando $2,400/mes alcanzarías tu fondo de emergencia en 6 semanas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANTALLA 4: GASTOS (LIGHT) -->
+      <div class="screen-wrap" style="margin-top:24px;">
+        <p class="screen-title">Gastos · Análisis por categoría</p>
+        <div class="phone-frame">
+          <div style="background:#FAFAF7;border-bottom:1px solid #E8E6E0;padding:14px 16px;">
+            <span style="font-size:14px;font-weight:600;color:#0A1628;letter-spacing:-.01em;">Gastos · Abril</span>
+          </div>
+          <div style="padding:14px;background:#FAFAF7;display:flex;flex-direction:column;gap:10px;">
+            <!-- Donut chart -->
+            <div style="background:#fff;border-radius:12px;padding:14px;display:flex;align-items:center;gap:14px;border:0.5px solid #F0EEE8;">
+              <svg width="64" height="64" viewBox="0 0 64 64" style="flex-shrink:0;">
+                <!-- Track -->
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#F2EFE8" stroke-width="8"/>
+                <!-- Comida 32% → dasharray: 32% of circumference = 0.32*163.4=52.3 -->
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#C9A84C" stroke-width="8" stroke-dasharray="52 111" stroke-dashoffset="41" stroke-linecap="round"/>
+                <!-- Transporte 18% → 29.4 -->
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#0A1628" stroke-width="8" stroke-dasharray="29 134" stroke-dashoffset="-11" stroke-linecap="round"/>
+                <!-- Servicios 12% → 19.6 -->
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#8A8A7A" stroke-width="8" stroke-dasharray="20 143" stroke-dashoffset="-40" stroke-linecap="round"/>
+                <text x="32" y="36" text-anchor="middle" font-size="11" font-weight="600" fill="#0A1628" font-family="-apple-system,sans-serif">$8,420</text>
+              </svg>
+              <div style="flex:1;">
+                <p style="font-size:12px;color:#8A8A7A;margin-bottom:3px;">Total gastado</p>
+                <p style="font-size:18px;font-weight:600;color:#0A1628;letter-spacing:-.01em;">$8,420 MXN</p>
+                <p style="font-size:11px;color:#C9A84C;margin-top:2px;">-3.2% vs marzo</p>
+              </div>
+            </div>
+            <!-- Categories -->
+            <p style="font-size:11px;color:#8A8A7A;letter-spacing:.06em;text-transform:uppercase;">Por categoría</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <!-- Comida -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:0.5px solid #F0EEE8;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                  <div style="display:flex;align-items:center;gap:7px;">
+                    <div style="width:8px;height:8px;border-radius:2px;background:#C9A84C;flex-shrink:0;"></div>
+                    <span style="font-size:12px;color:#0A1628;font-weight:500;">Comida</span>
+                  </div>
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <span style="font-size:11px;color:#8A8A7A;">32%</span>
+                    <span style="font-size:12px;font-weight:500;color:#0A1628;">$2,694</span>
+                  </div>
+                </div>
+                <div style="background:#F2EFE8;border-radius:3px;height:3px;"><div style="background:#C9A84C;height:3px;border-radius:3px;width:32%;"></div></div>
+              </div>
+              <!-- Transporte -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:0.5px solid #F0EEE8;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                  <div style="display:flex;align-items:center;gap:7px;">
+                    <div style="width:8px;height:8px;border-radius:2px;background:#0A1628;flex-shrink:0;"></div>
+                    <span style="font-size:12px;color:#0A1628;font-weight:500;">Transporte</span>
+                  </div>
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <span style="font-size:11px;color:#8A8A7A;">18%</span>
+                    <span style="font-size:12px;font-weight:500;color:#0A1628;">$1,516</span>
+                  </div>
+                </div>
+                <div style="background:#F2EFE8;border-radius:3px;height:3px;"><div style="background:#0A1628;height:3px;border-radius:3px;width:18%;"></div></div>
+              </div>
+              <!-- Servicios -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:0.5px solid #F0EEE8;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                  <div style="display:flex;align-items:center;gap:7px;">
+                    <div style="width:8px;height:8px;border-radius:2px;background:#8A8A7A;flex-shrink:0;"></div>
+                    <span style="font-size:12px;color:#0A1628;font-weight:500;">Servicios</span>
+                  </div>
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <span style="font-size:11px;color:#8A8A7A;">12%</span>
+                    <span style="font-size:12px;font-weight:500;color:#0A1628;">$1,010</span>
+                  </div>
+                </div>
+                <div style="background:#F2EFE8;border-radius:3px;height:3px;"><div style="background:#8A8A7A;height:3px;border-radius:3px;width:12%;"></div></div>
+              </div>
+              <!-- Otros -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:0.5px solid #F0EEE8;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                  <div style="display:flex;align-items:center;gap:7px;">
+                    <div style="width:8px;height:8px;border-radius:2px;background:#F2EFE8;border:1px solid #ddd;flex-shrink:0;"></div>
+                    <span style="font-size:12px;color:#0A1628;font-weight:500;">Otros</span>
+                  </div>
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <span style="font-size:11px;color:#8A8A7A;">38%</span>
+                    <span style="font-size:12px;font-weight:500;color:#0A1628;">$3,200</span>
+                  </div>
+                </div>
+                <div style="background:#F2EFE8;border-radius:3px;height:3px;"><div style="background:#ddd;height:3px;border-radius:3px;width:38%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /screens-grid -->
+  </div><!-- /section -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      AURUM Brand Guide v1.0 · Abril 2026<br>
+      Documento generado para uso interno del equipo de diseño y desarrollo
+    </div>
+    <div class="footer-right">
+      <svg width="24" height="24" viewBox="0 0 88 88" style="border-radius:7px;">
+        <rect width="88" height="88" fill="#C9A84C"/>
+        <path d="M44 14 L72 68 L16 68 Z" fill="none" stroke="#0A1628" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="29" y1="48" x2="59" y2="48" stroke="#0A1628" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+      <span style="font-size:14px;font-weight:500;color:#0A1628;letter-spacing:.04em;">AURUM</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

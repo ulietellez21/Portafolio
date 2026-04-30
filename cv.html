@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulises Téllez — Diseñador Gráfico · IA · Dev</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --green-dark:#0D3B2F;
+  --green-mid:#155E45;
+  --green-light:#1A7A58;
+  --green-accent:#19A06B;
+  --white:#FFFFFF;
+  --off-white:#F7FAF8;
+  --text:#1A1A1A;
+  --text2:#4A4A4A;
+  --text3:#7A7A7A;
+  --border:#D8EDE5;
+  --sidebar-width:36%;
+}
+
+html,body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:10.5px;
+  line-height:1.55;
+  color:var(--text);
+  background:#e8e8e8;
+}
+
+/* ── PAGE CONTAINER ── */
+.cv{
+  width:210mm;
+  min-height:297mm;
+  background:var(--white);
+  display:flex;
+  margin:0 auto;
+  box-shadow:0 4px 40px rgba(0,0,0,.25);
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--sidebar-width);
+  background:var(--green-dark);
+  display:flex;
+  flex-direction:column;
+  flex-shrink:0;
+}
+.sb-photo{
+  background:var(--green-mid);
+  padding:28px 20px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+.sb-avatar{
+  width:90px;height:90px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.25);
+  object-fit:cover;object-position:center top;
+  flex-shrink:0;
+  display:block;
+}
+.sb-name-mini{
+  font-size:13px;font-weight:700;color:#fff;letter-spacing:-.01em;text-align:center;
+}
+.sb-role-mini{
+  font-size:8.5px;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:2px;
+}
+
+.sb-body{padding:20px 18px;display:flex;flex-direction:column;gap:20px;}
+
+.sb-section-title{
+  font-size:11.5px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;
+  padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:10px;
+}
+
+/* Contact */
+.ct-list{display:flex;flex-direction:column;gap:7px;}
+.ct-item{display:flex;align-items:flex-start;gap:8px;}
+.ct-ico{width:16px;height:16px;flex-shrink:0;margin-top:1px;}
+.ct-txt{font-size:9.5px;color:rgba(255,255,255,.8);line-height:1.4;word-break:break-all;}
+
+/* Education */
+.edu-item{margin-bottom:10px;}
+.edu-school{font-size:10px;font-weight:700;color:#fff;line-height:1.3;}
+.edu-degree{font-size:9px;color:rgba(255,255,255,.7);margin-top:2px;}
+.edu-year{font-size:9px;color:var(--green-accent);margin-top:2px;font-weight:500;}
+.edu-note{font-size:8.5px;color:rgba(255,255,255,.5);margin-top:3px;font-style:italic;}
+
+/* Skills sidebar */
+.sk-list{display:flex;flex-direction:column;gap:8px;}
+.sk-item{}
+.sk-label{font-size:9.5px;color:rgba(255,255,255,.85);margin-bottom:4px;}
+.sk-bar{height:4px;background:rgba(255,255,255,.15);border-radius:2px;}
+.sk-fill{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--green-accent),#2CD68A);}
+
+/* AI Tools */
+.tools-list{display:flex;flex-wrap:wrap;gap:5px;}
+.tool-pill{
+  font-size:8.5px;font-weight:500;padding:3px 9px;border-radius:20px;
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.15);letter-spacing:.02em;
+}
+
+/* Languages */
+.lang-item{display:flex;align-items:center;justify-content:space-between;padding:4px 0;}
+.lang-name{font-size:9.5px;color:rgba(255,255,255,.85);}
+.lang-level{font-size:8px;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(26,122,88,.4);color:var(--green-accent);border:1px solid rgba(26,122,88,.5);letter-spacing:.04em;}
+
+/* ── MAIN ── */
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Header */
+.main-header{
+  background:var(--off-white);
+  padding:28px 26px 22px;
+  border-bottom:3px solid var(--green-dark);
+  position:relative;
+  overflow:hidden;
+}
+.main-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green-dark),var(--green-light),var(--green-accent));
+}
+.h-tag{font-size:8.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-accent);margin-bottom:6px;}
+.h-name{font-size:28px;font-weight:700;color:var(--green-dark);letter-spacing:-.025em;line-height:1.05;margin-bottom:4px;}
+.h-title{font-size:12px;font-weight:500;color:var(--green-mid);letter-spacing:.02em;margin-bottom:14px;}
+.h-divider{height:1.5px;background:linear-gradient(90deg,var(--green-dark),transparent);margin-bottom:12px;width:80%;}
+.h-summary{font-size:9.5px;color:var(--text2);line-height:1.7;max-width:380px;}
+
+/* Main body */
+.main-body{padding:18px 26px;display:flex;flex-direction:column;gap:18px;flex:1;}
+
+/* Section */
+.m-section{}
+.m-sec-title{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white);
+  background:var(--green-dark);padding:5px 12px;border-radius:4px;margin-bottom:12px;
+  display:inline-block;
+}
+
+/* Projects */
+.proj-list{display:flex;flex-direction:column;gap:11px;}
+.proj-item{border-left:2.5px solid var(--green-accent);padding-left:10px;}
+.proj-header{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:2px;}
+.proj-name{font-size:10px;font-weight:700;color:var(--green-dark);}
+.proj-year{font-size:8.5px;color:var(--text3);white-space:nowrap;}
+.proj-type{font-size:8.5px;font-weight:500;color:var(--green-light);margin-bottom:3px;}
+.proj-desc{font-size:9px;color:var(--text2);line-height:1.6;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}
+.proj-tag{font-size:8px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--border);color:var(--green-mid);}
+
+/* Experience */
+.exp-list{display:flex;flex-direction:column;gap:12px;}
+.exp-item{}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:1px;}
+.exp-company{font-size:10px;font-weight:700;color:var(--green-dark);}
+.exp-date{font-size:8.5px;color:var(--text3);white-space:nowrap;}
+.exp-role{font-size:9px;font-weight:500;color:var(--green-light);margin-bottom:4px;}
+.exp-bullets{padding-left:12px;display:flex;flex-direction:column;gap:2px;}
+.exp-bullets li{font-size:9px;color:var(--text2);line-height:1.55;}
+
+/* Skills main */
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.sk-group{}
+.sk-group-title{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;}
+.sk-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.sk-chip{
+  font-size:8.5px;font-weight:500;padding:3px 9px;border-radius:4px;
+  background:var(--off-white);color:var(--text2);border:1px solid var(--border);
+}
+.sk-chip.accent{background:var(--border);color:var(--green-mid);border-color:rgba(26,122,88,.25);}
+
+/* Footer */
+.cv-footer{
+  border-top:1px solid var(--border);padding:10px 26px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.cv-footer-left{font-size:8px;color:var(--text3);}
+.cv-footer-right{display:flex;align-items:center;gap:6px;}
+.cv-footer-dot{width:6px;height:6px;border-radius:50%;background:var(--green-accent);}
+
+/* ── PRINT ── */
+@media print{
+  html,body{background:#fff;}
+  .cv{
+    width:100%;
+    box-shadow:none;
+    margin:0;
+    min-height:auto;
+  }
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+@page{
+  size:A4;
+  margin:0;
+}
+
+/* ── SCREEN WRAPPER ── */
+@media screen{
+  body{padding:24px 0 48px;}
+  .cv{margin:0 auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- ══ SIDEBAR ══ -->
+  <div class="sidebar">
+
+    <!-- Foto + nombre -->
+    <div class="sb-photo">
+      <img class="sb-avatar" src="IMG/PERFIL.jpeg" alt="Ulises Téllez">
+      <div>
+        <div class="sb-name-mini">Ulises Téllez L.</div>
+        <div class="sb-role-mini">Diseñador Gráfico · IA · Dev</div>
+      </div>
+    </div>
+
+    <div class="sb-body">
+
+      <!-- Contacto -->
+      <div>
+        <div class="sb-section-title">Contacto</div>
+        <div class="ct-list">
+          <div class="ct-item">
+            <svg class="ct-ico" viewBox="0 0 16 16" fill="none">
+              <path d="M3 4h10a1 1 0 011 1v6a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <path d="M2 5l6 4 6-4" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="ct-txt">uliie2112@gmail.com</span>
+          </div>
+          <div class="ct-item">
+            <svg class="ct-ico" viewBox="0 0 16 16" fill="none">
+              <path d="M4 2.5h8a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1v-9a1 1 0 011-1z" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <path d="M6 6h4M6 8.5h4M6 11h2" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="ct-txt">56-3278-4029</span>
+          </div>
+          <div class="ct-item">
+            <svg class="ct-ico" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2C5.24 2 3 4.24 3 7c0 4 5 9 5 9s5-5 5-9c0-2.76-2.24-5-5-5z" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <circle cx="8" cy="7" r="1.5" fill="rgba(255,255,255,.5)"/>
+            </svg>
+            <span class="ct-txt">Texcoco, Estado de México</span>
+          </div>
+          <div class="ct-item">
+            <svg class="ct-ico" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.29-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.52.71 1.89.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.29.67-1.74-.07-.16-.29-.82.06-1.72 0 0 .55-.18 1.79.67a6.2 6.2 0 013.26 0c1.24-.85 1.79-.67 1.79-.67.35.9.13 1.56.06 1.72.42.45.67 1.03.67 1.74 0 2.49-1.52 3.04-2.96 3.2.23.2.44.59.44 1.19v1.77c0 .17.12.37.44.31A6.51 6.51 0 0014.5 8c0-3.59-2.91-6.5-6.5-6.5z" fill="rgba(255,255,255,.5)"/>
+            </svg>
+            <span class="ct-txt">github.com/ulietellez21</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Educación -->
+      <div>
+        <div class="sb-section-title">Educación</div>
+        <div class="edu-item">
+          <div class="edu-school">Universidad Liceo<br>Pedro de Gante</div>
+          <div class="edu-degree">Ing. Sistemas Computacionales</div>
+          <div class="edu-year">2022 – 2025</div>
+          <div class="edu-note">Estudios concluidos · en proceso de titulación</div>
+        </div>
+      </div>
+
+      <!-- Skills técnicos -->
+      <div>
+        <div class="sb-section-title">Habilidades Técnicas</div>
+        <div class="sk-list">
+          <div class="sk-item">
+            <div class="sk-label">HTML · CSS · SVG</div>
+            <div class="sk-bar"><div class="sk-fill" style="width:92%;"></div></div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-label">Identidad Visual</div>
+            <div class="sk-bar"><div class="sk-fill" style="width:88%;"></div></div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-label">Social Media Design</div>
+            <div class="sk-bar"><div class="sk-fill" style="width:85%;"></div></div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-label">JavaScript · Python</div>
+            <div class="sk-bar"><div class="sk-fill" style="width:75%;"></div></div>
+          </div>
+          <div class="sk-item">
+            <div class="sk-label">Bases de datos · SQL</div>
+            <div class="sk-bar"><div class="sk-fill" style="width:70%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Herramientas IA -->
+      <div>
+        <div class="sb-section-title">Herramientas IA</div>
+        <div class="tools-list">
+          <span class="tool-pill">Claude</span>
+          <span class="tool-pill">GPT-4o</span>
+          <span class="tool-pill">Gemini</span>
+          <span class="tool-pill">Midjourney</span>
+          <span class="tool-pill">DALL·E 3</span>
+          <span class="tool-pill">Runway</span>
+          <span class="tool-pill">VS Code</span>
+          <span class="tool-pill">Canva</span>
+        </div>
+      </div>
+
+      <!-- Idiomas -->
+      <div>
+        <div class="sb-section-title">Idiomas</div>
+        <div>
+          <div class="lang-item" style="border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:6px;margin-bottom:6px;">
+            <span class="lang-name">Español</span>
+            <span class="lang-level">Nativo</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Inglés</span>
+            <span class="lang-level">B1 Intermedio</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ MAIN ══ -->
+  <div class="main">
+
+    <!-- Header -->
+    <div class="main-header">
+      <div class="h-tag">Portafolio · Diseño + IA</div>
+      <div class="h-name">Ulises Téllez L.</div>
+      <div class="h-title">Diseñador Gráfico · IA · Dev</div>
+      <div class="h-divider"></div>
+      <p class="h-summary">Diseñador gráfico con base técnica en desarrollo de software, especializado en identidad visual, creativos para redes y materiales corporativos asistidos con inteligencia artificial. Genero, itero y refino sistemas de diseño completos combinando criterio editorial con herramientas como Claude, Midjourney y GPT-4o. Todo mi trabajo es entregable en HTML/CSS/SVG puro — sin dependencias, sin build tools.</p>
+    </div>
+
+    <div class="main-body">
+
+      <!-- Portafolio -->
+      <div class="m-section">
+        <div class="m-sec-title">Portafolio de Proyectos</div>
+        <div class="proj-list">
+
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="proj-name">GainHub — Brand Guide</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <div class="proj-type">Identidad Visual completa · Plataforma fitness</div>
+            <div class="proj-desc">Sistema de identidad para plataforma de coaches de gym: logo SVG con 4 variaciones, paleta de 6 colores, sistema tipográfico y 4 mockups de pantallas app (light + dark mode).</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Brand Identity</span>
+              <span class="proj-tag">Logo Design</span>
+              <span class="proj-tag">UI Mockups</span>
+              <span class="proj-tag">SVG</span>
+              <span class="proj-tag">Dark Mode</span>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="proj-name">Pack de Creativos para Redes — GainHub</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <div class="proj-type">Social Media · Campaña multi-plataforma</div>
+            <div class="proj-desc">Campaña completa: Story 9:16, Feed 1:1, Banner 16:9 y Carrusel de 3 slides. Sistema coherente aplicado a Instagram, Facebook, TikTok y LinkedIn — 100% SVG.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Social Ads</span>
+              <span class="proj-tag">Instagram</span>
+              <span class="proj-tag">TikTok</span>
+              <span class="proj-tag">Facebook</span>
+              <span class="proj-tag">LinkedIn</span>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-header">
+              <span class="proj-name">Kit de Materiales Corporativos</span>
+              <span class="proj-year">2026</span>
+            </div>
+            <div class="proj-type">Papelería corporativa · Sistema de identidad aplicada</div>
+            <div class="proj-desc">Kit completo: tarjeta de presentación (frente y reverso), membrete A4, firma de correo electrónico (2 variantes) y headers para LinkedIn, Twitter/X y Facebook.</div>
+            <div class="proj-tags">
+              <span class="proj-tag">Papelería</span>
+              <span class="proj-tag">Branding</span>
+              <span class="proj-tag">Email Signature</span>
+              <span class="proj-tag">Headers RRSS</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Experiencia Laboral -->
+      <div class="m-section">
+        <div class="m-sec-title">Experiencia Laboral</div>
+        <div class="exp-list">
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Net Connect</span>
+              <span class="exp-date">Mayo 2025 – Actualmente</span>
+            </div>
+            <div class="exp-role">Técnico en Soluciones</div>
+            <ul class="exp-bullets">
+              <li>Capacitación y acompañamiento al cliente en herramientas digitales</li>
+              <li>Soporte técnico y diagnóstico de sistemas y redes</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">CBT No.2 Texcoco (15ECTO131A)</span>
+              <span class="exp-date">2024 — Servicio Social</span>
+            </div>
+            <div class="exp-role">Soporte TI · Redes · Software</div>
+            <ul class="exp-bullets">
+              <li>Mantenimiento y soporte a equipos de cómputo institucionales</li>
+              <li>Administración y reparación de red interna</li>
+              <li>Instalación de software educativo y de gestión</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-company">Soluciones Texcoco S.A. de C.V.</span>
+              <span class="exp-date">2023</span>
+            </div>
+            <div class="exp-role">Técnico en Instalación</div>
+            <ul class="exp-bullets">
+              <li>Instalación y configuración de sistemas de seguridad (CCTV)</li>
+              <li>Diagnósticos y soluciones técnicas para clientes</li>
+              <li>Ensamblaje y mantenimiento de hardware</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Skills complementarios -->
+      <div class="m-section">
+        <div class="m-sec-title">Competencias de Diseño</div>
+        <div class="skills-cols">
+          <div class="sk-group">
+            <div class="sk-group-title">Diseño &amp; Branding</div>
+            <div class="sk-chips">
+              <span class="sk-chip accent">Identidad Visual</span>
+              <span class="sk-chip accent">Brand Guide</span>
+              <span class="sk-chip accent">Social Media</span>
+              <span class="sk-chip accent">Papelería</span>
+              <span class="sk-chip accent">UI Mockups</span>
+              <span class="sk-chip accent">Tipografía</span>
+            </div>
+          </div>
+          <div class="sk-group">
+            <div class="sk-group-title">Tecnología &amp; Código</div>
+            <div class="sk-chips">
+              <span class="sk-chip">HTML · CSS · SVG</span>
+              <span class="sk-chip">JavaScript</span>
+              <span class="sk-chip">Python</span>
+              <span class="sk-chip">SQL</span>
+              <span class="sk-chip">APIs REST</span>
+              <span class="sk-chip">n8n</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="cv-footer">
+      <div class="cv-footer-left">Ulises Téllez Landón · uliie2112@gmail.com · Texcoco, México · 2026</div>
+      <div class="cv-footer-right">
+        <div class="cv-footer-dot"></div>
+        <span style="font-size:8px;color:#7A7A7A;">Diseño Gráfico · IA · Dev</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
