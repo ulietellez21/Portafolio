@@ -11,7 +11,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
     :root{
-      --midnight:#0D0D0D;
+      --midnight:#121212;
       --surface:#1A1A1A;
       --green:#1DB954;
       --green-d:#158a3e;
@@ -49,11 +49,13 @@
     }
     .cover-left{position:relative;z-index:1;flex:1;}
     .cover-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:1.1rem;}
-    .cover-title{font-family:'Playfair Display',serif;font-size:64px;font-weight:700;color:#fff;line-height:.95;letter-spacing:-.02em;margin-bottom:.5rem;}
+    .cover-title{font-family:'DM Sans',sans-serif;font-size:64px;font-weight:700;color:#fff;line-height:.95;letter-spacing:-.04em;margin-bottom:.5rem;}
     .cover-concept{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;color:var(--green);margin-bottom:1.75rem;}
     .cover-sub{font-size:13px;color:#4a4a4a;line-height:1.75;}
-    .cover-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
-    .cover-logo-name{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#3a3a3a;font-weight:500;}
+    .cover-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.25rem;flex-shrink:0;}
+    .cover-right-row{display:flex;align-items:center;gap:1.5rem;}
+    .cover-divider{width:1px;height:60px;background:rgba(255,255,255,.08);}
+    .cover-logo-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#333;font-weight:500;text-align:center;}
 
     /* SECTION */
     .section{padding:3.5rem;border-bottom:1px solid #f0ede8;}
@@ -83,6 +85,12 @@
     .logo-info{padding:10px 14px;border-top:1px solid #f5f5f5;}
     .logo-name{font-size:12px;font-weight:500;color:var(--midnight);}
     .logo-note{font-size:11px;color:var(--muted);margin-top:2px;}
+
+    /* REFERENCE BLOCK */
+    .ref-block{background:#f8f8f8;border:1px solid #eee;border-radius:14px;padding:1.5rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:2rem;}
+    .ref-block-text{flex:1;}
+    .ref-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:.4rem;}
+    .ref-note{font-size:12px;color:#555;line-height:1.65;}
 
     /* LOCKUP */
     .lockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
@@ -154,20 +162,34 @@
     </p>
   </div>
   <div class="cover-right">
-    <svg width="148" height="148" viewBox="0 0 88 88">
-      <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
-      <circle cx="44" cy="44" r="39" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.18"/>
-      <circle cx="44" cy="44" r="35.5" fill="none" stroke="#1DB954" stroke-width="0.6" opacity="0.25"/>
-      <circle cx="44" cy="44" r="32" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.33"/>
-      <circle cx="44" cy="44" r="28.5" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.42"/>
-      <circle cx="44" cy="44" r="25" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.52"/>
-      <circle cx="44" cy="44" r="21.5" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.63"/>
-      <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.76"/>
-      <circle cx="44" cy="44" r="14.5" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.9"/>
-      <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-      <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
-    </svg>
-    <span class="cover-logo-name">Frequencies</span>
+    <div class="cover-right-row">
+      <!-- Logo original Spotify -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;">
+        <svg width="72" height="72" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="8" fill="white"/>
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288" fill="#1DB954" fill-rule="evenodd"/>
+        </svg>
+        <span class="cover-logo-label">Logo original</span>
+      </div>
+      <div class="cover-divider"></div>
+      <!-- Mark Frequencies (concepto) -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.5rem;">
+        <svg width="72" height="72" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.18"/>
+          <circle cx="44" cy="44" r="35.5" fill="none" stroke="#1DB954" stroke-width="0.6" opacity="0.25"/>
+          <circle cx="44" cy="44" r="32" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.33"/>
+          <circle cx="44" cy="44" r="28.5" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.42"/>
+          <circle cx="44" cy="44" r="25" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.52"/>
+          <circle cx="44" cy="44" r="21.5" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.63"/>
+          <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.76"/>
+          <circle cx="44" cy="44" r="14.5" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.9"/>
+          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
+        </svg>
+        <span class="cover-logo-label">Frequencies mark</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -176,29 +198,29 @@
 <div class="section">
   <p class="section-label">01 · Color System</p>
   <h2 class="section-title">Una paleta para <em>cada escucha</em></h2>
-  <p class="section-sub">El sistema amplía el verde Spotify hacia un universo de tonos que representan géneros y estados emocionales. Cada color tiene su propia frecuencia.</p>
+  <p class="section-sub">El sistema parte del verde Spotify (#1DB954) y del negro característico (#121212) — los dos colores inamovibles de la marca. A partir de ellos, se expande hacia un universo de tonos que representan géneros y estados emocionales.</p>
 
   <div class="palette-strip">
-    <div class="p-sw" style="background:#0D0D0D;flex:1.6;"><span style="color:#1DB954;">Midnight</span></div>
+    <div class="p-sw" style="background:#121212;flex:1.6;"><span style="color:#1DB954;">Spotify Black</span></div>
     <div class="p-sw" style="background:#1A1A1A;"><span style="color:#3a3a3a;">Surface</span></div>
-    <div class="p-sw" style="background:#1DB954;flex:1.4;"><span style="color:#0D0D0D;">Green</span></div>
+    <div class="p-sw" style="background:#1DB954;flex:1.4;"><span style="color:#121212;">Spotify Green</span></div>
     <div class="p-sw" style="background:#F5F0E8;border-left:1px solid #ddd;"><span style="color:#888;">Warm Wax</span></div>
   </div>
 
   <div class="genre-strip">
-    <div class="genre-pill" style="background:#FF6B6B;"><span style="color:#0D0D0D;">Pop</span></div>
-    <div class="genre-pill" style="background:#00C3FF;"><span style="color:#0D0D0D;">Electronic</span></div>
-    <div class="genre-pill" style="background:#FFB347;"><span style="color:#0D0D0D;">Hip-Hop</span></div>
-    <div class="genre-pill" style="background:#B39DDB;"><span style="color:#0D0D0D;">Indie</span></div>
+    <div class="genre-pill" style="background:#FF6B6B;"><span style="color:#121212;">Pop</span></div>
+    <div class="genre-pill" style="background:#00C3FF;"><span style="color:#121212;">Electronic</span></div>
+    <div class="genre-pill" style="background:#FFB347;"><span style="color:#121212;">Hip-Hop</span></div>
+    <div class="genre-pill" style="background:#B39DDB;"><span style="color:#121212;">Indie</span></div>
     <div class="genre-pill" style="background:#8D6E63;"><span style="color:#F5F0E8;">Jazz</span></div>
   </div>
 
   <table class="palette-table">
     <thead><tr><th>Color</th><th>Hex</th><th>RGB</th><th>Uso</th></tr></thead>
     <tbody>
-      <tr><td><span class="c-dot" style="background:#0D0D0D;"></span>Midnight</td><td>#0D0D0D</td><td>13, 13, 13</td><td>Fondo principal · contenedor logo</td></tr>
+      <tr><td><span class="c-dot" style="background:#121212;"></span>Spotify Black</td><td>#121212</td><td>18, 18, 18</td><td>Fondo principal · color base de marca</td></tr>
       <tr><td><span class="c-dot" style="background:#1A1A1A;"></span>Surface</td><td>#1A1A1A</td><td>26, 26, 26</td><td>Tarjetas · superficies secundarias</td></tr>
-      <tr><td><span class="c-dot" style="background:#1DB954;"></span>Spotify Green</td><td>#1DB954</td><td>29, 185, 84</td><td>Acento principal · label del vinilo · acciones</td></tr>
+      <tr><td><span class="c-dot" style="background:#1DB954;"></span>Spotify Green</td><td>#1DB954</td><td>29, 185, 84</td><td>Acento principal · acciones · CTA</td></tr>
       <tr><td><span class="c-dot" style="background:#F5F0E8;border-color:#ccc;"></span>Warm Wax</td><td>#F5F0E8</td><td>245, 240, 232</td><td>Texto claro · fondos cálidos · versión día</td></tr>
       <tr><td><span class="c-dot" style="background:#FF6B6B;"></span>Pop</td><td>#FF6B6B</td><td>255, 107, 107</td><td>Género Pop · campañas de energía</td></tr>
       <tr><td><span class="c-dot" style="background:#00C3FF;"></span>Electronic</td><td>#00C3FF</td><td>0, 195, 255</td><td>Género Electronic · clubes · noches</td></tr>
@@ -212,16 +234,30 @@
 <!-- 02 · LOGO MARK -->
 <div class="section">
   <p class="section-label">02 · Logo Mark</p>
-  <h2 class="section-title">El <em>surco</em> como símbolo</h2>
-  <p class="section-sub">El mark retoma los surcos concéntricos del vinilo — el momento físico donde el sonido está inscrito. En el centro, el play: la aguja que despierta la música.</p>
+  <h2 class="section-title">Del logo original al <em>concepto</em></h2>
+  <p class="section-sub">El logo oficial de Spotify — tres arcos de onda de sonido — es el punto de partida inamovible. El concepto Frequencies introduce el mark del vinilo como extensión creativa de campaña: el surco donde el sonido está inscrito, el play que lo despierta.</p>
+
+  <!-- Referencia al logo original -->
+  <div class="ref-block">
+    <svg width="56" height="56" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="8" fill="white"/>
+      <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288" fill="#1DB954" fill-rule="evenodd"/>
+    </svg>
+    <div class="ref-block-text">
+      <div class="ref-label">Logo oficial Spotify · Referencia de marca</div>
+      <div class="ref-note">Los tres arcos representan ondas de sonido irradiando desde la fuente. Este mark no se altera — es la identidad central de la marca en cualquier aplicación. El concepto Frequencies convive con él, sin reemplazarlo.</div>
+    </div>
+  </div>
+
+  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:1rem;">Frequencies Mark · Variaciones de concepto</div>
 
   <div class="logo-grid">
 
     <!-- 1. Principal dark -->
     <div class="logo-card">
-      <div class="logo-bg" style="background:#0D0D0D;">
+      <div class="logo-bg" style="background:#121212;">
         <svg width="80" height="80" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="39" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.2"/>
           <circle cx="44" cy="44" r="35" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.3"/>
           <circle cx="44" cy="44" r="31" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.4"/>
@@ -230,10 +266,10 @@
           <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.8"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#1DB954" stroke-width="1.1" opacity="0.93"/>
           <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
       </div>
-      <div class="logo-info"><div class="logo-name">Principal ★</div><div class="logo-note">Midnight · uso prioritario</div></div>
+      <div class="logo-info"><div class="logo-name">Principal ★</div><div class="logo-note">Spotify Black · uso prioritario</div></div>
     </div>
 
     <!-- 2. Warm Wax -->
@@ -241,10 +277,10 @@
       <div class="logo-bg" style="background:#F5F0E8;">
         <svg width="80" height="80" viewBox="0 0 88 88">
           <circle cx="44" cy="44" r="43" fill="#F5F0E8"/>
-          <circle cx="44" cy="44" r="39" fill="none" stroke="#0D0D0D" stroke-width="0.65" opacity="0.12"/>
-          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
-          <circle cx="44" cy="44" r="31" fill="none" stroke="#0D0D0D" stroke-width="0.75" opacity="0.3"/>
-          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.4"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#121212" stroke-width="0.65" opacity="0.12"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#121212" stroke-width="0.7" opacity="0.2"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#121212" stroke-width="0.75" opacity="0.3"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#121212" stroke-width="0.8" opacity="0.4"/>
           <circle cx="44" cy="44" r="23" fill="none" stroke="#1DB954" stroke-width="0.85" opacity="0.55"/>
           <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.72"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#1DB954" stroke-width="1.1" opacity="0.9"/>
@@ -260,14 +296,14 @@
       <div class="logo-bg" style="background:#1DB954;">
         <svg width="80" height="80" viewBox="0 0 88 88">
           <circle cx="44" cy="44" r="43" fill="#1DB954"/>
-          <circle cx="44" cy="44" r="39" fill="none" stroke="#0D0D0D" stroke-width="0.65" opacity="0.12"/>
-          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
-          <circle cx="44" cy="44" r="31" fill="none" stroke="#0D0D0D" stroke-width="0.75" opacity="0.28"/>
-          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.38"/>
-          <circle cx="44" cy="44" r="23" fill="none" stroke="#0D0D0D" stroke-width="0.85" opacity="0.5"/>
-          <circle cx="44" cy="44" r="19" fill="none" stroke="#0D0D0D" stroke-width="0.95" opacity="0.64"/>
-          <circle cx="44" cy="44" r="15" fill="none" stroke="#0D0D0D" stroke-width="1.1" opacity="0.8"/>
-          <circle cx="44" cy="44" r="10" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="39" fill="none" stroke="#121212" stroke-width="0.65" opacity="0.12"/>
+          <circle cx="44" cy="44" r="35" fill="none" stroke="#121212" stroke-width="0.7" opacity="0.2"/>
+          <circle cx="44" cy="44" r="31" fill="none" stroke="#121212" stroke-width="0.75" opacity="0.28"/>
+          <circle cx="44" cy="44" r="27" fill="none" stroke="#121212" stroke-width="0.8" opacity="0.38"/>
+          <circle cx="44" cy="44" r="23" fill="none" stroke="#121212" stroke-width="0.85" opacity="0.5"/>
+          <circle cx="44" cy="44" r="19" fill="none" stroke="#121212" stroke-width="0.95" opacity="0.64"/>
+          <circle cx="44" cy="44" r="15" fill="none" stroke="#121212" stroke-width="1.1" opacity="0.8"/>
+          <circle cx="44" cy="44" r="10" fill="#121212"/>
           <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#1DB954"/>
         </svg>
       </div>
@@ -312,9 +348,9 @@
 
     <!-- 6. Pop coral -->
     <div class="logo-card">
-      <div class="logo-bg" style="background:#0D0D0D;">
+      <div class="logo-bg" style="background:#121212;">
         <svg width="80" height="80" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="39" fill="none" stroke="#FF6B6B" stroke-width="0.65" opacity="0.2"/>
           <circle cx="44" cy="44" r="35" fill="none" stroke="#FF6B6B" stroke-width="0.7" opacity="0.32"/>
           <circle cx="44" cy="44" r="31" fill="none" stroke="#FF6B6B" stroke-width="0.75" opacity="0.44"/>
@@ -323,7 +359,7 @@
           <circle cx="44" cy="44" r="19" fill="none" stroke="#FF6B6B" stroke-width="0.95" opacity="0.86"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#FF6B6B" stroke-width="1.1"/>
           <circle cx="44" cy="44" r="10" fill="#FF6B6B"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
       </div>
       <div class="logo-info"><div class="logo-name">Pop Coral</div><div class="logo-note">Campaña género Pop</div></div>
@@ -331,9 +367,9 @@
 
     <!-- 7. Electronic -->
     <div class="logo-card">
-      <div class="logo-bg" style="background:#0D0D0D;">
+      <div class="logo-bg" style="background:#121212;">
         <svg width="80" height="80" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="39" fill="none" stroke="#00C3FF" stroke-width="0.65" opacity="0.2"/>
           <circle cx="44" cy="44" r="35" fill="none" stroke="#00C3FF" stroke-width="0.7" opacity="0.32"/>
           <circle cx="44" cy="44" r="31" fill="none" stroke="#00C3FF" stroke-width="0.75" opacity="0.44"/>
@@ -342,7 +378,7 @@
           <circle cx="44" cy="44" r="19" fill="none" stroke="#00C3FF" stroke-width="0.95" opacity="0.86"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#00C3FF" stroke-width="1.1"/>
           <circle cx="44" cy="44" r="10" fill="#00C3FF"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
       </div>
       <div class="logo-info"><div class="logo-name">Electronic Blue</div><div class="logo-note">Campaña género Electronic</div></div>
@@ -350,9 +386,9 @@
 
     <!-- 8. Indie -->
     <div class="logo-card">
-      <div class="logo-bg" style="background:#0D0D0D;">
+      <div class="logo-bg" style="background:#121212;">
         <svg width="80" height="80" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="39" fill="none" stroke="#B39DDB" stroke-width="0.65" opacity="0.2"/>
           <circle cx="44" cy="44" r="35" fill="none" stroke="#B39DDB" stroke-width="0.7" opacity="0.32"/>
           <circle cx="44" cy="44" r="31" fill="none" stroke="#B39DDB" stroke-width="0.75" opacity="0.44"/>
@@ -361,7 +397,7 @@
           <circle cx="44" cy="44" r="19" fill="none" stroke="#B39DDB" stroke-width="0.95" opacity="0.86"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#B39DDB" stroke-width="1.1"/>
           <circle cx="44" cy="44" r="10" fill="#B39DDB"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
       </div>
       <div class="logo-info"><div class="logo-name">Indie Violet</div><div class="logo-note">Campaña género Indie</div></div>
@@ -375,85 +411,78 @@
 <div class="section">
   <p class="section-label">03 · Lockup Logo + Nombre</p>
   <h2 class="section-title">Logo en <em>contexto</em></h2>
+  <p class="section-sub">El wordmark "spotify" siempre en DM Sans — geométrica, bold, sin serif. "Frequencies" funciona como tagline de campaña debajo, nunca como reemplazo del nombre de marca.</p>
   <div class="lockup-grid">
 
-    <!-- Principal dark + Playfair -->
-    <div class="lockup-card" style="background:#0D0D0D;">
+    <!-- 1. Logo real + DM Sans oscuro -->
+    <div class="lockup-card" style="background:#121212;">
       <div class="lockup-inner">
-        <svg width="46" height="46" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
-          <circle cx="44" cy="44" r="35" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.38"/>
-          <circle cx="44" cy="44" r="27" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.58"/>
-          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.8"/>
-          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+        <svg width="44" height="44" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="8" fill="white"/>
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288" fill="#1DB954" fill-rule="evenodd"/>
         </svg>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1;letter-spacing:-.01em;">spotify</div>
-          <div style="font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#1DB954;margin-top:4px;">Frequencies</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:26px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.04em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#1DB954;margin-top:5px;font-family:'Playfair Display',serif;font-style:italic;">Frequencies</div>
         </div>
       </div>
-      <div class="lockup-label" style="color:#333;">Playfair Display · Principal oscuro</div>
+      <div class="lockup-label" style="color:#333;">Logo oficial + tagline concepto · oscuro</div>
     </div>
 
-    <!-- Wax + DM Sans -->
+    <!-- 2. Logo real claro -->
     <div class="lockup-card" style="background:#F5F0E8;">
       <div class="lockup-inner">
-        <svg width="46" height="46" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#F5F0E8"/>
-          <circle cx="44" cy="44" r="35" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.22"/>
-          <circle cx="44" cy="44" r="27" fill="none" stroke="#0D0D0D" stroke-width="0.9" opacity="0.36"/>
-          <circle cx="44" cy="44" r="19" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.75"/>
-          <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#F5F0E8"/>
+        <svg width="44" height="44" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="8" fill="white"/>
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288" fill="#1DB954" fill-rule="evenodd"/>
         </svg>
         <div>
-          <div style="font-family:'DM Sans',sans-serif;font-size:24px;font-weight:700;color:#0D0D0D;line-height:1;letter-spacing:-.03em;">spotify</div>
-          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#1DB954;margin-top:4px;">Music for every moment</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:26px;font-weight:700;color:#121212;line-height:1;letter-spacing:-.04em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#1DB954;margin-top:5px;font-family:'DM Sans',sans-serif;">Music for every moment</div>
         </div>
       </div>
-      <div class="lockup-label">DM Sans · Versión clara</div>
+      <div class="lockup-label">Logo oficial · versión clara</div>
     </div>
 
-    <!-- Stacked centrado -->
-    <div class="lockup-card" style="background:#0D0D0D;align-items:center;text-align:center;">
+    <!-- 3. Frequencies mark stacked -->
+    <div class="lockup-card" style="background:#121212;align-items:center;text-align:center;">
       <div style="display:flex;flex-direction:column;align-items:center;gap:.8rem;">
-        <svg width="58" height="58" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+        <svg width="56" height="56" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="38" fill="none" stroke="#1DB954" stroke-width="0.65" opacity="0.22"/>
           <circle cx="44" cy="44" r="33" fill="none" stroke="#1DB954" stroke-width="0.7" opacity="0.34"/>
           <circle cx="44" cy="44" r="28" fill="none" stroke="#1DB954" stroke-width="0.78" opacity="0.46"/>
           <circle cx="44" cy="44" r="23" fill="none" stroke="#1DB954" stroke-width="0.86" opacity="0.6"/>
           <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="0.95" opacity="0.76"/>
           <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:24px;color:#fff;line-height:1;letter-spacing:.01em;">spotify</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em;">spotify</div>
           <div style="width:36px;height:1px;background:rgba(29,185,84,.4);margin:7px auto;"></div>
-          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#3a3a3a;">Frequencies</div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#333;font-family:'Playfair Display',serif;font-style:italic;">Frequencies</div>
         </div>
       </div>
-      <div class="lockup-label" style="color:#333;">Stacked · formato cuadrado</div>
+      <div class="lockup-label" style="color:#333;">Frequencies mark · stacked · formato cuadrado</div>
     </div>
 
-    <!-- Hip-Hop color -->
-    <div class="lockup-card" style="background:#0D0D0D;">
+    <!-- 4. Logo + color de género -->
+    <div class="lockup-card" style="background:#121212;">
       <div class="lockup-inner">
-        <svg width="46" height="46" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+        <svg width="44" height="44" viewBox="0 0 88 88">
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="35" fill="none" stroke="#FFB347" stroke-width="0.8" opacity="0.38"/>
           <circle cx="44" cy="44" r="27" fill="none" stroke="#FFB347" stroke-width="0.9" opacity="0.58"/>
           <circle cx="44" cy="44" r="19" fill="none" stroke="#FFB347" stroke-width="1" opacity="0.8"/>
           <circle cx="44" cy="44" r="10" fill="#FFB347"/>
-          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+          <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
         </svg>
         <div>
-          <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.02em;">spotify</div>
-          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#FFB347;margin-top:4px;">Hip-Hop Mix</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em;">spotify</div>
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#FFB347;margin-top:5px;font-family:'DM Sans',sans-serif;">Hip-Hop Mix</div>
         </div>
       </div>
-      <div class="lockup-label" style="color:#333;">Género color · Hip-Hop Amber</div>
+      <div class="lockup-label" style="color:#333;">Frequencies mark · color de género · Hip-Hop</div>
     </div>
 
   </div>
@@ -464,39 +493,39 @@
 <div class="section">
   <p class="section-label">04 · Tipografía</p>
   <h2 class="section-title">Lo <em>digital</em> y lo analógico</h2>
-  <p class="section-sub">El sistema combina una serif editorial con una sans-serif geométrica. La tensión entre el algoritmo y el vinilo — entre lo que computa y lo que se siente.</p>
+  <p class="section-sub">DM Sans aproxima la Circular de Spotify en web — geométrica, neutral, funcional. Playfair Display es la voz del concepto Frequencies: la serif inesperada que conecta con el calor analógico del vinilo.</p>
   <div class="type-grid">
 
     <div class="type-card">
-      <div class="type-tag">Display · Títulos · Portadas</div>
-      <div style="font-family:'Playfair Display',serif;font-size:50px;font-weight:700;color:#0D0D0D;line-height:.95;letter-spacing:-.02em;">spotify</div>
+      <div class="type-tag">Sistema · UI · Wordmark · Cuerpo</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:48px;font-weight:700;color:#121212;line-height:.95;letter-spacing:-.04em;">spotify</div>
       <div style="height:1px;background:#f0ede8;"></div>
       <div class="type-meta">
-        <strong>Playfair Display</strong><br/>
-        Google Fonts · Uso: hero, portadas de playlist, titulares de campaña.<br/>
-        La elección inesperada — una serif para una marca digital — que conecta con el calor analógico del concepto Frequencies.
+        <strong>DM Sans</strong> · aproximación web a Circular<br/>
+        Google Fonts · Uso: wordmark, UI, botones, etiquetas, cuerpo de texto, metadatos.<br/>
+        Geométrica y limpia — el sans-serif es la voz funcional de Spotify.
       </div>
       <div class="type-weights">
-        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#0D0D0D;">Regular — Music for every moment</span>
-        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;font-style:italic;color:#1DB954;">Italic — Frequencies</span>
-        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#0D0D0D;">Bold — Hear everything</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:#888;">Light 300 — Texto secundario y metadatos</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;color:#121212;">Regular 400 — Texto de cuerpo principal</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#121212;">Medium 500 — Etiquetas y navegación</span>
+        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#1DB954;">Bold 700 — Wordmark · CTAs · acciones</span>
       </div>
     </div>
 
     <div class="type-card">
-      <div class="type-tag">UI · Cuerpo · Navegación</div>
-      <div style="font-family:'DM Sans',sans-serif;font-size:44px;font-weight:700;color:#0D0D0D;line-height:.95;letter-spacing:-.04em;">DM Sans</div>
+      <div class="type-tag">Concepto Frequencies · Títulos · Editorial</div>
+      <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:#121212;line-height:.95;letter-spacing:-.02em;font-style:italic;">Frequencies</div>
       <div style="height:1px;background:#f0ede8;"></div>
       <div class="type-meta">
-        <strong>DM Sans</strong><br/>
-        Google Fonts · Uso: UI, botones, etiquetas, cuerpo de texto, metadatos de canciones.<br/>
-        Geométrica y neutral — legible a cualquier tamaño, ideal para interfaces.
+        <strong>Playfair Display</strong> · voz del concepto<br/>
+        Google Fonts · Uso: tagline de campaña, portadas de playlist, titulares editoriales.<br/>
+        La elección inesperada — una serif para una marca digital — que conecta con el calor analógico. Exclusiva para el concepto Frequencies, no para el sistema base de Spotify.
       </div>
       <div class="type-weights">
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;color:#888;">Light 300 — Texto secundario y metadatos</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;color:#0D0D0D;">Regular 400 — Texto de cuerpo principal</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#0D0D0D;">Medium 500 — Etiquetas y navegación</span>
-        <span style="font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;color:#1DB954;">Bold 700 — CTAs y acciones</span>
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#121212;">Regular — Music for every moment</span>
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:400;font-style:italic;color:#1DB954;">Italic — Frequencies</span>
+        <span style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#121212;">Bold — Hear everything</span>
       </div>
     </div>
 
@@ -508,11 +537,11 @@
 <div class="section">
   <p class="section-label">05 · El Sistema Groove</p>
   <h2 class="section-title">Un patrón que <em>se escucha</em></h2>
-  <p class="section-sub">Los surcos del logo se convierten en sistema de textura aplicable a cualquier superficie — digital o física. El vinilo como firma visual.</p>
+  <p class="section-sub">Los surcos del Frequencies mark se convierten en sistema de textura aplicable a cualquier superficie — digital o física. El vinilo como firma visual del concepto.</p>
   <div class="groove-grid">
 
     <!-- Full groove -->
-    <div class="groove-card" style="background:#0D0D0D;">
+    <div class="groove-card" style="background:#121212;">
       <svg width="120" height="120" viewBox="0 0 120 120">
         <circle cx="60" cy="60" r="57" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.14"/>
         <circle cx="60" cy="60" r="53" fill="none" stroke="#1DB954" stroke-width="0.55" opacity="0.19"/>
@@ -527,13 +556,13 @@
         <circle cx="60" cy="60" r="17" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.88"/>
         <circle cx="60" cy="60" r="13" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.96"/>
         <circle cx="60" cy="60" r="8" fill="#1DB954"/>
-        <polygon points="57.5,56 57.5,64 65.5,60" fill="#0D0D0D"/>
+        <polygon points="57.5,56 57.5,64 65.5,60" fill="#121212"/>
       </svg>
       <div class="g-label" style="color:#3a3a3a;">Full groove · alta densidad</div>
     </div>
 
     <!-- Texture cropped -->
-    <div class="groove-card" style="background:#0D0D0D;overflow:hidden;padding:0;position:relative;min-height:200px;">
+    <div class="groove-card" style="background:#121212;overflow:hidden;padding:0;position:relative;min-height:200px;">
       <svg width="220" height="220" viewBox="0 0 220 220" style="position:absolute;top:-55px;right:-55px;opacity:.28;">
         <circle cx="165" cy="55" r="150" fill="none" stroke="#1DB954" stroke-width="1"/>
         <circle cx="165" cy="55" r="135" fill="none" stroke="#1DB954" stroke-width="1"/>
@@ -551,31 +580,31 @@
     </div>
 
     <!-- Género variaciones -->
-    <div class="groove-card" style="background:#0D0D0D;">
+    <div class="groove-card" style="background:#121212;">
       <div style="display:flex;gap:10px;">
         <svg width="54" height="54" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="33" fill="none" stroke="#FF6B6B" stroke-width="1" opacity="0.5"/>
           <circle cx="44" cy="44" r="24" fill="none" stroke="#FF6B6B" stroke-width="1.2" opacity="0.72"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#FF6B6B" stroke-width="1.4" opacity="0.92"/>
           <circle cx="44" cy="44" r="9" fill="#FF6B6B"/>
-          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+          <polygon points="42,40 42,48 49,44" fill="#121212"/>
         </svg>
         <svg width="54" height="54" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="33" fill="none" stroke="#00C3FF" stroke-width="1" opacity="0.5"/>
           <circle cx="44" cy="44" r="24" fill="none" stroke="#00C3FF" stroke-width="1.2" opacity="0.72"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#00C3FF" stroke-width="1.4" opacity="0.92"/>
           <circle cx="44" cy="44" r="9" fill="#00C3FF"/>
-          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+          <polygon points="42,40 42,48 49,44" fill="#121212"/>
         </svg>
         <svg width="54" height="54" viewBox="0 0 88 88">
-          <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
+          <circle cx="44" cy="44" r="43" fill="#121212"/>
           <circle cx="44" cy="44" r="33" fill="none" stroke="#B39DDB" stroke-width="1" opacity="0.5"/>
           <circle cx="44" cy="44" r="24" fill="none" stroke="#B39DDB" stroke-width="1.2" opacity="0.72"/>
           <circle cx="44" cy="44" r="15" fill="none" stroke="#B39DDB" stroke-width="1.4" opacity="0.92"/>
           <circle cx="44" cy="44" r="9" fill="#B39DDB"/>
-          <polygon points="42,40 42,48 49,44" fill="#0D0D0D"/>
+          <polygon points="42,40 42,48 49,44" fill="#121212"/>
         </svg>
       </div>
       <div class="g-label" style="color:#3a3a3a;">Pop · Electronic · Indie</div>
@@ -596,34 +625,34 @@
       <div class="usage-hd">App Icon · Mobile</div>
       <div class="usage-body" style="gap:24px;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
-          <div style="width:72px;height:72px;border-radius:18px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+          <div style="width:72px;height:72px;border-radius:18px;overflow:hidden;background:#121212;display:flex;align-items:center;justify-content:center;">
             <svg width="58" height="58" viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="38" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.25"/>
               <circle cx="44" cy="44" r="30" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.45"/>
               <circle cx="44" cy="44" r="22" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.68"/>
               <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
             </svg>
           </div>
           <div style="font-size:9px;color:#555;">72px</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
-          <div style="width:48px;height:48px;border-radius:12px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+          <div style="width:48px;height:48px;border-radius:12px;overflow:hidden;background:#121212;display:flex;align-items:center;justify-content:center;">
             <svg width="38" height="38" viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="28" fill="none" stroke="#1DB954" stroke-width="1.2" opacity="0.45"/>
               <circle cx="44" cy="44" r="18" fill="none" stroke="#1DB954" stroke-width="1.4" opacity="0.75"/>
               <circle cx="44" cy="44" r="9" fill="#1DB954"/>
-              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
             </svg>
           </div>
           <div style="font-size:9px;color:#555;">48px</div>
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
-          <div style="width:32px;height:32px;border-radius:8px;overflow:hidden;background:#0D0D0D;display:flex;align-items:center;justify-content:center;">
+          <div style="width:32px;height:32px;border-radius:8px;overflow:hidden;background:#121212;display:flex;align-items:center;justify-content:center;">
             <svg width="24" height="24" viewBox="0 0 88 88">
               <circle cx="44" cy="44" r="22" fill="none" stroke="#1DB954" stroke-width="1.5" opacity="0.55"/>
               <circle cx="44" cy="44" r="10" fill="#1DB954"/>
-              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#0D0D0D"/>
+              <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#121212"/>
             </svg>
           </div>
           <div style="font-size:9px;color:#555;">32px</div>
@@ -637,13 +666,10 @@
       <div class="usage-body" style="background:#0f0f0f;">
         <div style="width:100%;max-width:260px;background:#1a1a1a;border-radius:14px;padding:16px;border:1px solid rgba(29,185,84,.14);">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <svg width="42" height="42" viewBox="0 0 88 88">
-              <circle cx="44" cy="44" r="43" fill="#0D0D0D"/>
-              <circle cx="44" cy="44" r="34" fill="none" stroke="#1DB954" stroke-width="0.8" opacity="0.35"/>
-              <circle cx="44" cy="44" r="25" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.58"/>
-              <circle cx="44" cy="44" r="16" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.82"/>
-              <circle cx="44" cy="44" r="8" fill="#1DB954"/>
-              <polygon points="42,40 42,47 48,43.5" fill="#0D0D0D"/>
+            <!-- Logo oficial pequeño -->
+            <svg width="42" height="42" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" fill="white"/>
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288" fill="#1DB954" fill-rule="evenodd"/>
             </svg>
             <div>
               <div style="font-family:'Playfair Display',serif;font-size:14px;color:#fff;line-height:1.2;font-style:italic;">La Hora Azul</div>
@@ -666,21 +692,21 @@
       <div class="usage-body" style="background:#F5F0E8;gap:24px;">
         <div style="width:80px;height:100px;background:#e8e3db;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
           <svg width="40" height="40" viewBox="0 0 88 88">
-            <circle cx="44" cy="44" r="36" fill="none" stroke="#0D0D0D" stroke-width="0.7" opacity="0.2"/>
-            <circle cx="44" cy="44" r="28" fill="none" stroke="#0D0D0D" stroke-width="0.8" opacity="0.32"/>
+            <circle cx="44" cy="44" r="36" fill="none" stroke="#121212" stroke-width="0.7" opacity="0.2"/>
+            <circle cx="44" cy="44" r="28" fill="none" stroke="#121212" stroke-width="0.8" opacity="0.32"/>
             <circle cx="44" cy="44" r="20" fill="none" stroke="#1DB954" stroke-width="0.9" opacity="0.6"/>
             <circle cx="44" cy="44" r="12" fill="none" stroke="#1DB954" stroke-width="1" opacity="0.85"/>
             <circle cx="44" cy="44" r="7" fill="#1DB954"/>
             <polygon points="42.5,39 42.5,46 48,42.5" fill="#F5F0E8"/>
           </svg>
-          <div style="font-family:'DM Sans',sans-serif;font-size:7px;color:#0D0D0D;letter-spacing:.18em;text-transform:uppercase;">spotify</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:7px;font-weight:700;color:#121212;letter-spacing:.18em;text-transform:uppercase;">spotify</div>
         </div>
         <div style="width:64px;height:64px;border-radius:50%;background:#1DB954;display:flex;align-items:center;justify-content:center;border:2px solid rgba(0,0,0,.06);">
           <svg width="42" height="42" viewBox="0 0 88 88">
-            <circle cx="44" cy="44" r="33" fill="none" stroke="#0D0D0D" stroke-width="0.9" opacity="0.18"/>
-            <circle cx="44" cy="44" r="24" fill="none" stroke="#0D0D0D" stroke-width="1.1" opacity="0.3"/>
-            <circle cx="44" cy="44" r="15" fill="none" stroke="#0D0D0D" stroke-width="1.3" opacity="0.45"/>
-            <circle cx="44" cy="44" r="9" fill="#0D0D0D"/>
+            <circle cx="44" cy="44" r="33" fill="none" stroke="#121212" stroke-width="0.9" opacity="0.18"/>
+            <circle cx="44" cy="44" r="24" fill="none" stroke="#121212" stroke-width="1.1" opacity="0.3"/>
+            <circle cx="44" cy="44" r="15" fill="none" stroke="#121212" stroke-width="1.3" opacity="0.45"/>
+            <circle cx="44" cy="44" r="9" fill="#121212"/>
             <polygon points="41.5,40.5 41.5,47.5 48.5,44" fill="#1DB954"/>
           </svg>
         </div>
@@ -691,7 +717,7 @@
     <div class="usage-card">
       <div class="usage-hd">Playlist Cover · 1:1</div>
       <div class="usage-body" style="background:#07070a;padding:1rem;">
-        <div style="width:136px;height:136px;border-radius:10px;background:#0D0D0D;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;">
+        <div style="width:136px;height:136px;border-radius:10px;background:#121212;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;">
           <svg width="170" height="170" viewBox="0 0 170 170" style="position:absolute;top:-18px;left:-18px;opacity:.28;">
             <circle cx="85" cy="85" r="80" fill="none" stroke="#1DB954" stroke-width="1"/>
             <circle cx="85" cy="85" r="72" fill="none" stroke="#1DB954" stroke-width="1"/>
@@ -700,7 +726,7 @@
             <circle cx="85" cy="85" r="48" fill="none" stroke="#1DB954" stroke-width="1"/>
             <circle cx="85" cy="85" r="40" fill="none" stroke="#1DB954" stroke-width="1"/>
             <circle cx="85" cy="85" r="22" fill="#1DB954"/>
-            <polygon points="82,78 82,92 92,85" fill="#0D0D0D"/>
+            <polygon points="82,78 82,92 92,85" fill="#121212"/>
           </svg>
           <div style="position:relative;z-index:1;">
             <div style="font-family:'Playfair Display',serif;font-size:13px;color:#fff;font-style:italic;line-height:1.2;">Midnight<br>Frequencies</div>
@@ -721,8 +747,8 @@
     <div class="ft-note">Spotify Brand Concept · Ulises Téllez · 2026</div>
   </div>
   <div class="ft-r">
-    #0D0D0D · #1DB954 · #F5F0E8<br/>
-    Playfair Display · DM Sans
+    #121212 · #1DB954 · #F5F0E8<br/>
+    DM Sans · Playfair Display
   </div>
 </footer>
 
